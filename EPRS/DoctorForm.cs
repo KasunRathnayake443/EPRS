@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -105,18 +106,57 @@ namespace EPRS
 
                 if (dataTable.Rows.Count > 0)
                 {
-                    patientDetailsGrid.DataSource = dataTable;
+                    DisplayPatientDetails(dataTable.Rows[0]);
                 }
                 else
                 {
                     MessageBox.Show("Patient not found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    patientDetailsGrid.DataSource = null;
+                    ClearPatientDetails();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error retrieving patient data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+
+        }
+
+        private void DisplayPatientDetails(DataRow patientData)
+        {
+            detailsPanel.Controls.Clear(); // Clear previous details
+
+            // Create labels for each piece of information
+            CreateDetailLabel("Patient ID: ", patientData["PatientID"].ToString(), 0);
+            CreateDetailLabel("First Name: ", patientData["FirstName"].ToString(), 1);
+            CreateDetailLabel("Last Name: ", patientData["LastName"].ToString(), 2);
+            CreateDetailLabel("Birthday: ", patientData["DateOfBirth"].ToString(), 3);
+            CreateDetailLabel("Gender: ", patientData["Gender"].ToString(), 4);
+            CreateDetailLabel("Address: ", patientData["Address"].ToString(), 5);
+            CreateDetailLabel("Phone Number: ", patientData["PhoneNumber"].ToString(), 6);
+            CreateDetailLabel("Email: ", patientData["Email"].ToString(), 7);
+            CreateDetailLabel("Registered Date: ", patientData["DateRegistered"].ToString(), 8);
+
+            // Add more fields as necessary
+        }
+
+        private void CreateDetailLabel(string label, string value, int position)
+        {
+            Label lbl = new Label
+            {
+                Text = label + value,
+                AutoSize = true,
+                Font = new Font("Segoe UI", 12),
+                Location = new Point(20, 20 + position * 30),
+                ForeColor = Color.DarkSlateGray
+            };
+
+            detailsPanel.Controls.Add(lbl);
+        }
+
+        private void ClearPatientDetails()
+        {
+            detailsPanel.Controls.Clear();
         }
     }
 }
