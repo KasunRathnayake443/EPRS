@@ -177,11 +177,11 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(137, 14);
+            label3.Location = new Point(97, 13);
             label3.Name = "label3";
-            label3.Size = new Size(93, 35);
+            label3.Size = new Size(189, 35);
             label3.TabIndex = 0;
-            label3.Text = "Config";
+            label3.Text = "Configurations";
             // 
             // DatabaseConfigForm
             // 

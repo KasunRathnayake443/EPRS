@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Configuration;
-using Microsoft.Data.SqlClient;
-
+using System.Windows.Forms;
+using MySql.Data.MySqlClient; 
 
 namespace EPRS
 {
@@ -23,36 +15,45 @@ namespace EPRS
 
         private void LoadConnectionString()
         {
+            // Load the connection string from app.config
             string connectionString = ConfigurationManager.ConnectionStrings["MyDatabase"].ConnectionString;
 
-            var builder = new SqlConnectionStringBuilder(connectionString);
-            serverBox.Text = builder.DataSource;
-            dbBox.Text = builder.InitialCatalog;
+            var builder = new MySqlConnectionStringBuilder(connectionString);
+            serverBox.Text = builder.Server;
+            dbBox.Text = builder.Database;
             userBox.Text = builder.UserID;
             passBox.Text = builder.Password;
-        }
-
-        private void DatabaseConfigForm_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                var builder = new SqlConnectionStringBuilder
+                // Create a new connection string
+                var builder = new MySqlConnectionStringBuilder
                 {
-                    DataSource = serverBox.Text,
-                    InitialCatalog = dbBox.Text,
+                    Server = serverBox.Text,
+                    Database = dbBox.Text,
                     UserID = userBox.Text,
                     Password = passBox.Text
                 };
 
                 string newConnectionString = builder.ConnectionString;
 
+                // Open the configuration file
                 var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                config.ConnectionStrings.ConnectionStrings["MyDatabase"].ConnectionString = newConnectionString;
+
+                // Update the connection string
+                if (config.ConnectionStrings.ConnectionStrings["MyDatabase"] != null)
+                {
+                    config.ConnectionStrings.ConnectionStrings["MyDatabase"].ConnectionString = newConnectionString;
+                }
+                else
+                {
+                    config.ConnectionStrings.ConnectionStrings.Add(new ConnectionStringSettings("MyDatabase", newConnectionString, "MySql.Data.MySqlClient"));
+                }
+
+                // Save and refresh the configuration
                 config.Save(ConfigurationSaveMode.Modified);
                 ConfigurationManager.RefreshSection("connectionStrings");
 
@@ -64,7 +65,10 @@ namespace EPRS
                 MessageBox.Show($"Error updating connection string: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void DatabaseConfigForm_Load(object sender, EventArgs e)
+        {
 
+        }
         private void cancelBtn_Click(object sender, EventArgs e)
         {
             this.Close();
