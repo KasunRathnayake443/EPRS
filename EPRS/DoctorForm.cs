@@ -16,7 +16,7 @@ namespace EPRS
         {
             InitializeComponent();
             _username = username;
-            
+
         }
 
         private void DoctorForm_Load(object sender, EventArgs e)
@@ -29,16 +29,16 @@ namespace EPRS
                 // Initialize the MySQL connection
                 connection = new MySqlConnection(connectionString);
 
-                
+
                 connection.Open();
 
-               
+
                 InitializeSearchBox();
 
-                
+
                 LoadPatientIDs();
 
-               
+
                 LoadDoctorName();
             }
             catch (Exception ex)
@@ -119,10 +119,7 @@ namespace EPRS
             CreateDetailLabel("Email: ", patientData["Email"].ToString(), 7);
             CreateDetailLabel("Registered Date: ", patientData["DateRegistered"].ToString(), 8);
 
-            // Set text to existing labels
             idLbl.Text = $"ID: {patientData["PatientID"].ToString()}";
-            nameLbl.Text = $"Name: {patientData["FirstName"].ToString()}";
-            dobLbl.Text = $"DOB: {patientData["DateOfBirth"].ToString()}";
         }
 
         private void CreateDetailLabel(string label, string value, int position)

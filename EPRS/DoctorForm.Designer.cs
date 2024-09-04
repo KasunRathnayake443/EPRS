@@ -146,9 +146,11 @@
             // unameLbl
             // 
             unameLbl.AutoSize = true;
-            unameLbl.Location = new Point(738, 54);
+            unameLbl.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            unameLbl.ForeColor = Color.Tomato;
+            unameLbl.Location = new Point(1180, 26);
             unameLbl.Name = "unameLbl";
-            unameLbl.Size = new Size(50, 20);
+            unameLbl.Size = new Size(78, 32);
             unameLbl.TabIndex = 13;
             unameLbl.Text = "label3";
             // 
