@@ -12,9 +12,16 @@ namespace EPRS
 {
     public partial class StaffForm : Form
     {
-        public StaffForm()
+        private string _username;
+        public StaffForm(string username)
         {
             InitializeComponent();
+            _username = username;
+        }
+
+        private void StaffForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

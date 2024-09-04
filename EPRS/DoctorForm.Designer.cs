@@ -37,18 +37,21 @@
             label2 = new Label();
             tabPage2 = new TabPage();
             label1 = new Label();
+            welcomeLabel = new Label();
+            pictureBox1 = new PictureBox();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
-            tabControl1.Location = new Point(24, 61);
+            tabControl1.Location = new Point(30, 101);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1192, 555);
+            tabControl1.Size = new Size(1207, 505);
             tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -60,21 +63,21 @@
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1184, 522);
+            tabPage1.Size = new Size(1199, 472);
             tabPage1.TabIndex = 0;
-            tabPage1.Text = "tabPage1";
+            tabPage1.Text = "Patient Records";
             tabPage1.UseVisualStyleBackColor = true;
             // 
             // detailsPanel
             // 
-            detailsPanel.Location = new Point(140, 117);
+            detailsPanel.Location = new Point(15, 117);
             detailsPanel.Name = "detailsPanel";
-            detailsPanel.Size = new Size(704, 344);
+            detailsPanel.Size = new Size(1184, 344);
             detailsPanel.TabIndex = 3;
             // 
             // searchBtn
             // 
-            searchBtn.Location = new Point(750, 27);
+            searchBtn.Location = new Point(750, 32);
             searchBtn.Name = "searchBtn";
             searchBtn.Size = new Size(94, 29);
             searchBtn.TabIndex = 2;
@@ -84,7 +87,7 @@
             // 
             // searchBox
             // 
-            searchBox.Location = new Point(453, 25);
+            searchBox.Location = new Point(453, 33);
             searchBox.Name = "searchBox";
             searchBox.Size = new Size(263, 27);
             searchBox.TabIndex = 1;
@@ -92,7 +95,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(15, 25);
+            label2.Location = new Point(15, 36);
             label2.Name = "label2";
             label2.Size = new Size(377, 20);
             label2.TabIndex = 0;
@@ -103,9 +106,9 @@
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1184, 522);
+            tabPage2.Size = new Size(1199, 472);
             tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
+            tabPage2.Text = "Medicine Inventory";
             tabPage2.UseVisualStyleBackColor = true;
             // 
             // label1
@@ -113,20 +116,40 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.BorderStyle = BorderStyle.FixedSingle;
-            label1.Font = new Font("Gill Sans Ultra Bold", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Gill Sans Ultra Bold", 15F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.DarkCyan;
-            label1.Location = new Point(11, 9);
+            label1.Location = new Point(12, 27);
             label1.Name = "label1";
-            label1.Size = new Size(400, 27);
+            label1.Size = new Size(577, 36);
             label1.TabIndex = 10;
             label1.Text = "Patient Record Management System";
+            // 
+            // welcomeLabel
+            // 
+            welcomeLabel.AutoSize = true;
+            welcomeLabel.Location = new Point(461, 43);
+            welcomeLabel.Name = "welcomeLabel";
+            welcomeLabel.Size = new Size(0, 20);
+            welcomeLabel.TabIndex = 11;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(1335, 9);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(57, 56);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 12;
+            pictureBox1.TabStop = false;
             // 
             // DoctorForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Azure;
-            ClientSize = new Size(1277, 664);
+            ClientSize = new Size(1415, 810);
+            Controls.Add(pictureBox1);
+            Controls.Add(welcomeLabel);
             Controls.Add(label1);
             Controls.Add(tabControl1);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -137,6 +160,7 @@
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -151,5 +175,10 @@
         private Label label2;
         private Label label1;
         private Panel detailsPanel;
+        private Label welcomeLabel;
+        private Label nameLbl;
+        private Label dobLbl;
+        private Label idLbl;
+        private PictureBox pictureBox1;
     }
 }

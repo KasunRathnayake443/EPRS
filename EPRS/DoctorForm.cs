@@ -10,29 +10,31 @@ namespace EPRS
     public partial class DoctorForm : Form
     {
         private MySqlConnection connection;
-
-        public DoctorForm()
+        private string _username;
+        public DoctorForm(string username)
         {
             InitializeComponent();
+            _username = username;
+            welcomeLabel.Text = $"Welcome, {_username}!";
         }
 
         private void DoctorForm_Load(object sender, EventArgs e)
         {
             try
             {
-                // Retrieve the connection string from app.config
+
                 string connectionString = ConfigurationManager.ConnectionStrings["MyDatabase"].ConnectionString;
 
-                // Initialize the MySQL connection
+
                 connection = new MySqlConnection(connectionString);
 
-                // Open the connection
+
                 connection.Open();
 
-                // Initialize search box autocomplete
+
                 InitializeSearchBox();
 
-                // Load patient IDs for autocomplete
+
                 LoadPatientIDs();
 
             }
@@ -77,11 +79,12 @@ namespace EPRS
 
         private void DoctorForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // Close the connection when the form is closed
+
             if (connection != null && connection.State == ConnectionState.Open)
             {
                 connection.Close();
             }
+            Application.Exit();
         }
 
         private void searchBtn_Click(object sender, EventArgs e)
@@ -124,9 +127,9 @@ namespace EPRS
 
         private void DisplayPatientDetails(DataRow patientData)
         {
-            detailsPanel.Controls.Clear(); // Clear previous details
+            detailsPanel.Controls.Clear();
 
-            // Create labels for each piece of information
+
             CreateDetailLabel("Patient ID: ", patientData["PatientID"].ToString(), 0);
             CreateDetailLabel("First Name: ", patientData["FirstName"].ToString(), 1);
             CreateDetailLabel("Last Name: ", patientData["LastName"].ToString(), 2);
@@ -137,7 +140,9 @@ namespace EPRS
             CreateDetailLabel("Email: ", patientData["Email"].ToString(), 7);
             CreateDetailLabel("Registered Date: ", patientData["DateRegistered"].ToString(), 8);
 
-            // Add more fields as necessary
+
+
+
         }
 
         private void CreateDetailLabel(string label, string value, int position)
@@ -146,7 +151,7 @@ namespace EPRS
             {
                 Text = label + value,
                 AutoSize = true,
-                Font = new Font("Segoe UI", 12),
+                Font = new Font("Segoe UI", 15),
                 Location = new Point(20, 20 + position * 30),
                 ForeColor = Color.DarkSlateGray
             };
@@ -157,6 +162,12 @@ namespace EPRS
         private void ClearPatientDetails()
         {
             detailsPanel.Controls.Clear();
+        }
+
+        private void DoctorForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            Application.Exit();
         }
     }
 }

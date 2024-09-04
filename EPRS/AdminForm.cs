@@ -12,9 +12,16 @@ namespace EPRS
 {
     public partial class AdminForm : Form
     {
-        public AdminForm()
+        private string _username;
+        public AdminForm(string username)
         {
             InitializeComponent();
+            _username = username;
+        }
+
+        private void AdminForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

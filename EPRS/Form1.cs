@@ -22,36 +22,34 @@ namespace EPRS
 
             if (role != null)
             {
-                
+                this.Hide();  // Hide the current form before opening the next
 
-                
                 switch (role.ToLower())
                 {
                     case "admin":
-                        AdminForm adminForm = new AdminForm();
+                        AdminForm adminForm = new AdminForm(username);  // Pass username
                         adminForm.Show();
                         break;
                     case "doctor":
-                        DoctorForm doctorForm = new DoctorForm();
+                        DoctorForm doctorForm = new DoctorForm(username);  // Pass username
                         doctorForm.Show();
                         break;
                     case "staff":
-                        StaffForm staffForm = new StaffForm();
+                        StaffForm staffForm = new StaffForm(username);  // Pass username
                         staffForm.Show();
                         break;
                     default:
                         MessageBox.Show("Unknown role.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
-
-
-                this.Hide();
             }
             else
             {
                 MessageBox.Show("Invalid username or password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
 
 
         private string AuthenticateUser(string username, string password)
