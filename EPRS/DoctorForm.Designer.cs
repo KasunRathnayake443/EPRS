@@ -39,6 +39,7 @@
             label1 = new Label();
             welcomeLabel = new Label();
             pictureBox1 = new PictureBox();
+            unameLbl = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -142,12 +143,22 @@
             pictureBox1.TabIndex = 12;
             pictureBox1.TabStop = false;
             // 
+            // unameLbl
+            // 
+            unameLbl.AutoSize = true;
+            unameLbl.Location = new Point(738, 54);
+            unameLbl.Name = "unameLbl";
+            unameLbl.Size = new Size(50, 20);
+            unameLbl.TabIndex = 13;
+            unameLbl.Text = "label3";
+            // 
             // DoctorForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Azure;
             ClientSize = new Size(1415, 810);
+            Controls.Add(unameLbl);
             Controls.Add(pictureBox1);
             Controls.Add(welcomeLabel);
             Controls.Add(label1);
@@ -180,5 +191,6 @@
         private Label dobLbl;
         private Label idLbl;
         private PictureBox pictureBox1;
+        private Label unameLbl;
     }
 }
