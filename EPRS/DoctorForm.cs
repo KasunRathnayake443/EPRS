@@ -119,6 +119,7 @@ namespace EPRS
             CreateDetailLabel("Email: ", patientData["Email"].ToString(), 7);
             CreateDetailLabel("Registered Date: ", patientData["DateRegistered"].ToString(), 8);
 
+            PatientNameLbl.Text = patientData["FirstName"].ToString() + " " + patientData["LastName"].ToString();
 
         }
 

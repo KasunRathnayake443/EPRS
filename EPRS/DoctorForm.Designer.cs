@@ -31,8 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DoctorForm));
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            detailsPanel = new Panel();
+            PatientNameLbl = new Label();
             prescriptionsDataGridView = new DataGridView();
+            detailsPanel = new Panel();
             searchBtn = new Button();
             searchBox = new TextBox();
             label2 = new Label();
@@ -59,6 +60,7 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(PatientNameLbl);
             tabPage1.Controls.Add(prescriptionsDataGridView);
             tabPage1.Controls.Add(detailsPanel);
             tabPage1.Controls.Add(searchBtn);
@@ -72,12 +74,16 @@
             tabPage1.Text = "Patient Records";
             tabPage1.UseVisualStyleBackColor = true;
             // 
-            // detailsPanel
+            // PatientNameLbl
             // 
-            detailsPanel.Location = new Point(15, 117);
-            detailsPanel.Name = "detailsPanel";
-            detailsPanel.Size = new Size(1528, 344);
-            detailsPanel.TabIndex = 3;
+            PatientNameLbl.AutoSize = true;
+            PatientNameLbl.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            PatientNameLbl.ForeColor = Color.Orange;
+            PatientNameLbl.Location = new Point(32, 67);
+            PatientNameLbl.Name = "PatientNameLbl";
+            PatientNameLbl.Size = new Size(78, 32);
+            PatientNameLbl.TabIndex = 5;
+            PatientNameLbl.Text = "Name";
             // 
             // prescriptionsDataGridView
             // 
@@ -88,6 +94,13 @@
             prescriptionsDataGridView.RowTemplate.Height = 29;
             prescriptionsDataGridView.Size = new Size(1531, 301);
             prescriptionsDataGridView.TabIndex = 4;
+            // 
+            // detailsPanel
+            // 
+            detailsPanel.Location = new Point(15, 117);
+            detailsPanel.Name = "detailsPanel";
+            detailsPanel.Size = new Size(1528, 344);
+            detailsPanel.TabIndex = 3;
             // 
             // searchBtn
             // 
@@ -120,7 +133,7 @@
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1560, 629);
+            tabPage2.Size = new Size(1560, 791);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Medicine Inventory";
             tabPage2.UseVisualStyleBackColor = true;
@@ -161,7 +174,7 @@
             unameLbl.AutoSize = true;
             unameLbl.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
             unameLbl.ForeColor = Color.Tomato;
-            unameLbl.Location = new Point(1337, 43);
+            unameLbl.Location = new Point(1381, 43);
             unameLbl.Name = "unameLbl";
             unameLbl.Size = new Size(78, 32);
             unameLbl.TabIndex = 13;
@@ -209,5 +222,6 @@
         private PictureBox pictureBox1;
         private Label unameLbl;
         private DataGridView prescriptionsDataGridView;
+        private Label PatientNameLbl;
     }
 }
