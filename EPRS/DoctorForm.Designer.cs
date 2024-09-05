@@ -32,6 +32,7 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             detailsPanel = new Panel();
+            prescriptionsDataGridView = new DataGridView();
             searchBtn = new Button();
             searchBox = new TextBox();
             label2 = new Label();
@@ -42,6 +43,7 @@
             unameLbl = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)prescriptionsDataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -52,11 +54,12 @@
             tabControl1.Location = new Point(30, 101);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1207, 505);
+            tabControl1.Size = new Size(1568, 824);
             tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(prescriptionsDataGridView);
             tabPage1.Controls.Add(detailsPanel);
             tabPage1.Controls.Add(searchBtn);
             tabPage1.Controls.Add(searchBox);
@@ -64,7 +67,7 @@
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1199, 472);
+            tabPage1.Size = new Size(1560, 791);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Patient Records";
             tabPage1.UseVisualStyleBackColor = true;
@@ -73,8 +76,18 @@
             // 
             detailsPanel.Location = new Point(15, 117);
             detailsPanel.Name = "detailsPanel";
-            detailsPanel.Size = new Size(1184, 344);
+            detailsPanel.Size = new Size(1528, 344);
             detailsPanel.TabIndex = 3;
+            // 
+            // prescriptionsDataGridView
+            // 
+            prescriptionsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            prescriptionsDataGridView.Location = new Point(12, 467);
+            prescriptionsDataGridView.Name = "prescriptionsDataGridView";
+            prescriptionsDataGridView.RowHeadersWidth = 51;
+            prescriptionsDataGridView.RowTemplate.Height = 29;
+            prescriptionsDataGridView.Size = new Size(1531, 301);
+            prescriptionsDataGridView.TabIndex = 4;
             // 
             // searchBtn
             // 
@@ -107,7 +120,7 @@
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1199, 472);
+            tabPage2.Size = new Size(1560, 629);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Medicine Inventory";
             tabPage2.UseVisualStyleBackColor = true;
@@ -136,7 +149,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(1335, 9);
+            pictureBox1.Location = new Point(1531, 27);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(57, 56);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -148,7 +161,7 @@
             unameLbl.AutoSize = true;
             unameLbl.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
             unameLbl.ForeColor = Color.Tomato;
-            unameLbl.Location = new Point(1180, 26);
+            unameLbl.Location = new Point(1337, 43);
             unameLbl.Name = "unameLbl";
             unameLbl.Size = new Size(78, 32);
             unameLbl.TabIndex = 13;
@@ -159,7 +172,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Azure;
-            ClientSize = new Size(1415, 810);
+            ClientSize = new Size(1622, 937);
             Controls.Add(unameLbl);
             Controls.Add(pictureBox1);
             Controls.Add(welcomeLabel);
@@ -173,6 +186,7 @@
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)prescriptionsDataGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -194,5 +208,6 @@
         private Label idLbl;
         private PictureBox pictureBox1;
         private Label unameLbl;
+        private DataGridView prescriptionsDataGridView;
     }
 }

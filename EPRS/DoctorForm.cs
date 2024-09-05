@@ -119,7 +119,7 @@ namespace EPRS
             CreateDetailLabel("Email: ", patientData["Email"].ToString(), 7);
             CreateDetailLabel("Registered Date: ", patientData["DateRegistered"].ToString(), 8);
 
-            idLbl.Text = $"ID: {patientData["PatientID"].ToString()}";
+
         }
 
         private void CreateDetailLabel(string label, string value, int position)
@@ -147,7 +147,58 @@ namespace EPRS
             {
                 connection.Close();
             }
-            Application.Exit();
+
+
+
+        }
+
+
+        private void LoadPrescriptionDetails(string patientID)
+        {
+            try
+            {
+                string query = "SELECT PrescriptionID, PrescriptionDate, Medication, Description FROM Prescriptions WHERE PatientID = @PatientID";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@PatientID", patientID);
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                DataTable prescriptionsTable = new DataTable();
+                adapter.Fill(prescriptionsTable);
+
+                if (prescriptionsTable.Rows.Count > 0)
+                {
+                    DisplayPrescriptionDetails(prescriptionsTable);
+                }
+                else
+                {
+                    MessageBox.Show("No prescriptions found for this patient.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearPrescriptionDetails();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error retrieving prescription data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DisplayPrescriptionDetails(DataTable prescriptionsTable)
+        {
+
+            prescriptionsDataGridView.DataSource = prescriptionsTable;
+
+
+            prescriptionsDataGridView.Columns["PrescriptionID"].HeaderText = "Prescription ID";
+            prescriptionsDataGridView.Columns["PrescriptionDate"].HeaderText = "Date";
+            prescriptionsDataGridView.Columns["Medication"].HeaderText = "Medication";
+            prescriptionsDataGridView.Columns["Description"].HeaderText = "Description";
+
+
+            prescriptionsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void ClearPrescriptionDetails()
+        {
+            prescriptionsDataGridView.DataSource = null;
         }
 
         private void searchBtn_Click(object sender, EventArgs e)
@@ -173,6 +224,7 @@ namespace EPRS
                 if (dataTable.Rows.Count > 0)
                 {
                     DisplayPatientDetails(dataTable.Rows[0]);
+                    LoadPrescriptionDetails(patientID);
                 }
                 else
                 {

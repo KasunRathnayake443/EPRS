@@ -22,20 +22,20 @@ namespace EPRS
 
             if (role != null)
             {
-                this.Hide();  // Hide the current form before opening the next
+                this.Hide();  
 
                 switch (role.ToLower())
                 {
                     case "admin":
-                        AdminForm adminForm = new AdminForm(username);  // Pass username
+                        AdminForm adminForm = new AdminForm(username); 
                         adminForm.Show();
                         break;
                     case "doctor":
-                        DoctorForm doctorForm = new DoctorForm(username);  // Pass username
+                        DoctorForm doctorForm = new DoctorForm(username);  
                         doctorForm.Show();
                         break;
                     case "staff":
-                        StaffForm staffForm = new StaffForm(username);  // Pass username
+                        StaffForm staffForm = new StaffForm(username);  
                         staffForm.Show();
                         break;
                     default:
