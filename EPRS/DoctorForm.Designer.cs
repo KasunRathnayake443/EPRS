@@ -34,6 +34,7 @@
             PatientNameLbl = new Label();
             prescriptionsDataGridView = new DataGridView();
             detailsPanel = new Panel();
+            patientDetaisLbl = new Label();
             searchBtn = new Button();
             searchBox = new TextBox();
             label2 = new Label();
@@ -45,6 +46,7 @@
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)prescriptionsDataGridView).BeginInit();
+            detailsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -78,15 +80,17 @@
             // 
             PatientNameLbl.AutoSize = true;
             PatientNameLbl.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            PatientNameLbl.ForeColor = Color.Orange;
             PatientNameLbl.Location = new Point(32, 67);
             PatientNameLbl.Name = "PatientNameLbl";
             PatientNameLbl.Size = new Size(78, 32);
             PatientNameLbl.TabIndex = 5;
             PatientNameLbl.Text = "Name";
+            PatientNameLbl.Click += PatientNameLbl_Click;
             // 
             // prescriptionsDataGridView
             // 
+            prescriptionsDataGridView.BackgroundColor = SystemColors.ControlLightLight;
+            prescriptionsDataGridView.BorderStyle = BorderStyle.None;
             prescriptionsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             prescriptionsDataGridView.Location = new Point(12, 467);
             prescriptionsDataGridView.Name = "prescriptionsDataGridView";
@@ -97,10 +101,22 @@
             // 
             // detailsPanel
             // 
+            detailsPanel.Controls.Add(patientDetaisLbl);
             detailsPanel.Location = new Point(15, 117);
             detailsPanel.Name = "detailsPanel";
             detailsPanel.Size = new Size(1528, 344);
             detailsPanel.TabIndex = 3;
+            // 
+            // patientDetaisLbl
+            // 
+            patientDetaisLbl.AutoSize = true;
+            patientDetaisLbl.Font = new Font("Segoe UI", 10.8F, FontStyle.Italic, GraphicsUnit.Point);
+            patientDetaisLbl.ForeColor = Color.DarkSalmon;
+            patientDetaisLbl.Location = new Point(60, 59);
+            patientDetaisLbl.Name = "patientDetaisLbl";
+            patientDetaisLbl.Size = new Size(307, 25);
+            patientDetaisLbl.TabIndex = 0;
+            patientDetaisLbl.Text = "Patient Details will be Appeared Here";
             // 
             // searchBtn
             // 
@@ -144,12 +160,13 @@
             label1.BackColor = Color.Transparent;
             label1.BorderStyle = BorderStyle.FixedSingle;
             label1.Font = new Font("Gill Sans Ultra Bold", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.ForeColor = Color.DarkCyan;
+            label1.ForeColor = Color.FromArgb(44, 110, 73);
             label1.Location = new Point(12, 27);
             label1.Name = "label1";
             label1.Size = new Size(577, 36);
             label1.TabIndex = 10;
             label1.Text = "Patient Record Management System";
+            label1.Click += label1_Click;
             // 
             // welcomeLabel
             // 
@@ -184,7 +201,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Azure;
+            BackColor = Color.FromArgb(254, 254, 227);
             ClientSize = new Size(1622, 937);
             Controls.Add(unameLbl);
             Controls.Add(pictureBox1);
@@ -200,6 +217,8 @@
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)prescriptionsDataGridView).EndInit();
+            detailsPanel.ResumeLayout(false);
+            detailsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -223,5 +242,6 @@
         private Label unameLbl;
         private DataGridView prescriptionsDataGridView;
         private Label PatientNameLbl;
+        private Label patientDetaisLbl;
     }
 }

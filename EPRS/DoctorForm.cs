@@ -238,5 +238,15 @@ namespace EPRS
                 MessageBox.Show($"Error retrieving patient data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PatientNameLbl_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
