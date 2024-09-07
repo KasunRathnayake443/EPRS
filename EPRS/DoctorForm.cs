@@ -11,6 +11,7 @@ namespace EPRS
     {
         private MySqlConnection connection;
         private string _username;
+        private string _doctorID;
 
         public DoctorForm(string username)
         {
@@ -23,10 +24,10 @@ namespace EPRS
         {
             try
             {
-                // Retrieve the connection string from app.config
+
                 string connectionString = ConfigurationManager.ConnectionStrings["MyDatabase"].ConnectionString;
 
-                // Initialize the MySQL connection
+
                 connection = new MySqlConnection(connectionString);
 
 
@@ -51,26 +52,35 @@ namespace EPRS
         {
             try
             {
-                string query = "SELECT name FROM Users WHERE Username = @Username";
+
+                string query = "SELECT id, name FROM Users WHERE Username = @Username";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("@Username", _username);
 
-                string fullName = cmd.ExecuteScalar()?.ToString();
+                MySqlDataReader reader = cmd.ExecuteReader();
 
-                if (!string.IsNullOrEmpty(fullName))
+                if (reader.Read())
                 {
-                    unameLbl.Text = fullName;
+                    _doctorID = reader["ID"].ToString();
+                    string fullName = reader["name"].ToString();
+
+                    if (!string.IsNullOrEmpty(fullName))
+                    {
+                        unameLbl.Text = fullName;
+                    }
+                    else
+                    {
+                        unameLbl.Text = "Unknown User";
+                    }
                 }
-                else
-                {
-                    unameLbl.Text = "Unknown User";
-                }
+                reader.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading user name: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error loading user information: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void InitializeSearchBox()
         {
@@ -121,7 +131,36 @@ namespace EPRS
 
             PatientNameLbl.Text = patientData["FirstName"].ToString() + " " + patientData["LastName"].ToString();
 
+
+            Button addRecordButton = new Button
+            {
+                Text = "Add New Record",
+                Size = new Size(150, 40),
+                Location = new Point(80, 320),
+                BackColor = Color.LightBlue,
+                Font = new Font("Segoe UI", 12, FontStyle.Regular)
+            };
+
+
+            addRecordButton.Click += (sender, e) =>
+            {
+                string patientID = patientData["PatientID"].ToString();
+
+                if (!string.IsNullOrEmpty(_doctorID))
+                {
+                    AddNewRecordForm addNewRecordForm = new AddNewRecordForm(patientID, _doctorID);
+                    addNewRecordForm.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Doctor ID not found. Please check your login details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            };
+
+            detailsPanel.Controls.Add(addRecordButton);
         }
+
+
 
         private void CreateDetailLabel(string label, string value, int position)
         {
@@ -248,5 +287,26 @@ namespace EPRS
         {
 
         }
+
+        private void DoctorForm_FormClosing_1(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to close the program?",
+                "Confirm Exit",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+
+                Application.Exit();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
+
+
     }
 }

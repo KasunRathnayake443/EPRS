@@ -54,7 +54,10 @@
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
+            tabControl1.HotTrack = true;
+            tabControl1.ImeMode = ImeMode.Alpha;
             tabControl1.Location = new Point(30, 101);
+            tabControl1.Multiline = true;
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(1568, 824);
@@ -80,11 +83,10 @@
             // 
             PatientNameLbl.AutoSize = true;
             PatientNameLbl.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            PatientNameLbl.Location = new Point(32, 67);
+            PatientNameLbl.Location = new Point(30, 82);
             PatientNameLbl.Name = "PatientNameLbl";
-            PatientNameLbl.Size = new Size(78, 32);
+            PatientNameLbl.Size = new Size(0, 32);
             PatientNameLbl.TabIndex = 5;
-            PatientNameLbl.Text = "Name";
             PatientNameLbl.Click += PatientNameLbl_Click;
             // 
             // prescriptionsDataGridView
@@ -92,11 +94,11 @@
             prescriptionsDataGridView.BackgroundColor = SystemColors.ControlLightLight;
             prescriptionsDataGridView.BorderStyle = BorderStyle.None;
             prescriptionsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            prescriptionsDataGridView.Location = new Point(12, 467);
+            prescriptionsDataGridView.Location = new Point(12, 515);
             prescriptionsDataGridView.Name = "prescriptionsDataGridView";
             prescriptionsDataGridView.RowHeadersWidth = 51;
             prescriptionsDataGridView.RowTemplate.Height = 29;
-            prescriptionsDataGridView.Size = new Size(1531, 301);
+            prescriptionsDataGridView.Size = new Size(1531, 253);
             prescriptionsDataGridView.TabIndex = 4;
             // 
             // detailsPanel
@@ -104,7 +106,7 @@
             detailsPanel.Controls.Add(patientDetaisLbl);
             detailsPanel.Location = new Point(15, 117);
             detailsPanel.Name = "detailsPanel";
-            detailsPanel.Size = new Size(1528, 344);
+            detailsPanel.Size = new Size(1528, 392);
             detailsPanel.TabIndex = 3;
             // 
             // patientDetaisLbl
@@ -120,12 +122,14 @@
             // 
             // searchBtn
             // 
+            searchBtn.BackColor = Color.LightBlue;
+            searchBtn.ForeColor = Color.Black;
             searchBtn.Location = new Point(750, 32);
             searchBtn.Name = "searchBtn";
             searchBtn.Size = new Size(94, 29);
             searchBtn.TabIndex = 2;
             searchBtn.Text = "Search";
-            searchBtn.UseVisualStyleBackColor = true;
+            searchBtn.UseVisualStyleBackColor = false;
             searchBtn.Click += searchBtn_Click;
             // 
             // searchBox
@@ -138,6 +142,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.ForeColor = Color.Black;
             label2.Location = new Point(15, 36);
             label2.Name = "label2";
             label2.Size = new Size(377, 20);
@@ -212,6 +217,7 @@
             MaximizeBox = false;
             Name = "DoctorForm";
             Text = "  EPRS - Doctor Dashboard";
+            FormClosing += DoctorForm_FormClosing_1;
             Load += DoctorForm_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
