@@ -41,6 +41,8 @@
             medicinesListBox = new ListBox();
             label3 = new Label();
             label4 = new Label();
+            label5 = new Label();
+            removeMedicineButton = new Button();
             SuspendLayout();
             // 
             // patientIdLabel
@@ -48,7 +50,7 @@
             patientIdLabel.AutoSize = true;
             patientIdLabel.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
             patientIdLabel.ForeColor = Color.DimGray;
-            patientIdLabel.Location = new Point(122, 23);
+            patientIdLabel.Location = new Point(122, 65);
             patientIdLabel.Name = "patientIdLabel";
             patientIdLabel.Size = new Size(78, 32);
             patientIdLabel.TabIndex = 0;
@@ -59,7 +61,7 @@
             doctorIdLabel.AutoSize = true;
             doctorIdLabel.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
             doctorIdLabel.ForeColor = Color.DimGray;
-            doctorIdLabel.Location = new Point(881, 23);
+            doctorIdLabel.Location = new Point(804, 65);
             doctorIdLabel.Name = "doctorIdLabel";
             doctorIdLabel.Size = new Size(78, 32);
             doctorIdLabel.TabIndex = 1;
@@ -77,7 +79,7 @@
             // addMedicineButton
             // 
             addMedicineButton.BackColor = Color.CornflowerBlue;
-            addMedicineButton.Location = new Point(865, 196);
+            addMedicineButton.Location = new Point(865, 193);
             addMedicineButton.Name = "addMedicineButton";
             addMedicineButton.Size = new Size(94, 29);
             addMedicineButton.TabIndex = 3;
@@ -95,7 +97,7 @@
             // saveButton
             // 
             saveButton.BackColor = Color.LightGreen;
-            saveButton.Location = new Point(231, 457);
+            saveButton.Location = new Point(231, 446);
             saveButton.Name = "saveButton";
             saveButton.Size = new Size(94, 29);
             saveButton.TabIndex = 6;
@@ -115,7 +117,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(123, 202);
+            label2.Location = new Point(123, 200);
             label2.Name = "label2";
             label2.Size = new Size(77, 20);
             label2.TabIndex = 9;
@@ -134,7 +136,7 @@
             medicinesListBox.ItemHeight = 20;
             medicinesListBox.Location = new Point(231, 265);
             medicinesListBox.Name = "medicinesListBox";
-            medicinesListBox.Size = new Size(728, 144);
+            medicinesListBox.Size = new Size(619, 144);
             medicinesListBox.TabIndex = 11;
             // 
             // label3
@@ -155,12 +157,36 @@
             label4.TabIndex = 13;
             label4.Text = "g";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.ForeColor = SystemColors.InfoText;
+            label5.Location = new Point(123, 9);
+            label5.Name = "label5";
+            label5.Size = new Size(277, 35);
+            label5.TabIndex = 14;
+            label5.Text = "Add a New Prescription";
+            // 
+            // removeMedicineButton
+            // 
+            removeMedicineButton.BackColor = Color.FromArgb(255, 128, 128);
+            removeMedicineButton.Location = new Point(865, 265);
+            removeMedicineButton.Name = "removeMedicineButton";
+            removeMedicineButton.Size = new Size(94, 29);
+            removeMedicineButton.TabIndex = 15;
+            removeMedicineButton.Text = "Remove";
+            removeMedicineButton.UseVisualStyleBackColor = false;
+            removeMedicineButton.Click += removeMedicineButton_Click;
+            // 
             // AddNewRecordForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(254, 254, 227);
             ClientSize = new Size(1123, 665);
+            Controls.Add(removeMedicineButton);
+            Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(medicinesListBox);
@@ -195,5 +221,7 @@
         private ListBox medicinesListBox;
         private Label label3;
         private Label label4;
+        private Label label5;
+        private Button removeMedicineButton;
     }
 }

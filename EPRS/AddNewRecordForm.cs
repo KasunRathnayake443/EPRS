@@ -73,53 +73,53 @@ namespace EPRS
             }
         }
 
-        // Adds medicine to the ListBox
+
         private void addMedicineButton_Click_1(object sender, EventArgs e)
         {
             string selectedMedicine = medicineComboBox.Text;
-            string dose = doseBox.Text; // Get the dose from the doseBox
+            string dose = doseBox.Text;
 
-            // Ensure a valid medicine and dose are entered
+
             if (!string.IsNullOrWhiteSpace(selectedMedicine) && !selectedMedicines.Any(m => m.medicineName == selectedMedicine))
             {
                 if (string.IsNullOrWhiteSpace(dose))
                 {
-                    dose = "0.5"; // Default dose if none is provided
+                    dose = "0.5";
                 }
 
-                // Add the selected medicine and dose to the list
+
                 selectedMedicines.Add((selectedMedicine, dose));
 
-                // Display the medicine and dose in the ListBox
+
                 medicinesListBox.Items.Add($"{selectedMedicine} - Dose: {dose}");
 
-                // Clear the ComboBox and doseBox for new entries
+
                 medicineComboBox.Text = "";
-                doseBox.Text = "0.5"; // Reset doseBox to default value
+                doseBox.Text = "0.5";
             }
         }
 
-        // Removes the selected medicine from the ListBox and internal list
+
         private void removeMedicineButton_Click(object sender, EventArgs e)
         {
-            // Check if any item is selected in the ListBox
+
             if (medicinesListBox.SelectedIndex != -1)
             {
-                // Get the selected medicine text (with dose)
+
                 string selectedItem = medicinesListBox.SelectedItem.ToString();
 
-                // Extract the medicine name from the selected item (before the " - Dose" part)
+
                 string medicineName = selectedItem.Split('-')[0].Trim();
 
-                // Remove the selected medicine from the ListBox
+
                 medicinesListBox.Items.RemoveAt(medicinesListBox.SelectedIndex);
 
-                // Remove the selected medicine from the selectedMedicines list
+
                 selectedMedicines.RemoveAll(m => m.medicineName == medicineName);
             }
         }
 
-        // Saves the prescription to the database and updates the medicine stock
+
         private void saveButton_Click_1(object sender, EventArgs e)
         {
             string description = descriptionTextBox.Text;
@@ -134,9 +134,9 @@ namespace EPRS
                 foreach (var (medicine, dose) in selectedMedicines)
                 {
                     double doseValue = double.Parse(dose);
-                    double doseToReduce = doseValue * 9; // Multiply the dose by 9 as per requirement
+                    double doseToReduce = doseValue * 9;
 
-                    // Update the medicine stock in the database
+
                     string updateQuery = "UPDATE medicine SET amount_grams = amount_grams - @doseToReduce WHERE name = @medicineName";
                     MySqlCommand updateCmd = new MySqlCommand(updateQuery, connection);
                     updateCmd.Parameters.AddWithValue("@doseToReduce", doseToReduce);
@@ -144,7 +144,7 @@ namespace EPRS
                     updateCmd.ExecuteNonQuery();
                 }
 
-                // Prepare the medication information to insert into the prescriptions table
+
                 string medication = string.Join(", ", selectedMedicines.Select(m => $"{m.medicineName} (Dose: {m.dose})"));
                 string insertQuery = "INSERT INTO prescriptions (DoctorID, PatientID, Description, PrescriptionDate, Medication) VALUES (@DoctorID, @PatientID, @Description, @PrescriptionDate, @Medication)";
 
@@ -165,5 +165,7 @@ namespace EPRS
                 MessageBox.Show($"Error saving prescription: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        
     }
 }
