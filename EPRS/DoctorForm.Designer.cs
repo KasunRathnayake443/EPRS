@@ -47,7 +47,6 @@
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
-            medicineSuggestionListBox = new ListBox();
             medicineSearchTextBox = new TextBox();
             medicineDataGridView = new DataGridView();
             label1 = new Label();
@@ -202,7 +201,6 @@
             tabPage2.Controls.Add(notificationPanel1);
             tabPage2.Controls.Add(label5);
             tabPage2.Controls.Add(label4);
-            tabPage2.Controls.Add(medicineSuggestionListBox);
             tabPage2.Controls.Add(medicineSearchTextBox);
             tabPage2.Controls.Add(medicineDataGridView);
             tabPage2.Location = new Point(4, 29);
@@ -247,7 +245,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(537, 132);
+            label5.Location = new Point(36, 94);
             label5.Name = "label5";
             label5.Size = new Size(340, 20);
             label5.TabIndex = 4;
@@ -258,25 +256,15 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = SystemColors.ActiveBorder;
-            label4.Location = new Point(36, 73);
+            label4.Location = new Point(36, 45);
             label4.Name = "label4";
             label4.Size = new Size(205, 28);
             label4.TabIndex = 3;
             label4.Text = "All Available Medicine";
             // 
-            // medicineSuggestionListBox
-            // 
-            medicineSuggestionListBox.BorderStyle = BorderStyle.None;
-            medicineSuggestionListBox.FormattingEnabled = true;
-            medicineSuggestionListBox.ItemHeight = 20;
-            medicineSuggestionListBox.Location = new Point(546, 193);
-            medicineSuggestionListBox.Name = "medicineSuggestionListBox";
-            medicineSuggestionListBox.Size = new Size(306, 260);
-            medicineSuggestionListBox.TabIndex = 2;
-            // 
             // medicineSearchTextBox
             // 
-            medicineSearchTextBox.Location = new Point(883, 129);
+            medicineSearchTextBox.Location = new Point(382, 91);
             medicineSearchTextBox.Name = "medicineSearchTextBox";
             medicineSearchTextBox.Size = new Size(190, 27);
             medicineSearchTextBox.TabIndex = 1;
@@ -291,7 +279,7 @@
             medicineDataGridView.Name = "medicineDataGridView";
             medicineDataGridView.RowHeadersWidth = 51;
             medicineDataGridView.RowTemplate.Height = 29;
-            medicineDataGridView.Size = new Size(464, 690);
+            medicineDataGridView.Size = new Size(536, 690);
             medicineDataGridView.TabIndex = 0;
             // 
             // label1
@@ -394,7 +382,6 @@
         private Label patientDetaisLbl;
         private DataGridView medicineDataGridView;
         private TextBox medicineSearchTextBox;
-        private ListBox medicineSuggestionListBox;
         private Panel notificationPanel;
         private Label label3;
         private Label notificationLbl;

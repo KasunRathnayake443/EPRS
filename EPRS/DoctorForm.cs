@@ -365,50 +365,33 @@ namespace EPRS
 
         private void medicineSearchTextBox_TextChanged_1(object sender, EventArgs e)
         {
-            string searchText = medicineSearchTextBox.Text;
-            if (searchText.Length > 1)
+            string searchValue = medicineSearchTextBox.Text.ToLower();
+
+            foreach (DataGridViewRow row in medicineDataGridView.Rows)
             {
-                FetchMedicineSuggestions(searchText);
-            }
-        }
-
-        private void FetchMedicineSuggestions(string searchText)
-        {
-            try
-            {
-                string query = "SELECT name FROM medicine WHERE name LIKE @searchText";
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("@searchText", $"%{searchText}%");
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                DataTable suggestionTable = new DataTable();
-                adapter.Fill(suggestionTable);
-
-
-                medicineSuggestionListBox.Items.Clear();
-
-
-                foreach (DataRow row in suggestionTable.Rows)
+                // Ensure the cell is not null
+                if (row.Cells["name"].Value != null)
                 {
-                    medicineSuggestionListBox.Items.Add(row["name"].ToString());
+                    string medicineName = row.Cells["name"].Value.ToString().ToLower();
+
+                    if (medicineName.Contains(searchValue))
+                    {
+                        // Select the matching row
+                        row.Selected = true;
+                        // Scroll the DataGridView to the selected row
+                        medicineDataGridView.FirstDisplayedScrollingRowIndex = row.Index;
+                    }
+                    else
+                    {
+                        // Deselect the row if it doesn't match the search string
+                        row.Selected = false;
+                    }
                 }
-
-
-                medicineSuggestionListBox.Visible = true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error fetching medicine suggestions: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
-        private void medicineSuggestionListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            if (medicineSuggestionListBox.SelectedIndex != -1)
-            {
-                medicineSearchTextBox.Text = medicineSuggestionListBox.SelectedItem.ToString();
-                medicineSuggestionListBox.Visible = false;
+                else
+                {
+                    // Deselect the row if the cell value is null
+                    row.Selected = false;
+                }
             }
         }
 
