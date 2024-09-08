@@ -50,27 +50,27 @@
             patientIdLabel.AutoSize = true;
             patientIdLabel.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
             patientIdLabel.ForeColor = Color.DimGray;
-            patientIdLabel.Location = new Point(122, 65);
+            patientIdLabel.Location = new Point(124, 95);
             patientIdLabel.Name = "patientIdLabel";
-            patientIdLabel.Size = new Size(78, 32);
+            patientIdLabel.Size = new Size(117, 32);
             patientIdLabel.TabIndex = 0;
-            patientIdLabel.Text = "label1";
+            patientIdLabel.Text = "Patient ID";
             // 
             // doctorIdLabel
             // 
             doctorIdLabel.AutoSize = true;
             doctorIdLabel.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
             doctorIdLabel.ForeColor = Color.DimGray;
-            doctorIdLabel.Location = new Point(804, 65);
+            doctorIdLabel.Location = new Point(806, 95);
             doctorIdLabel.Name = "doctorIdLabel";
-            doctorIdLabel.Size = new Size(78, 32);
+            doctorIdLabel.Size = new Size(116, 32);
             doctorIdLabel.TabIndex = 1;
-            doctorIdLabel.Text = "label1";
+            doctorIdLabel.Text = "Doctor ID";
             // 
             // medicineComboBox
             // 
             medicineComboBox.FormattingEnabled = true;
-            medicineComboBox.Location = new Point(231, 197);
+            medicineComboBox.Location = new Point(233, 227);
             medicineComboBox.Name = "medicineComboBox";
             medicineComboBox.Size = new Size(235, 28);
             medicineComboBox.TabIndex = 2;
@@ -79,7 +79,7 @@
             // addMedicineButton
             // 
             addMedicineButton.BackColor = Color.CornflowerBlue;
-            addMedicineButton.Location = new Point(865, 193);
+            addMedicineButton.Location = new Point(867, 223);
             addMedicineButton.Name = "addMedicineButton";
             addMedicineButton.Size = new Size(94, 29);
             addMedicineButton.TabIndex = 3;
@@ -89,7 +89,7 @@
             // 
             // descriptionTextBox
             // 
-            descriptionTextBox.Location = new Point(231, 131);
+            descriptionTextBox.Location = new Point(233, 161);
             descriptionTextBox.Name = "descriptionTextBox";
             descriptionTextBox.Size = new Size(728, 27);
             descriptionTextBox.TabIndex = 5;
@@ -97,7 +97,7 @@
             // saveButton
             // 
             saveButton.BackColor = Color.LightGreen;
-            saveButton.Location = new Point(231, 446);
+            saveButton.Location = new Point(233, 476);
             saveButton.Name = "saveButton";
             saveButton.Size = new Size(94, 29);
             saveButton.TabIndex = 6;
@@ -108,7 +108,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(123, 134);
+            label1.Location = new Point(125, 164);
             label1.Name = "label1";
             label1.Size = new Size(92, 20);
             label1.TabIndex = 8;
@@ -117,7 +117,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(123, 200);
+            label2.Location = new Point(125, 230);
             label2.Name = "label2";
             label2.Size = new Size(77, 20);
             label2.TabIndex = 9;
@@ -125,7 +125,7 @@
             // 
             // doseBox
             // 
-            doseBox.Location = new Point(612, 197);
+            doseBox.Location = new Point(614, 227);
             doseBox.Name = "doseBox";
             doseBox.Size = new Size(151, 27);
             doseBox.TabIndex = 10;
@@ -134,7 +134,7 @@
             // 
             medicinesListBox.FormattingEnabled = true;
             medicinesListBox.ItemHeight = 20;
-            medicinesListBox.Location = new Point(231, 265);
+            medicinesListBox.Location = new Point(233, 295);
             medicinesListBox.Name = "medicinesListBox";
             medicinesListBox.Size = new Size(619, 144);
             medicinesListBox.TabIndex = 11;
@@ -142,7 +142,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(538, 200);
+            label3.Location = new Point(540, 230);
             label3.Name = "label3";
             label3.Size = new Size(50, 20);
             label3.TabIndex = 12;
@@ -151,7 +151,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(769, 202);
+            label4.Location = new Point(771, 230);
             label4.Name = "label4";
             label4.Size = new Size(18, 20);
             label4.TabIndex = 13;
@@ -161,8 +161,8 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.ForeColor = SystemColors.InfoText;
-            label5.Location = new Point(123, 9);
+            label5.ForeColor = Color.DarkSeaGreen;
+            label5.Location = new Point(24, 18);
             label5.Name = "label5";
             label5.Size = new Size(277, 35);
             label5.TabIndex = 14;
@@ -171,7 +171,7 @@
             // removeMedicineButton
             // 
             removeMedicineButton.BackColor = Color.FromArgb(255, 128, 128);
-            removeMedicineButton.Location = new Point(865, 265);
+            removeMedicineButton.Location = new Point(867, 295);
             removeMedicineButton.Name = "removeMedicineButton";
             removeMedicineButton.Size = new Size(94, 29);
             removeMedicineButton.TabIndex = 15;
@@ -201,6 +201,7 @@
             Controls.Add(patientIdLabel);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AddNewRecordForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AddNewRecordForm";
             Load += AddNewRecordForm_Load;
             ResumeLayout(false);

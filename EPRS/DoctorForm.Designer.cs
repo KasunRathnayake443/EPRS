@@ -39,6 +39,9 @@
             searchBox = new TextBox();
             label2 = new Label();
             tabPage2 = new TabPage();
+            medicineSuggestionListBox = new ListBox();
+            medicineSearchTextBox = new TextBox();
+            medicineDataGridView = new DataGridView();
             label1 = new Label();
             welcomeLabel = new Label();
             pictureBox1 = new PictureBox();
@@ -47,6 +50,8 @@
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)prescriptionsDataGridView).BeginInit();
             detailsPanel.SuspendLayout();
+            tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)medicineDataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -145,12 +150,15 @@
             label2.ForeColor = Color.Black;
             label2.Location = new Point(15, 36);
             label2.Name = "label2";
-            label2.Size = new Size(377, 20);
+            label2.Size = new Size(388, 20);
             label2.TabIndex = 0;
-            label2.Text = "Search Student Registration Number To Find The Profile";
+            label2.Text = "Search Student Registration Number To Find The Profile : ";
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(medicineSuggestionListBox);
+            tabPage2.Controls.Add(medicineSearchTextBox);
+            tabPage2.Controls.Add(medicineDataGridView);
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -158,6 +166,33 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Medicine Inventory";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // medicineSuggestionListBox
+            // 
+            medicineSuggestionListBox.FormattingEnabled = true;
+            medicineSuggestionListBox.ItemHeight = 20;
+            medicineSuggestionListBox.Location = new Point(467, 103);
+            medicineSuggestionListBox.Name = "medicineSuggestionListBox";
+            medicineSuggestionListBox.Size = new Size(150, 104);
+            medicineSuggestionListBox.TabIndex = 2;
+            // 
+            // medicineSearchTextBox
+            // 
+            medicineSearchTextBox.Location = new Point(438, 29);
+            medicineSearchTextBox.Name = "medicineSearchTextBox";
+            medicineSearchTextBox.Size = new Size(125, 27);
+            medicineSearchTextBox.TabIndex = 1;
+            medicineSearchTextBox.TextChanged += medicineSearchTextBox_TextChanged_1;
+            // 
+            // medicineDataGridView
+            // 
+            medicineDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            medicineDataGridView.Location = new Point(36, 78);
+            medicineDataGridView.Name = "medicineDataGridView";
+            medicineDataGridView.RowHeadersWidth = 51;
+            medicineDataGridView.RowTemplate.Height = 29;
+            medicineDataGridView.Size = new Size(300, 188);
+            medicineDataGridView.TabIndex = 0;
             // 
             // label1
             // 
@@ -196,11 +231,11 @@
             unameLbl.AutoSize = true;
             unameLbl.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
             unameLbl.ForeColor = Color.Tomato;
-            unameLbl.Location = new Point(1381, 43);
+            unameLbl.Location = new Point(1348, 43);
             unameLbl.Name = "unameLbl";
-            unameLbl.Size = new Size(78, 32);
+            unameLbl.Size = new Size(157, 32);
             unameLbl.TabIndex = 13;
-            unameLbl.Text = "label3";
+            unameLbl.Text = "Doctor Name";
             // 
             // DoctorForm
             // 
@@ -216,6 +251,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "DoctorForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "  EPRS - Doctor Dashboard";
             FormClosing += DoctorForm_FormClosing_1;
             Load += DoctorForm_Load;
@@ -225,6 +261,9 @@
             ((System.ComponentModel.ISupportInitialize)prescriptionsDataGridView).EndInit();
             detailsPanel.ResumeLayout(false);
             detailsPanel.PerformLayout();
+            tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)medicineDataGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -249,5 +288,8 @@
         private DataGridView prescriptionsDataGridView;
         private Label PatientNameLbl;
         private Label patientDetaisLbl;
+        private DataGridView medicineDataGridView;
+        private TextBox medicineSearchTextBox;
+        private ListBox medicineSuggestionListBox;
     }
 }

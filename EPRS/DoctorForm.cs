@@ -307,6 +307,66 @@ namespace EPRS
             }
         }
 
+        private void LoadMedicineInventory()
+        {
+            string query = "SELECT name, amount_grams FROM medicine";
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
+            DataTable medicineTable = new DataTable();
+            adapter.Fill(medicineTable);
 
+            // Display data in a DataGridView or ListView
+            medicineDataGridView.DataSource = medicineTable;
+        }
+
+        private void medicineSearchTextBox_TextChanged_1(object sender, EventArgs e)
+        {
+            string searchText = medicineSearchTextBox.Text;
+            if (searchText.Length > 1)
+            {
+                FetchMedicineSuggestions(searchText);
+            }
+        }
+
+        private void FetchMedicineSuggestions(string searchText)
+        {
+            try
+            {
+                string query = "SELECT name FROM medicine WHERE name LIKE @searchText";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@searchText", $"%{searchText}%");
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                DataTable suggestionTable = new DataTable();
+                adapter.Fill(suggestionTable);
+
+                // Clear previous suggestions
+                medicineSuggestionListBox.Items.Clear();
+
+                // Add new suggestions
+                foreach (DataRow row in suggestionTable.Rows)
+                {
+                    medicineSuggestionListBox.Items.Add(row["name"].ToString());
+                }
+
+                // Show the suggestions box
+                medicineSuggestionListBox.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error fetching medicine suggestions: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Event to handle selection from suggestion box
+        private void medicineSuggestionListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Handle the selected medicine from suggestions
+            if (medicineSuggestionListBox.SelectedIndex != -1)
+            {
+                medicineSearchTextBox.Text = medicineSuggestionListBox.SelectedItem.ToString();
+                medicineSuggestionListBox.Visible = false; // Hide the suggestion box
+            }
+        }
+
+        
     }
 }
