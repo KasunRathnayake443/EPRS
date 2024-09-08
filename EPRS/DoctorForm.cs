@@ -41,12 +41,67 @@ namespace EPRS
 
 
                 LoadDoctorName();
+
+                LoadMedicineInventory();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error connecting to the database: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void LoadMedicineInventory()
+        {
+            try
+            {
+                string query = "SELECT name, amount_grams FROM medicine";
+                MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
+                DataTable medicineTable = new DataTable();
+                adapter.Fill(medicineTable);
+
+                medicineDataGridView.DataSource = medicineTable;
+
+                notificationPanel.Controls.Clear();  // Clear previous notifications from both panels
+                notificationPanel1.Controls.Clear();
+
+                int yOffset = 0;  // Y-offset for label positioning
+
+                foreach (DataRow row in medicineTable.Rows)
+                {
+                    string medicineName = row["name"].ToString();
+                    double amountGrams = Convert.ToDouble(row["amount_grams"]);
+
+                    if (amountGrams < 100)
+                    {
+                        ShowLowStockNotification(medicineName, amountGrams, yOffset, notificationPanel);
+                        ShowLowStockNotification(medicineName, amountGrams, yOffset, notificationPanel1);
+                        yOffset += 30;  // Adjust Y-offset for the next label
+
+                        label6.Text = "";
+                        notificationLbl.Text = "";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading medicine inventory: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ShowLowStockNotification(string medicineName, double amountGrams, int yOffset, Panel targetPanel)
+        {
+            Label notificationLabel = new Label
+            {
+                Text = $"{medicineName} is low on stock. Available amount: {amountGrams} grams.",
+                AutoSize = true,
+                ForeColor = Color.Red,
+                Location = new Point(5, yOffset)  // Adjust label position based on Y-offset
+            };
+
+            targetPanel.Controls.Add(notificationLabel);
+        }
+
+
+
 
         private void LoadDoctorName()
         {
@@ -307,16 +362,6 @@ namespace EPRS
             }
         }
 
-        private void LoadMedicineInventory()
-        {
-            string query = "SELECT name, amount_grams FROM medicine";
-            MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
-            DataTable medicineTable = new DataTable();
-            adapter.Fill(medicineTable);
-
-            // Display data in a DataGridView or ListView
-            medicineDataGridView.DataSource = medicineTable;
-        }
 
         private void medicineSearchTextBox_TextChanged_1(object sender, EventArgs e)
         {
@@ -338,16 +383,16 @@ namespace EPRS
                 DataTable suggestionTable = new DataTable();
                 adapter.Fill(suggestionTable);
 
-                // Clear previous suggestions
+
                 medicineSuggestionListBox.Items.Clear();
 
-                // Add new suggestions
+
                 foreach (DataRow row in suggestionTable.Rows)
                 {
                     medicineSuggestionListBox.Items.Add(row["name"].ToString());
                 }
 
-                // Show the suggestions box
+
                 medicineSuggestionListBox.Visible = true;
             }
             catch (Exception ex)
@@ -356,17 +401,20 @@ namespace EPRS
             }
         }
 
-        // Event to handle selection from suggestion box
+
         private void medicineSuggestionListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Handle the selected medicine from suggestions
+
             if (medicineSuggestionListBox.SelectedIndex != -1)
             {
                 medicineSearchTextBox.Text = medicineSuggestionListBox.SelectedItem.ToString();
-                medicineSuggestionListBox.Visible = false; // Hide the suggestion box
+                medicineSuggestionListBox.Visible = false;
             }
         }
 
-        
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

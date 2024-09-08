@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DoctorForm));
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            label3 = new Label();
+            notificationPanel = new Panel();
+            notificationLbl = new Label();
             PatientNameLbl = new Label();
             prescriptionsDataGridView = new DataGridView();
             detailsPanel = new Panel();
@@ -39,6 +42,11 @@
             searchBox = new TextBox();
             label2 = new Label();
             tabPage2 = new TabPage();
+            label7 = new Label();
+            notificationPanel1 = new Panel();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
             medicineSuggestionListBox = new ListBox();
             medicineSearchTextBox = new TextBox();
             medicineDataGridView = new DataGridView();
@@ -48,9 +56,11 @@
             unameLbl = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
+            notificationPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)prescriptionsDataGridView).BeginInit();
             detailsPanel.SuspendLayout();
             tabPage2.SuspendLayout();
+            notificationPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)medicineDataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -70,6 +80,8 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(label3);
+            tabPage1.Controls.Add(notificationPanel);
             tabPage1.Controls.Add(PatientNameLbl);
             tabPage1.Controls.Add(prescriptionsDataGridView);
             tabPage1.Controls.Add(detailsPanel);
@@ -83,6 +95,36 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Patient Records";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.ForeColor = SystemColors.AppWorkspace;
+            label3.Location = new Point(1201, 26);
+            label3.Name = "label3";
+            label3.Size = new Size(167, 35);
+            label3.TabIndex = 7;
+            label3.Text = "Notifications";
+            // 
+            // notificationPanel
+            // 
+            notificationPanel.Controls.Add(notificationLbl);
+            notificationPanel.Location = new Point(1068, 117);
+            notificationPanel.Name = "notificationPanel";
+            notificationPanel.Size = new Size(430, 392);
+            notificationPanel.TabIndex = 6;
+            // 
+            // notificationLbl
+            // 
+            notificationLbl.AutoSize = true;
+            notificationLbl.Font = new Font("Segoe UI", 10.8F, FontStyle.Italic, GraphicsUnit.Point);
+            notificationLbl.ForeColor = Color.DarkSalmon;
+            notificationLbl.Location = new Point(65, 75);
+            notificationLbl.Name = "notificationLbl";
+            notificationLbl.Size = new Size(292, 25);
+            notificationLbl.TabIndex = 1;
+            notificationLbl.Text = "Notifications will be Appeared Here";
             // 
             // PatientNameLbl
             // 
@@ -111,7 +153,7 @@
             detailsPanel.Controls.Add(patientDetaisLbl);
             detailsPanel.Location = new Point(15, 117);
             detailsPanel.Name = "detailsPanel";
-            detailsPanel.Size = new Size(1528, 392);
+            detailsPanel.Size = new Size(1001, 392);
             detailsPanel.TabIndex = 3;
             // 
             // patientDetaisLbl
@@ -156,6 +198,10 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(label7);
+            tabPage2.Controls.Add(notificationPanel1);
+            tabPage2.Controls.Add(label5);
+            tabPage2.Controls.Add(label4);
             tabPage2.Controls.Add(medicineSuggestionListBox);
             tabPage2.Controls.Add(medicineSearchTextBox);
             tabPage2.Controls.Add(medicineDataGridView);
@@ -166,32 +212,86 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Medicine Inventory";
             tabPage2.UseVisualStyleBackColor = true;
+            tabPage2.Click += tabPage2_Click;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.ForeColor = SystemColors.AppWorkspace;
+            label7.Location = new Point(1199, 27);
+            label7.Name = "label7";
+            label7.Size = new Size(167, 35);
+            label7.TabIndex = 8;
+            label7.Text = "Notifications";
+            // 
+            // notificationPanel1
+            // 
+            notificationPanel1.Controls.Add(label6);
+            notificationPanel1.Location = new Point(1090, 109);
+            notificationPanel1.Name = "notificationPanel1";
+            notificationPanel1.Size = new Size(430, 392);
+            notificationPanel1.TabIndex = 7;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 10.8F, FontStyle.Italic, GraphicsUnit.Point);
+            label6.ForeColor = Color.DarkSalmon;
+            label6.Location = new Point(65, 75);
+            label6.Name = "label6";
+            label6.Size = new Size(292, 25);
+            label6.TabIndex = 1;
+            label6.Text = "Notifications will be Appeared Here";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(537, 132);
+            label5.Name = "label5";
+            label5.Size = new Size(340, 20);
+            label5.TabIndex = 4;
+            label5.Text = "Search Medicine To Find Available Stock Amount :";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.ForeColor = SystemColors.ActiveBorder;
+            label4.Location = new Point(36, 73);
+            label4.Name = "label4";
+            label4.Size = new Size(205, 28);
+            label4.TabIndex = 3;
+            label4.Text = "All Available Medicine";
             // 
             // medicineSuggestionListBox
             // 
+            medicineSuggestionListBox.BorderStyle = BorderStyle.None;
             medicineSuggestionListBox.FormattingEnabled = true;
             medicineSuggestionListBox.ItemHeight = 20;
-            medicineSuggestionListBox.Location = new Point(467, 103);
+            medicineSuggestionListBox.Location = new Point(546, 193);
             medicineSuggestionListBox.Name = "medicineSuggestionListBox";
-            medicineSuggestionListBox.Size = new Size(150, 104);
+            medicineSuggestionListBox.Size = new Size(306, 260);
             medicineSuggestionListBox.TabIndex = 2;
             // 
             // medicineSearchTextBox
             // 
-            medicineSearchTextBox.Location = new Point(438, 29);
+            medicineSearchTextBox.Location = new Point(883, 129);
             medicineSearchTextBox.Name = "medicineSearchTextBox";
-            medicineSearchTextBox.Size = new Size(125, 27);
+            medicineSearchTextBox.Size = new Size(190, 27);
             medicineSearchTextBox.TabIndex = 1;
             medicineSearchTextBox.TextChanged += medicineSearchTextBox_TextChanged_1;
             // 
             // medicineDataGridView
             // 
+            medicineDataGridView.BackgroundColor = SystemColors.Window;
             medicineDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            medicineDataGridView.Location = new Point(36, 78);
+            medicineDataGridView.GridColor = SystemColors.InactiveCaption;
+            medicineDataGridView.Location = new Point(36, 132);
             medicineDataGridView.Name = "medicineDataGridView";
             medicineDataGridView.RowHeadersWidth = 51;
             medicineDataGridView.RowTemplate.Height = 29;
-            medicineDataGridView.Size = new Size(300, 188);
+            medicineDataGridView.Size = new Size(464, 690);
             medicineDataGridView.TabIndex = 0;
             // 
             // label1
@@ -231,7 +331,7 @@
             unameLbl.AutoSize = true;
             unameLbl.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
             unameLbl.ForeColor = Color.Tomato;
-            unameLbl.Location = new Point(1348, 43);
+            unameLbl.Location = new Point(1365, 43);
             unameLbl.Name = "unameLbl";
             unameLbl.Size = new Size(157, 32);
             unameLbl.TabIndex = 13;
@@ -258,11 +358,15 @@
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
+            notificationPanel.ResumeLayout(false);
+            notificationPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)prescriptionsDataGridView).EndInit();
             detailsPanel.ResumeLayout(false);
             detailsPanel.PerformLayout();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
+            notificationPanel1.ResumeLayout(false);
+            notificationPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)medicineDataGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -291,5 +395,13 @@
         private DataGridView medicineDataGridView;
         private TextBox medicineSearchTextBox;
         private ListBox medicineSuggestionListBox;
+        private Panel notificationPanel;
+        private Label label3;
+        private Label notificationLbl;
+        private Label label4;
+        private Label label5;
+        private Panel notificationPanel1;
+        private Label label6;
+        private Label label7;
     }
 }
