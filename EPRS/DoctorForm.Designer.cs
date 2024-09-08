@@ -279,7 +279,7 @@
             medicineDataGridView.Name = "medicineDataGridView";
             medicineDataGridView.RowHeadersWidth = 51;
             medicineDataGridView.RowTemplate.Height = 29;
-            medicineDataGridView.Size = new Size(536, 690);
+            medicineDataGridView.Size = new Size(536, 639);
             medicineDataGridView.TabIndex = 0;
             // 
             // label1
