@@ -53,6 +53,7 @@
             welcomeLabel = new Label();
             pictureBox1 = new PictureBox();
             unameLbl = new Label();
+            settingsBtn = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             notificationPanel.SuspendLayout();
@@ -325,12 +326,26 @@
             unameLbl.TabIndex = 13;
             unameLbl.Text = "Doctor Name";
             // 
+            // settingsBtn
+            // 
+            settingsBtn.BackColor = Color.Transparent;
+            settingsBtn.BackgroundImage = (Image)resources.GetObject("settingsBtn.BackgroundImage");
+            settingsBtn.BackgroundImageLayout = ImageLayout.Stretch;
+            settingsBtn.Image = (Image)resources.GetObject("settingsBtn.Image");
+            settingsBtn.Location = new Point(1594, 919);
+            settingsBtn.Name = "settingsBtn";
+            settingsBtn.Size = new Size(44, 46);
+            settingsBtn.TabIndex = 14;
+            settingsBtn.UseVisualStyleBackColor = false;
+            settingsBtn.Click += settingsBtn_Click;
+            // 
             // DoctorForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(254, 254, 227);
-            ClientSize = new Size(1622, 937);
+            ClientSize = new Size(1650, 977);
+            Controls.Add(settingsBtn);
             Controls.Add(unameLbl);
             Controls.Add(pictureBox1);
             Controls.Add(welcomeLabel);
@@ -390,5 +405,6 @@
         private Panel notificationPanel1;
         private Label label6;
         private Label label7;
+        private Button settingsBtn;
     }
 }

@@ -60,10 +60,10 @@ namespace EPRS
 
                 medicineDataGridView.DataSource = medicineTable;
 
-                notificationPanel.Controls.Clear();  // Clear previous notifications from both panels
+                notificationPanel.Controls.Clear();
                 notificationPanel1.Controls.Clear();
 
-                int yOffset = 0;  // Y-offset for label positioning
+                int yOffset = 0;
 
                 foreach (DataRow row in medicineTable.Rows)
                 {
@@ -74,7 +74,7 @@ namespace EPRS
                     {
                         ShowLowStockNotification(medicineName, amountGrams, yOffset, notificationPanel);
                         ShowLowStockNotification(medicineName, amountGrams, yOffset, notificationPanel1);
-                        yOffset += 30;  // Adjust Y-offset for the next label
+                        yOffset += 30;
 
                         label6.Text = "";
                         notificationLbl.Text = "";
@@ -94,7 +94,7 @@ namespace EPRS
                 Text = $"{medicineName} is low on stock. Available amount: {amountGrams} grams.",
                 AutoSize = true,
                 ForeColor = Color.Red,
-                Location = new Point(5, yOffset)  // Adjust label position based on Y-offset
+                Location = new Point(5, yOffset)
             };
 
             targetPanel.Controls.Add(notificationLabel);
@@ -369,27 +369,27 @@ namespace EPRS
 
             foreach (DataGridViewRow row in medicineDataGridView.Rows)
             {
-                // Ensure the cell is not null
+
                 if (row.Cells["name"].Value != null)
                 {
                     string medicineName = row.Cells["name"].Value.ToString().ToLower();
 
                     if (medicineName.Contains(searchValue))
                     {
-                        // Select the matching row
+
                         row.Selected = true;
-                        // Scroll the DataGridView to the selected row
+
                         medicineDataGridView.FirstDisplayedScrollingRowIndex = row.Index;
                     }
                     else
                     {
-                        // Deselect the row if it doesn't match the search string
+
                         row.Selected = false;
                     }
                 }
                 else
                 {
-                    // Deselect the row if the cell value is null
+
                     row.Selected = false;
                 }
             }
@@ -398,6 +398,12 @@ namespace EPRS
         private void tabPage2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void settingsBtn_Click(object sender, EventArgs e)
+        {
+            ProfileUpdate profileupdate = new ProfileUpdate(_doctorID);
+            profileupdate.ShowDialog();
         }
     }
 }

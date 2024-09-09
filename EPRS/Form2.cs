@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient; 
+using MySql.Data.MySqlClient;
 
 namespace EPRS
 {
