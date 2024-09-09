@@ -14,15 +14,18 @@ namespace EPRS
         private string patientID;
         private string _doctorID;
         private List<(string medicineName, string dose)> selectedMedicines = new List<(string, string)>();
+        private DoctorForm doctorForm;
 
-        public AddNewRecordForm(string patientID, string _doctorID)
+        public AddNewRecordForm(string patientID, string _doctorID, DoctorForm form)
         {
             InitializeComponent();
             this.patientID = patientID;
             this._doctorID = _doctorID;
             patientIdLabel.Text = "Patient ID: " + patientID;
             doctorIdLabel.Text = "Doctor ID: " + _doctorID;
+            this.doctorForm = form;
         }
+
 
         private void AddNewRecordForm_Load(object sender, EventArgs e)
         {
@@ -158,6 +161,8 @@ namespace EPRS
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Prescription saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                doctorForm.ReloadMedicineInventory();
+                doctorForm.ReloadPrescriptionDetails(patientID);
                 Close();
             }
             catch (Exception ex)

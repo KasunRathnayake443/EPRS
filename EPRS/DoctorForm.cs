@@ -49,6 +49,22 @@ namespace EPRS
                 MessageBox.Show($"Error connecting to the database: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public void ReloadDoctorDetails()
+        {
+
+            LoadDoctorName(); 
+        }
+
+        public void ReloadMedicineInventory()
+        {
+            LoadMedicineInventory();
+            
+        }
+        public void ReloadPrescriptionDetails(string patientID)
+        {
+            LoadPrescriptionDetails(patientID); 
+        }
         private void LoadMedicineInventory()
         {
             try
@@ -144,7 +160,7 @@ namespace EPRS
             searchBox.AutoCompleteCustomSource = new AutoCompleteStringCollection();
         }
 
-        private void LoadPatientIDs()
+        public void LoadPatientIDs()
         {
             try
             {
@@ -170,7 +186,7 @@ namespace EPRS
             }
         }
 
-        private void DisplayPatientDetails(DataRow patientData)
+        public void DisplayPatientDetails(DataRow patientData)
         {
             detailsPanel.Controls.Clear();
 
@@ -203,7 +219,7 @@ namespace EPRS
 
                 if (!string.IsNullOrEmpty(_doctorID))
                 {
-                    AddNewRecordForm addNewRecordForm = new AddNewRecordForm(patientID, _doctorID);
+                    AddNewRecordForm addNewRecordForm = new AddNewRecordForm(patientID, _doctorID, this);
                     addNewRecordForm.ShowDialog();
                 }
                 else
@@ -402,8 +418,8 @@ namespace EPRS
 
         private void settingsBtn_Click(object sender, EventArgs e)
         {
-            ProfileUpdate profileupdate = new ProfileUpdate(_doctorID);
-            profileupdate.ShowDialog();
+            ProfileUpdate profileUpdateForm = new ProfileUpdate(_doctorID, this); 
+            profileUpdateForm.Show();
         }
     }
 }

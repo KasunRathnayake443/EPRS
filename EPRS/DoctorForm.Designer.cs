@@ -320,7 +320,7 @@
             unameLbl.AutoSize = true;
             unameLbl.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
             unameLbl.ForeColor = Color.Tomato;
-            unameLbl.Location = new Point(1365, 43);
+            unameLbl.Location = new Point(1375, 34);
             unameLbl.Name = "unameLbl";
             unameLbl.Size = new Size(157, 32);
             unameLbl.TabIndex = 13;

@@ -10,11 +10,13 @@ namespace EPRS
     {
         private MySqlConnection connection;
         private string _doctorID;
+        private DoctorForm doctorForm;
 
-        public ProfileUpdate(string doctorID)
+        public ProfileUpdate(string doctorID, DoctorForm form)
         {
             InitializeComponent();
             this._doctorID = doctorID;
+            this.doctorForm = form; 
         }
 
         private void ProfileUpdate_Load(object sender, EventArgs e)
@@ -79,6 +81,7 @@ namespace EPRS
                 if (rowsAffected > 0)
                 {
                     MessageBox.Show("Profile updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    doctorForm.ReloadDoctorDetails();
                 }
                 else
                 {
