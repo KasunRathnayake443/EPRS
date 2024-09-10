@@ -11,7 +11,7 @@ namespace EPRS
     {
         private MySqlConnection connection;
         private string _username;
-        private string _doctorID;
+        private string _userID;
 
         public DoctorForm(string username)
         {
@@ -53,17 +53,17 @@ namespace EPRS
         public void ReloadDoctorDetails()
         {
 
-            LoadDoctorName(); 
+            LoadDoctorName();
         }
 
         public void ReloadMedicineInventory()
         {
             LoadMedicineInventory();
-            
+
         }
         public void ReloadPrescriptionDetails(string patientID)
         {
-            LoadPrescriptionDetails(patientID); 
+            LoadPrescriptionDetails(patientID);
         }
         private void LoadMedicineInventory()
         {
@@ -132,7 +132,7 @@ namespace EPRS
 
                 if (reader.Read())
                 {
-                    _doctorID = reader["ID"].ToString();
+                    _userID = reader["ID"].ToString();
                     string fullName = reader["name"].ToString();
 
                     if (!string.IsNullOrEmpty(fullName))
@@ -217,9 +217,9 @@ namespace EPRS
             {
                 string patientID = patientData["PatientID"].ToString();
 
-                if (!string.IsNullOrEmpty(_doctorID))
+                if (!string.IsNullOrEmpty(_userID))
                 {
-                    AddNewRecordForm addNewRecordForm = new AddNewRecordForm(patientID, _doctorID, this);
+                    AddNewRecordForm addNewRecordForm = new AddNewRecordForm(patientID, _userID, this);
                     addNewRecordForm.ShowDialog();
                 }
                 else
@@ -305,6 +305,8 @@ namespace EPRS
 
 
             prescriptionsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            label8.Text = "";
         }
 
         private void ClearPrescriptionDetails()
@@ -418,8 +420,13 @@ namespace EPRS
 
         private void settingsBtn_Click(object sender, EventArgs e)
         {
-            ProfileUpdate profileUpdateForm = new ProfileUpdate(_doctorID, this); 
+            ProfileUpdate profileUpdateForm = new ProfileUpdate(_userID, this);
             profileUpdateForm.Show();
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

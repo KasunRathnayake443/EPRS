@@ -9,13 +9,13 @@ namespace EPRS
     public partial class ProfileUpdate : Form
     {
         private MySqlConnection connection;
-        private string _doctorID;
+        private string _userID;
         private DoctorForm doctorForm;
 
-        public ProfileUpdate(string doctorID, DoctorForm form)
+        public ProfileUpdate(string userID, DoctorForm form)
         {
             InitializeComponent();
-            this._doctorID = doctorID;
+            this._userID = userID;
             this.doctorForm = form; 
         }
 
@@ -36,7 +36,7 @@ namespace EPRS
                 MessageBox.Show($"Error connecting to the database: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            label1.Text = "Doctor ID: " + _doctorID;
+            label1.Text = "Doctor ID: " + _userID;
         }
 
 
@@ -46,7 +46,7 @@ namespace EPRS
             {
                 string query = "SELECT name, Username, Password FROM Users WHERE id = @DoctorID";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("@DoctorID", _doctorID);
+                cmd.Parameters.AddWithValue("@DoctorID", _userID);
 
                 MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -74,7 +74,7 @@ namespace EPRS
                 cmd.Parameters.AddWithValue("@Name", nameBox.Text);
                 cmd.Parameters.AddWithValue("@Username", userBox.Text);
                 cmd.Parameters.AddWithValue("@Password", passBox.Text);
-                cmd.Parameters.AddWithValue("@DoctorID", _doctorID);
+                cmd.Parameters.AddWithValue("@DoctorID", _userID);
 
                 int rowsAffected = cmd.ExecuteNonQuery();
 

@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DoctorForm));
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            panel2 = new Panel();
+            panel1 = new Panel();
             label3 = new Label();
             notificationPanel = new Panel();
             notificationLbl = new Label();
@@ -54,6 +56,7 @@
             pictureBox1 = new PictureBox();
             unameLbl = new Label();
             settingsBtn = new Button();
+            label8 = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             notificationPanel.SuspendLayout();
@@ -80,6 +83,9 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(label8);
+            tabPage1.Controls.Add(panel2);
+            tabPage1.Controls.Add(panel1);
             tabPage1.Controls.Add(label3);
             tabPage1.Controls.Add(notificationPanel);
             tabPage1.Controls.Add(PatientNameLbl);
@@ -95,6 +101,22 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Patient Records";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.Linen;
+            panel2.Location = new Point(1036, 117);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(10, 407);
+            panel2.TabIndex = 9;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Linen;
+            panel1.Location = new Point(15, 515);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1522, 12);
+            panel1.TabIndex = 8;
             // 
             // label3
             // 
@@ -141,7 +163,7 @@
             prescriptionsDataGridView.BackgroundColor = SystemColors.ControlLightLight;
             prescriptionsDataGridView.BorderStyle = BorderStyle.None;
             prescriptionsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            prescriptionsDataGridView.Location = new Point(12, 515);
+            prescriptionsDataGridView.Location = new Point(6, 532);
             prescriptionsDataGridView.Name = "prescriptionsDataGridView";
             prescriptionsDataGridView.RowHeadersWidth = 51;
             prescriptionsDataGridView.RowTemplate.Height = 29;
@@ -339,6 +361,18 @@
             settingsBtn.UseVisualStyleBackColor = false;
             settingsBtn.Click += settingsBtn_Click;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 10.8F, FontStyle.Italic, GraphicsUnit.Point);
+            label8.ForeColor = Color.DarkSalmon;
+            label8.Location = new Point(120, 592);
+            label8.Name = "label8";
+            label8.Size = new Size(348, 25);
+            label8.TabIndex = 10;
+            label8.Text = "Prescription Records will be Appeared Here";
+            label8.Click += label8_Click;
+            // 
             // DoctorForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -406,5 +440,8 @@
         private Label label6;
         private Label label7;
         private Button settingsBtn;
+        private Panel panel2;
+        private Panel panel1;
+        private Label label8;
     }
 }
