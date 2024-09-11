@@ -29,14 +29,9 @@ namespace EPRS
                 connection = new MySqlConnection(connectionString);
                 connection.Open();
 
-                if (_role == "Doctor")
-                {
-                    LoadDoctorDetails();
-                }
-                else if (_role == "Staff")
-                {
-                    LoadStaffDetails();
-                }
+                
+                    LoadUserDetails();
+                
             }
             catch (Exception ex)
             {
@@ -46,31 +41,9 @@ namespace EPRS
             label1.Text = _role + " ID: " + _userID;
         }
 
-        private void LoadDoctorDetails()
-        {
-            try
-            {
-                string query = "SELECT name, Username, Password FROM Users WHERE id = @DoctorID";
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("@DoctorID", _userID);
+        
 
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    nameBox.Text = reader["name"].ToString();
-                    userBox.Text = reader["Username"].ToString();
-                    passBox.Text = reader["Password"].ToString();
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error loading doctor details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void LoadStaffDetails()
+        private void LoadUserDetails()
         {
             try
             {
@@ -112,11 +85,11 @@ namespace EPRS
                     MessageBox.Show("Profile updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (_parentForm is DoctorForm doctorForm)
                     {
-                        doctorForm.ReloadDoctorDetails(); 
+                        doctorForm.ReloadDoctorDetails();
                     }
                     else if (_parentForm is StaffForm staffForm)
                     {
-                        staffForm.LoadStaffName(); 
+                        staffForm.LoadStaffName();
                     }
                 }
                 else

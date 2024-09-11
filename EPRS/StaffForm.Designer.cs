@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffForm));
             tabControl1 = new TabControl();
             addPatientBtn = new TabPage();
+            label8 = new Label();
+            button1 = new Button();
             panel2 = new Panel();
             panel1 = new Panel();
             label3 = new Label();
@@ -55,7 +57,6 @@
             settingsBtn = new Button();
             unameLbl = new Label();
             pictureBox1 = new PictureBox();
-            button1 = new Button();
             tabControl1.SuspendLayout();
             addPatientBtn.SuspendLayout();
             notificationPanel.SuspendLayout();
@@ -82,6 +83,7 @@
             // 
             // addPatientBtn
             // 
+            addPatientBtn.Controls.Add(label8);
             addPatientBtn.Controls.Add(button1);
             addPatientBtn.Controls.Add(panel2);
             addPatientBtn.Controls.Add(panel1);
@@ -100,6 +102,27 @@
             addPatientBtn.TabIndex = 0;
             addPatientBtn.Text = "Patient Records";
             addPatientBtn.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 10.8F, FontStyle.Italic, GraphicsUnit.Point);
+            label8.ForeColor = Color.DarkSalmon;
+            label8.Location = new Point(140, 609);
+            label8.Name = "label8";
+            label8.Size = new Size(348, 25);
+            label8.TabIndex = 11;
+            label8.Text = "Prescription Records will be Appeared Here";
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.LightGreen;
+            button1.Location = new Point(814, 33);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 10;
+            button1.Text = "Add Patient";
+            button1.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
@@ -197,6 +220,7 @@
             searchBtn.TabIndex = 2;
             searchBtn.Text = "Search";
             searchBtn.UseVisualStyleBackColor = false;
+            searchBtn.Click += searchBtn_Click;
             // 
             // searchBox
             // 
@@ -347,16 +371,6 @@
             pictureBox1.TabIndex = 15;
             pictureBox1.TabStop = false;
             // 
-            // button1
-            // 
-            button1.BackColor = Color.LightGreen;
-            button1.Location = new Point(814, 33);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 10;
-            button1.Text = "Add Patient";
-            button1.UseVisualStyleBackColor = false;
-            // 
             // StaffForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -422,5 +436,6 @@
         private Panel panel1;
         private Panel panel2;
         private Button button1;
+        private Label label8;
     }
 }
