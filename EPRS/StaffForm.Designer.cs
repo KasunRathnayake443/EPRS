@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffForm));
             tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
+            addPatientBtn = new TabPage();
             panel2 = new Panel();
             panel1 = new Panel();
             label3 = new Label();
@@ -55,8 +55,9 @@
             settingsBtn = new Button();
             unameLbl = new Label();
             pictureBox1 = new PictureBox();
+            button1 = new Button();
             tabControl1.SuspendLayout();
-            tabPage1.SuspendLayout();
+            addPatientBtn.SuspendLayout();
             notificationPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)prescriptionsDataGridView).BeginInit();
             detailsPanel.SuspendLayout();
@@ -68,7 +69,7 @@
             // 
             // tabControl1
             // 
-            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(addPatientBtn);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.HotTrack = true;
             tabControl1.ImeMode = ImeMode.Alpha;
@@ -79,25 +80,26 @@
             tabControl1.Size = new Size(1568, 824);
             tabControl1.TabIndex = 1;
             // 
-            // tabPage1
+            // addPatientBtn
             // 
-            tabPage1.Controls.Add(panel2);
-            tabPage1.Controls.Add(panel1);
-            tabPage1.Controls.Add(label3);
-            tabPage1.Controls.Add(notificationPanel);
-            tabPage1.Controls.Add(PatientNameLbl);
-            tabPage1.Controls.Add(prescriptionsDataGridView);
-            tabPage1.Controls.Add(detailsPanel);
-            tabPage1.Controls.Add(searchBtn);
-            tabPage1.Controls.Add(searchBox);
-            tabPage1.Controls.Add(label2);
-            tabPage1.Location = new Point(4, 29);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1560, 791);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "Patient Records";
-            tabPage1.UseVisualStyleBackColor = true;
+            addPatientBtn.Controls.Add(button1);
+            addPatientBtn.Controls.Add(panel2);
+            addPatientBtn.Controls.Add(panel1);
+            addPatientBtn.Controls.Add(label3);
+            addPatientBtn.Controls.Add(notificationPanel);
+            addPatientBtn.Controls.Add(PatientNameLbl);
+            addPatientBtn.Controls.Add(prescriptionsDataGridView);
+            addPatientBtn.Controls.Add(detailsPanel);
+            addPatientBtn.Controls.Add(searchBtn);
+            addPatientBtn.Controls.Add(searchBox);
+            addPatientBtn.Controls.Add(label2);
+            addPatientBtn.Location = new Point(4, 29);
+            addPatientBtn.Name = "addPatientBtn";
+            addPatientBtn.Padding = new Padding(3);
+            addPatientBtn.Size = new Size(1560, 791);
+            addPatientBtn.TabIndex = 0;
+            addPatientBtn.Text = "Patient Records";
+            addPatientBtn.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -189,7 +191,7 @@
             // 
             searchBtn.BackColor = Color.LightBlue;
             searchBtn.ForeColor = Color.Black;
-            searchBtn.Location = new Point(750, 32);
+            searchBtn.Location = new Point(691, 33);
             searchBtn.Name = "searchBtn";
             searchBtn.Size = new Size(94, 29);
             searchBtn.TabIndex = 2;
@@ -198,7 +200,7 @@
             // 
             // searchBox
             // 
-            searchBox.Location = new Point(453, 33);
+            searchBox.Location = new Point(412, 33);
             searchBox.Name = "searchBox";
             searchBox.Size = new Size(263, 27);
             searchBox.TabIndex = 1;
@@ -345,6 +347,16 @@
             pictureBox1.TabIndex = 15;
             pictureBox1.TabStop = false;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.LightGreen;
+            button1.Location = new Point(814, 33);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 10;
+            button1.Text = "Add Patient";
+            button1.UseVisualStyleBackColor = false;
+            // 
             // StaffForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -364,8 +376,8 @@
             FormClosing += StaffForm_FormClosing;
             Load += StaffForm_Load;
             tabControl1.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
-            tabPage1.PerformLayout();
+            addPatientBtn.ResumeLayout(false);
+            addPatientBtn.PerformLayout();
             notificationPanel.ResumeLayout(false);
             notificationPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)prescriptionsDataGridView).EndInit();
@@ -384,7 +396,7 @@
         #endregion
 
         private TabControl tabControl1;
-        private TabPage tabPage1;
+        private TabPage addPatientBtn;
         private Label label3;
         private Panel notificationPanel;
         private Label notificationLbl;
@@ -409,5 +421,6 @@
         private PictureBox pictureBox1;
         private Panel panel1;
         private Panel panel2;
+        private Button button1;
     }
 }

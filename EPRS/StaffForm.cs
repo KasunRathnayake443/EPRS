@@ -114,8 +114,8 @@ namespace EPRS
         }
 
 
-        
-        private void LoadStaffName()
+
+        public void LoadStaffName()
         {
             try
             {
@@ -150,7 +150,8 @@ namespace EPRS
 
         private void settingsBtn_Click(object sender, EventArgs e)
         {
-            
+            ProfileUpdate profileUpdateForm = new ProfileUpdate(_userID, "Staff", this);
+            profileUpdateForm.Show();
         }
     }
 

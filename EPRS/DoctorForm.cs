@@ -420,7 +420,7 @@ namespace EPRS
 
         private void settingsBtn_Click(object sender, EventArgs e)
         {
-            ProfileUpdate profileUpdateForm = new ProfileUpdate(_userID, this);
+            ProfileUpdate profileUpdateForm = new ProfileUpdate(_userID, "Doctor", this);
             profileUpdateForm.Show();
         }
 
