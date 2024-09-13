@@ -57,6 +57,7 @@
             settingsBtn = new Button();
             unameLbl = new Label();
             pictureBox1 = new PictureBox();
+            panel3 = new Panel();
             tabControl1.SuspendLayout();
             addPatientBtn.SuspendLayout();
             notificationPanel.SuspendLayout();
@@ -241,6 +242,7 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(panel3);
             tabPage2.Controls.Add(label7);
             tabPage2.Controls.Add(notificationPanel1);
             tabPage2.Controls.Add(label5);
@@ -371,6 +373,14 @@
             pictureBox1.TabIndex = 15;
             pictureBox1.TabStop = false;
             // 
+            // panel3
+            // 
+            panel3.BackColor = Color.Linen;
+            panel3.Location = new Point(775, 97);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(10, 674);
+            panel3.TabIndex = 10;
+            // 
             // StaffForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -437,5 +447,6 @@
         private Panel panel2;
         private Button button1;
         private Label label8;
+        private Panel panel3;
     }
 }

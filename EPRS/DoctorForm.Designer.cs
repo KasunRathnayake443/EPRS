@@ -57,6 +57,7 @@
             pictureBox1 = new PictureBox();
             unameLbl = new Label();
             settingsBtn = new Button();
+            panel3 = new Panel();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             notificationPanel.SuspendLayout();
@@ -232,6 +233,7 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(panel3);
             tabPage2.Controls.Add(label7);
             tabPage2.Controls.Add(notificationPanel1);
             tabPage2.Controls.Add(label5);
@@ -373,6 +375,14 @@
             settingsBtn.UseVisualStyleBackColor = false;
             settingsBtn.Click += settingsBtn_Click;
             // 
+            // panel3
+            // 
+            panel3.BackColor = Color.Linen;
+            panel3.Location = new Point(800, 109);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(10, 662);
+            panel3.TabIndex = 9;
+            // 
             // DoctorForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -443,5 +453,6 @@
         private Panel panel2;
         private Panel panel1;
         private Label label8;
+        private Panel panel3;
     }
 }

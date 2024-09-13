@@ -38,13 +38,16 @@
             label7 = new Label();
             label8 = new Label();
             label9 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            comboBox1 = new ComboBox();
-            dateTimePicker1 = new DateTimePicker();
+            FNameBox = new TextBox();
+            LNameBox = new TextBox();
+            AddressBox = new TextBox();
+            EmailBox = new TextBox();
+            PhoneBox = new TextBox();
+            GenderBox = new ComboBox();
+            dateTimePicker = new DateTimePicker();
+            IdLbl = new Label();
+            saveBtn = new Button();
+            cancelBtn = new Button();
             SuspendLayout();
             // 
             // label1
@@ -79,6 +82,7 @@
             label3.Size = new Size(112, 28);
             label3.TabIndex = 2;
             label3.Text = "Last Name :";
+            label3.Click += label3_Click;
             // 
             // label4
             // 
@@ -146,69 +150,105 @@
             label9.TabIndex = 8;
             label9.Text = "Phone No :";
             // 
-            // textBox1
+            // FNameBox
             // 
-            textBox1.Location = new Point(220, 183);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(255, 27);
-            textBox1.TabIndex = 9;
+            FNameBox.Location = new Point(220, 183);
+            FNameBox.Name = "FNameBox";
+            FNameBox.Size = new Size(255, 27);
+            FNameBox.TabIndex = 9;
             // 
-            // textBox2
+            // LNameBox
             // 
-            textBox2.Location = new Point(649, 183);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(255, 27);
-            textBox2.TabIndex = 10;
+            LNameBox.Location = new Point(649, 183);
+            LNameBox.Name = "LNameBox";
+            LNameBox.Size = new Size(255, 27);
+            LNameBox.TabIndex = 10;
             // 
-            // textBox3
+            // AddressBox
             // 
-            textBox3.Location = new Point(220, 291);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(684, 27);
-            textBox3.TabIndex = 11;
+            AddressBox.Location = new Point(220, 291);
+            AddressBox.Name = "AddressBox";
+            AddressBox.Size = new Size(684, 27);
+            AddressBox.TabIndex = 11;
             // 
-            // textBox4
+            // EmailBox
             // 
-            textBox4.Location = new Point(220, 351);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(255, 27);
-            textBox4.TabIndex = 12;
+            EmailBox.Location = new Point(220, 351);
+            EmailBox.Name = "EmailBox";
+            EmailBox.Size = new Size(255, 27);
+            EmailBox.TabIndex = 12;
             // 
-            // textBox5
+            // PhoneBox
             // 
-            textBox5.Location = new Point(649, 348);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(255, 27);
-            textBox5.TabIndex = 13;
+            PhoneBox.Location = new Point(649, 348);
+            PhoneBox.Name = "PhoneBox";
+            PhoneBox.Size = new Size(255, 27);
+            PhoneBox.TabIndex = 13;
             // 
-            // comboBox1
+            // GenderBox
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(220, 234);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(255, 28);
-            comboBox1.TabIndex = 14;
+            GenderBox.FormattingEnabled = true;
+            GenderBox.Items.AddRange(new object[] { "Male", "Female" });
+            GenderBox.Location = new Point(220, 234);
+            GenderBox.Name = "GenderBox";
+            GenderBox.Size = new Size(255, 28);
+            GenderBox.TabIndex = 14;
             // 
-            // dateTimePicker1
+            // dateTimePicker
             // 
-            dateTimePicker1.Location = new Point(649, 235);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(250, 27);
-            dateTimePicker1.TabIndex = 15;
+            dateTimePicker.Location = new Point(649, 235);
+            dateTimePicker.Name = "dateTimePicker";
+            dateTimePicker.Size = new Size(255, 27);
+            dateTimePicker.TabIndex = 15;
+            // 
+            // IdLbl
+            // 
+            IdLbl.AutoSize = true;
+            IdLbl.ForeColor = SystemColors.ControlDarkDark;
+            IdLbl.Location = new Point(220, 130);
+            IdLbl.Name = "IdLbl";
+            IdLbl.Size = new Size(42, 20);
+            IdLbl.TabIndex = 16;
+            IdLbl.Text = "IdLbl";
+            // 
+            // saveBtn
+            // 
+            saveBtn.BackColor = Color.LightGreen;
+            saveBtn.Location = new Point(687, 448);
+            saveBtn.Name = "saveBtn";
+            saveBtn.Size = new Size(94, 29);
+            saveBtn.TabIndex = 17;
+            saveBtn.Text = "Save";
+            saveBtn.UseVisualStyleBackColor = false;
+            saveBtn.Click += saveBtn_Click;
+            // 
+            // cancelBtn
+            // 
+            cancelBtn.BackColor = Color.PaleVioletRed;
+            cancelBtn.Location = new Point(810, 448);
+            cancelBtn.Name = "cancelBtn";
+            cancelBtn.Size = new Size(94, 29);
+            cancelBtn.TabIndex = 18;
+            cancelBtn.Text = "Cancel";
+            cancelBtn.UseVisualStyleBackColor = false;
+            cancelBtn.Click += cancelBtn_Click;
             // 
             // EditPatient
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Azure;
-            ClientSize = new Size(1036, 598);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(comboBox1);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            ClientSize = new Size(974, 529);
+            Controls.Add(cancelBtn);
+            Controls.Add(saveBtn);
+            Controls.Add(IdLbl);
+            Controls.Add(dateTimePicker);
+            Controls.Add(GenderBox);
+            Controls.Add(PhoneBox);
+            Controls.Add(EmailBox);
+            Controls.Add(AddressBox);
+            Controls.Add(LNameBox);
+            Controls.Add(FNameBox);
             Controls.Add(label9);
             Controls.Add(label8);
             Controls.Add(label7);
@@ -237,12 +277,15 @@
         private Label label7;
         private Label label8;
         private Label label9;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private ComboBox comboBox1;
-        private DateTimePicker dateTimePicker1;
+        private TextBox FNameBox;
+        private TextBox LNameBox;
+        private TextBox AddressBox;
+        private TextBox EmailBox;
+        private TextBox PhoneBox;
+        private ComboBox GenderBox;
+        private DateTimePicker dateTimePicker;
+        private Label IdLbl;
+        private Button saveBtn;
+        private Button cancelBtn;
     }
 }

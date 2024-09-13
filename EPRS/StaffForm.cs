@@ -46,6 +46,35 @@ namespace EPRS
             }
         }
 
+        public void ReloadPatientData(string patientID)
+        {
+            try
+            {
+                string query = "SELECT * FROM Patients WHERE PatientID = @PatientID";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@PatientID", patientID);
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                if (dataTable.Rows.Count > 0)
+                {
+
+                    DisplayPatientDetails(dataTable.Rows[0]);
+                }
+                else
+                {
+                    MessageBox.Show("Patient not found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearPatientDetails();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error reloading patient data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void StaffForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult result = MessageBox.Show(
@@ -190,10 +219,13 @@ namespace EPRS
             }
         }
 
+
+
         public void DisplayPatientDetails(DataRow patientData)
         {
             detailsPanel.Controls.Clear();
 
+            // Create and display patient details
             CreateDetailLabel("Patient ID: ", patientData["PatientID"].ToString(), 0);
             CreateDetailLabel("First Name: ", patientData["FirstName"].ToString(), 1);
             CreateDetailLabel("Last Name: ", patientData["LastName"].ToString(), 2);
@@ -206,8 +238,8 @@ namespace EPRS
 
             PatientNameLbl.Text = patientData["FirstName"].ToString() + " " + patientData["LastName"].ToString();
 
-
-            Button addRecordButton = new Button
+            // Create the "Edit Details" button
+            Button editDetailsButton = new Button
             {
                 Text = "Edit Details",
                 Size = new Size(150, 40),
@@ -216,14 +248,13 @@ namespace EPRS
                 Font = new Font("Segoe UI", 12, FontStyle.Regular)
             };
 
-
-            addRecordButton.Click += (sender, e) =>
+            editDetailsButton.Click += (sender, e) =>
             {
                 string patientID = patientData["PatientID"].ToString();
-
                 if (!string.IsNullOrEmpty(_userID))
                 {
-
+                    EditPatient editPatient = new EditPatient(patientID, this);
+                    editPatient.ShowDialog();
                 }
                 else
                 {
@@ -231,8 +262,69 @@ namespace EPRS
                 }
             };
 
-            detailsPanel.Controls.Add(addRecordButton);
+            // Add the Edit Details button to the panel
+            detailsPanel.Controls.Add(editDetailsButton);
+
+            // Create the "Delete" button
+            Button deleteButton = new Button
+            {
+                Text = "Delete Patient",
+                Size = new Size(150, 40),
+                Location = new Point(250, 320),
+                BackColor = Color.IndianRed,
+                Font = new Font("Segoe UI", 12, FontStyle.Regular)
+            };
+
+            deleteButton.Click += (sender, e) =>
+            {
+                DialogResult confirmResult = MessageBox.Show(
+                    "Are you sure you want to delete this patient account?",
+                    "Confirm Delete",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (confirmResult == DialogResult.Yes)
+                {
+                    string patientID = patientData["PatientID"].ToString();
+
+                    // Call the method to delete the patient from the database
+                    DeletePatientAccount(patientID);
+                }
+            };
+
+            // Add the Delete button to the panel
+            detailsPanel.Controls.Add(deleteButton);
         }
+
+        // Method to delete patient account from the database
+        private void DeletePatientAccount(string patientID)
+        {
+            try
+            {
+                string query = "DELETE FROM Patients WHERE PatientID = @PatientID";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@PatientID", patientID);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Patient account deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Optionally, you can clear the patient details and refresh the UI here
+                    ClearPatientDetails();
+                }
+                else
+                {
+                    MessageBox.Show("Patient account not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error deleting patient account: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
 
 
