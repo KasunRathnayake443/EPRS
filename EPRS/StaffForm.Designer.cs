@@ -46,6 +46,7 @@
             searchBox = new TextBox();
             label2 = new Label();
             tabPage2 = new TabPage();
+            panel3 = new Panel();
             label7 = new Label();
             notificationPanel1 = new Panel();
             label6 = new Label();
@@ -57,7 +58,6 @@
             settingsBtn = new Button();
             unameLbl = new Label();
             pictureBox1 = new PictureBox();
-            panel3 = new Panel();
             tabControl1.SuspendLayout();
             addPatientBtn.SuspendLayout();
             notificationPanel.SuspendLayout();
@@ -124,6 +124,7 @@
             button1.TabIndex = 10;
             button1.Text = "Add Patient";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // panel2
             // 
@@ -257,6 +258,14 @@
             tabPage2.Text = "Medicine Inventory";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // panel3
+            // 
+            panel3.BackColor = Color.Linen;
+            panel3.Location = new Point(775, 97);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(10, 674);
+            panel3.TabIndex = 10;
+            // 
             // label7
             // 
             label7.AutoSize = true;
@@ -372,14 +381,6 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 15;
             pictureBox1.TabStop = false;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.Linen;
-            panel3.Location = new Point(775, 97);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(10, 674);
-            panel3.TabIndex = 10;
             // 
             // StaffForm
             // 
