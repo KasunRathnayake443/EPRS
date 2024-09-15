@@ -1,9 +1,11 @@
 # EPRS
 
-#Electronic Patient Record Management System created using Visual Studio
-#Create a database Named = "EPRS"
+Electronic Patient Record Management System created using Visual Studio
 
-#Logins
+##Database
+Create a database Named = "EPRS"
+
+##Logins
  staff1
  123
 
