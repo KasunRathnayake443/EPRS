@@ -194,6 +194,7 @@
             Controls.Add(label1);
             MaximizeBox = false;
             Name = "DatabaseConfigForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "DatabaseConfigForm";
             Load += DatabaseConfigForm_Load;
             panel1.ResumeLayout(false);

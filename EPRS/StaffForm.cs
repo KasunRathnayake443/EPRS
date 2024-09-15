@@ -123,11 +123,6 @@ namespace EPRS
                     AllowUserToAddRows = false
                 };
 
-
-               
-                
-
-
                 medicineGridView.CellClick += MedicineGridView_CellClick;
                 medicineGridView.Columns.Add(editButtonColumn);
 
@@ -184,6 +179,40 @@ namespace EPRS
 
                 EditMedicine editMedicineForm = new EditMedicine(selectedMedicineName);
                 editMedicineForm.ShowDialog();
+
+                ReloadMedicineInventory();
+
+            }
+        }
+
+        public void ReloadMedicineInventory()
+        {
+            // Clear existing controls in both panels before loading new data
+            notificationPanel.Controls.Clear();
+            notificationPanel1.Controls.Clear();
+
+            // Reload the medicine inventory (this will also populate the DataGridView)
+            LoadMedicineInventory();
+
+            // Get the medicine table again (assuming LoadMedicineInventory doesn't clear the data)
+            string query = "SELECT name, amount_grams FROM medicine";
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
+            DataTable medicineTable = new DataTable();
+            adapter.Fill(medicineTable);
+
+            // Iterate through the data and check for low stock
+            int yOffset = 0;
+            foreach (DataRow row in medicineTable.Rows)
+            {
+                string medicineName = row["name"].ToString();
+                double amountGrams = Convert.ToDouble(row["amount_grams"]);
+
+                // If stock is less than 100 grams, show low stock notification in both panels
+                if (amountGrams < 100)
+                {
+                    ShowLowStockNotification(medicineName, amountGrams, yOffset, notificationPanel, notificationPanel1);
+                    yOffset += 30;  // Increment the yOffset for proper spacing between labels
+                }
             }
         }
 

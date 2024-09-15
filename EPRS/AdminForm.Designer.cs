@@ -36,6 +36,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Name = "AdminForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AdminForm";
             Load += AdminForm_Load;
             ResumeLayout(false);

@@ -35,7 +35,7 @@ namespace EPRS
                 connection = new MySqlConnection(connectionString);
                 connection.Open();
 
-          
+
                 LoadUserDetails();
             }
             catch (Exception ex)
@@ -51,25 +51,25 @@ namespace EPRS
         {
             try
             {
-                
+
                 string query = "SELECT FirstName, LastName, Gender, Address, Email, PhoneNumber, DateOfBirth FROM Patients WHERE PatientID = @PatientID";
 
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("@PatientID", _userID);
 
-                
+
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
                 {
-                    
+
                     FNameBox.Text = reader["FirstName"].ToString();
                     LNameBox.Text = reader["LastName"].ToString();
-                    GenderBox.SelectedItem = reader["Gender"].ToString();  
+                    GenderBox.SelectedItem = reader["Gender"].ToString();
                     AddressBox.Text = reader["Address"].ToString();
                     EmailBox.Text = reader["Email"].ToString();
                     PhoneBox.Text = reader["PhoneNumber"].ToString();
-                    dateTimePicker.Value = Convert.ToDateTime(reader["DateOfBirth"]);  
+                    dateTimePicker.Value = Convert.ToDateTime(reader["DateOfBirth"]);
                 }
                 else
                 {
@@ -109,7 +109,7 @@ namespace EPRS
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Patient details updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-               
+
                 if (_parentForm is StaffForm staffForm)
                 {
                     staffForm.ReloadPatientData(_userID);

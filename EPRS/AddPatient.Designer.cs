@@ -256,6 +256,7 @@
             Controls.Add(label1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AddPatient";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Add New Patient ";
             Load += AddPatient_Load;
             ResumeLayout(false);

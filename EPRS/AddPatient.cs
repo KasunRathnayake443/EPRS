@@ -32,7 +32,7 @@ namespace EPRS
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            
+
             if (!ValidateFields())
             {
                 return;
@@ -49,7 +49,7 @@ namespace EPRS
 
             try
             {
-                
+
                 string checkQuery = "SELECT COUNT(*) FROM Patients WHERE PatientID = @PatientID";
                 MySqlCommand checkCmd = new MySqlCommand(checkQuery, connection);
                 checkCmd.Parameters.AddWithValue("@PatientID", patientID);
@@ -61,7 +61,7 @@ namespace EPRS
                     return;
                 }
 
-               
+
                 string insertQuery = "INSERT INTO Patients (PatientID, FirstName, LastName, Gender, Address, Email, PhoneNumber, DateOfBirth) " +
                                      "VALUES (@PatientID, @FirstName, @LastName, @Gender, @Address, @Email, @PhoneNumber, @DateOfBirth)";
                 MySqlCommand insertCmd = new MySqlCommand(insertQuery, connection);
@@ -96,7 +96,7 @@ namespace EPRS
             }
         }
 
-        
+
         private bool ValidateFields()
         {
             if (string.IsNullOrEmpty(IdBox.Text.Trim()))

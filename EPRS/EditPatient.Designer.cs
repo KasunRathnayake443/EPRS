@@ -260,6 +260,7 @@
             Controls.Add(label1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "EditPatient";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Update Patient Details";
             Load += EditPatient_Load;
             ResumeLayout(false);

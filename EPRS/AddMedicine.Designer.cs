@@ -37,6 +37,7 @@
             AmountBox = new TextBox();
             SaveBtn = new Button();
             CancelBtn = new Button();
+            label5 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -91,7 +92,7 @@
             // 
             AmountBox.Location = new Point(216, 173);
             AmountBox.Name = "AmountBox";
-            AmountBox.Size = new Size(330, 27);
+            AmountBox.Size = new Size(309, 27);
             AmountBox.TabIndex = 5;
             // 
             // SaveBtn
@@ -117,12 +118,22 @@
             CancelBtn.UseVisualStyleBackColor = false;
             CancelBtn.Click += CancelBtn_Click;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(531, 177);
+            label5.Name = "label5";
+            label5.Size = new Size(18, 20);
+            label5.TabIndex = 8;
+            label5.Text = "g";
+            // 
             // AddMedicine
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Azure;
             ClientSize = new Size(686, 418);
+            Controls.Add(label5);
             Controls.Add(CancelBtn);
             Controls.Add(SaveBtn);
             Controls.Add(AmountBox);
@@ -151,5 +162,6 @@
         private TextBox AmountBox;
         private Button SaveBtn;
         private Button CancelBtn;
+        private Label label5;
     }
 }
