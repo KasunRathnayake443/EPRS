@@ -18,6 +18,7 @@ namespace EPRS
         {
             InitializeComponent();
             _username = username;
+
         }
 
         private void StaffForm_Load(object sender, EventArgs e)
@@ -103,13 +104,37 @@ namespace EPRS
                 DataTable medicineTable = new DataTable();
                 adapter.Fill(medicineTable);
 
-                medicineDataGridView.DataSource = medicineTable;
 
-                notificationPanel.Controls.Clear();
-                notificationPanel1.Controls.Clear();
+                medicineView.Controls.Clear();
+
+                DataGridViewButtonColumn editButtonColumn = new DataGridViewButtonColumn
+                {
+                    Name = "EditButton",
+                    HeaderText = "Edit",
+                    Text = "Edit",
+                    UseColumnTextForButtonValue = true
+                };
+
+                DataGridView medicineGridView = new DataGridView
+                {
+                    DataSource = medicineTable,
+                    Dock = DockStyle.Fill,
+                    AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
+                    AllowUserToAddRows = false
+                };
+
+
+               
+                
+
+
+                medicineGridView.CellClick += MedicineGridView_CellClick;
+                medicineGridView.Columns.Add(editButtonColumn);
+
+                medicineView.Controls.Add(medicineGridView);
+
 
                 int yOffset = 0;
-
                 foreach (DataRow row in medicineTable.Rows)
                 {
                     string medicineName = row["name"].ToString();
@@ -117,13 +142,29 @@ namespace EPRS
 
                     if (amountGrams < 100)
                     {
-                        ShowLowStockNotification(medicineName, amountGrams, yOffset, notificationPanel);
-                        ShowLowStockNotification(medicineName, amountGrams, yOffset, notificationPanel1);
+                        ShowLowStockNotification(medicineName, amountGrams, yOffset, notificationPanel1, notificationPanel);
                         yOffset += 30;
 
                         label6.Text = "";
                         notificationLbl.Text = "";
                     }
+                }
+
+
+                if (!medicineView.Controls.OfType<Button>().Any(b => b.Text == "Add New Medicine"))
+                {
+                    Button addNewMedicineButton = new Button
+                    {
+                        Text = "Add New Medicine",
+                        Size = new Size(150, 40),
+                        Dock = DockStyle.Bottom,
+                        BackColor = Color.LightGreen,
+                        Font = new Font("Segoe UI", 12, FontStyle.Regular)
+                    };
+                    addNewMedicineButton.Click += AddNewBtn_Click;
+
+
+                    medicineView.Controls.Add(addNewMedicineButton);
                 }
             }
             catch (Exception ex)
@@ -131,9 +172,27 @@ namespace EPRS
                 MessageBox.Show($"Error loading medicine inventory: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void ShowLowStockNotification(string medicineName, double amountGrams, int yOffset, Panel targetPanel)
+
+
+        private void MedicineGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Label notificationLabel = new Label
+            if (e.ColumnIndex == ((DataGridView)sender).Columns["EditButton"].Index)
+            {
+
+                string selectedMedicineName = ((DataGridView)sender).Rows[e.RowIndex].Cells["name"].Value.ToString();
+
+
+                EditMedicine editMedicineForm = new EditMedicine(selectedMedicineName);
+                editMedicineForm.ShowDialog();
+            }
+        }
+
+
+
+        private void ShowLowStockNotification(string medicineName, double amountGrams, int yOffset, Panel targetPanel1, Panel targetPanel2)
+        {
+
+            Label notificationLabel1 = new Label
             {
                 Text = $"{medicineName} is low on stock. Available amount: {amountGrams} grams.",
                 AutoSize = true,
@@ -141,8 +200,22 @@ namespace EPRS
                 Location = new Point(5, yOffset)
             };
 
-            targetPanel.Controls.Add(notificationLabel);
+
+            Label notificationLabel2 = new Label
+            {
+                Text = $"{medicineName} is low on stock. Available amount: {amountGrams} grams.",
+                AutoSize = true,
+                ForeColor = Color.Red,
+                Location = new Point(5, yOffset)
+            };
+
+
+            targetPanel1.Controls.Add(notificationLabel1);
+
+
+            targetPanel2.Controls.Add(notificationLabel2);
         }
+
 
 
 
@@ -383,6 +456,30 @@ namespace EPRS
         {
             AddPatient AddPatient = new AddPatient(this);
             AddPatient.Show();
+        }
+
+
+
+
+
+
+        private void SearchBtn1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void medicineDataGridView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void AddNewBtn_Click(object sender, EventArgs e)
+        {
+            AddMedicine addMedicineForm = new AddMedicine();
+            addMedicineForm.ShowDialog();
+
+
+            LoadMedicineInventory();
         }
     }
 

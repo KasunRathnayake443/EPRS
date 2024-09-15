@@ -46,6 +46,7 @@
             searchBox = new TextBox();
             label2 = new Label();
             tabPage2 = new TabPage();
+            medicineView = new Panel();
             panel3 = new Panel();
             label7 = new Label();
             notificationPanel1 = new Panel();
@@ -53,7 +54,6 @@
             label5 = new Label();
             label4 = new Label();
             medicineSearchTextBox = new TextBox();
-            medicineDataGridView = new DataGridView();
             label1 = new Label();
             settingsBtn = new Button();
             unameLbl = new Label();
@@ -65,7 +65,6 @@
             detailsPanel.SuspendLayout();
             tabPage2.SuspendLayout();
             notificationPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)medicineDataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -243,13 +242,13 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(medicineView);
             tabPage2.Controls.Add(panel3);
             tabPage2.Controls.Add(label7);
             tabPage2.Controls.Add(notificationPanel1);
             tabPage2.Controls.Add(label5);
             tabPage2.Controls.Add(label4);
             tabPage2.Controls.Add(medicineSearchTextBox);
-            tabPage2.Controls.Add(medicineDataGridView);
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -258,10 +257,17 @@
             tabPage2.Text = "Medicine Inventory";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // medicineView
+            // 
+            medicineView.Location = new Point(39, 147);
+            medicineView.Name = "medicineView";
+            medicineView.Size = new Size(616, 596);
+            medicineView.TabIndex = 14;
+            // 
             // panel3
             // 
             panel3.BackColor = Color.Linen;
-            panel3.Location = new Point(775, 97);
+            panel3.Location = new Point(956, 91);
             panel3.Name = "panel3";
             panel3.Size = new Size(10, 674);
             panel3.TabIndex = 10;
@@ -320,20 +326,8 @@
             // 
             medicineSearchTextBox.Location = new Point(382, 91);
             medicineSearchTextBox.Name = "medicineSearchTextBox";
-            medicineSearchTextBox.Size = new Size(190, 27);
+            medicineSearchTextBox.Size = new Size(273, 27);
             medicineSearchTextBox.TabIndex = 1;
-            // 
-            // medicineDataGridView
-            // 
-            medicineDataGridView.BackgroundColor = SystemColors.Window;
-            medicineDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            medicineDataGridView.GridColor = SystemColors.InactiveCaption;
-            medicineDataGridView.Location = new Point(36, 132);
-            medicineDataGridView.Name = "medicineDataGridView";
-            medicineDataGridView.RowHeadersWidth = 51;
-            medicineDataGridView.RowTemplate.Height = 29;
-            medicineDataGridView.Size = new Size(536, 639);
-            medicineDataGridView.TabIndex = 0;
             // 
             // label1
             // 
@@ -368,9 +362,9 @@
             unameLbl.ForeColor = Color.Tomato;
             unameLbl.Location = new Point(1370, 51);
             unameLbl.Name = "unameLbl";
-            unameLbl.Size = new Size(157, 32);
+            unameLbl.Size = new Size(133, 32);
             unameLbl.TabIndex = 16;
-            unameLbl.Text = "Doctor Name";
+            unameLbl.Text = "Staff Name";
             // 
             // pictureBox1
             // 
@@ -394,7 +388,7 @@
             Controls.Add(label1);
             Controls.Add(tabControl1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            MinimizeBox = false;
+            MaximizeBox = false;
             Name = "StaffForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "EPRS Staff Dahboard";
@@ -412,7 +406,6 @@
             tabPage2.PerformLayout();
             notificationPanel1.ResumeLayout(false);
             notificationPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)medicineDataGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -439,7 +432,6 @@
         private Label label5;
         private Label label4;
         private TextBox medicineSearchTextBox;
-        private DataGridView medicineDataGridView;
         private Label label1;
         private Button settingsBtn;
         private Label unameLbl;
@@ -449,5 +441,6 @@
         private Button button1;
         private Label label8;
         private Panel panel3;
+        private Panel medicineView;
     }
 }
