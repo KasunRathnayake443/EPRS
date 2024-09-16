@@ -94,5 +94,39 @@ namespace EPRS
         {
             this.Close();
         }
+
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+           
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this medicine?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+    
+            if (dialogResult == DialogResult.Yes)
+            {
+                try
+                {
+                   
+                    string query = "DELETE FROM medicine WHERE id = @Id";
+
+                 
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("@Id", IdLbl.Text);
+                    cmd.ExecuteNonQuery();
+
+                   
+                    MessageBox.Show("Medicine has been successfully deleted.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+
+
+                }
+                catch (Exception ex)
+                {
+                    
+                    MessageBox.Show($"Error deleting medicine: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+           
+        }
+
     }
 }

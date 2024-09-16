@@ -39,6 +39,7 @@
             CancelBtn = new Button();
             SaveBtn = new Button();
             IdLbl = new Label();
+            DeleteBtn = new Button();
             SuspendLayout();
             // 
             // label1
@@ -110,8 +111,8 @@
             // 
             // CancelBtn
             // 
-            CancelBtn.BackColor = Color.LightCoral;
-            CancelBtn.Location = new Point(441, 300);
+            CancelBtn.BackColor = Color.LemonChiffon;
+            CancelBtn.Location = new Point(326, 300);
             CancelBtn.Name = "CancelBtn";
             CancelBtn.Size = new Size(94, 29);
             CancelBtn.TabIndex = 9;
@@ -123,7 +124,7 @@
             // 
             SaveBtn.BackColor = Color.MediumSpringGreen;
             SaveBtn.ForeColor = SystemColors.ActiveCaptionText;
-            SaveBtn.Location = new Point(323, 300);
+            SaveBtn.Location = new Point(212, 300);
             SaveBtn.Name = "SaveBtn";
             SaveBtn.Size = new Size(94, 29);
             SaveBtn.TabIndex = 8;
@@ -141,12 +142,24 @@
             IdLbl.TabIndex = 10;
             IdLbl.Text = "ID";
             // 
+            // DeleteBtn
+            // 
+            DeleteBtn.BackColor = Color.LightCoral;
+            DeleteBtn.Location = new Point(441, 300);
+            DeleteBtn.Name = "DeleteBtn";
+            DeleteBtn.Size = new Size(94, 29);
+            DeleteBtn.TabIndex = 11;
+            DeleteBtn.Text = "Delete";
+            DeleteBtn.UseVisualStyleBackColor = false;
+            DeleteBtn.Click += DeleteBtn_Click;
+            // 
             // EditMedicine
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Azure;
             ClientSize = new Size(690, 402);
+            Controls.Add(DeleteBtn);
             Controls.Add(IdLbl);
             Controls.Add(CancelBtn);
             Controls.Add(SaveBtn);
@@ -179,5 +192,6 @@
         private Button CancelBtn;
         private Button SaveBtn;
         private Label IdLbl;
+        private Button DeleteBtn;
     }
 }
