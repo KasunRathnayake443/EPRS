@@ -34,6 +34,8 @@
             unameLbl = new Label();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            AddPatientsBtn = new Button();
+            label20 = new Label();
             IdBox = new TextBox();
             dateTimePicker = new DateTimePicker();
             GenderBox = new ComboBox();
@@ -75,8 +77,7 @@
             label3 = new Label();
             tabPage3 = new TabPage();
             settingsBtn = new Button();
-            label20 = new Label();
-            button2 = new Button();
+            PatientDataGrid = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -86,6 +87,7 @@
             ((System.ComponentModel.ISupportInitialize)UserGrid).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PatientDataGrid).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -135,7 +137,8 @@
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(button2);
+            tabPage1.Controls.Add(PatientDataGrid);
+            tabPage1.Controls.Add(AddPatientsBtn);
             tabPage1.Controls.Add(label20);
             tabPage1.Controls.Add(IdBox);
             tabPage1.Controls.Add(dateTimePicker);
@@ -162,6 +165,29 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Manage Patients";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // AddPatientsBtn
+            // 
+            AddPatientsBtn.BackColor = Color.RoyalBlue;
+            AddPatientsBtn.ForeColor = Color.White;
+            AddPatientsBtn.Location = new Point(683, 395);
+            AddPatientsBtn.Name = "AddPatientsBtn";
+            AddPatientsBtn.Size = new Size(177, 41);
+            AddPatientsBtn.TabIndex = 56;
+            AddPatientsBtn.Text = "Add Patient";
+            AddPatientsBtn.UseVisualStyleBackColor = false;
+            AddPatientsBtn.Click += AddPatientsBtn_Click;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
+            label20.ForeColor = Color.DimGray;
+            label20.Location = new Point(562, 23);
+            label20.Name = "label20";
+            label20.Size = new Size(214, 35);
+            label20.TabIndex = 55;
+            label20.Text = "Add New Patient";
             // 
             // IdBox
             // 
@@ -322,7 +348,7 @@
             // 
             // panel4
             // 
-            panel4.BackColor = Color.Cornsilk;
+            panel4.BackColor = Color.PaleGreen;
             panel4.BorderStyle = BorderStyle.FixedSingle;
             panel4.Controls.Add(PatientCount);
             panel4.Controls.Add(panel3);
@@ -335,6 +361,7 @@
             // 
             PatientCount.AutoSize = true;
             PatientCount.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            PatientCount.ForeColor = Color.White;
             PatientCount.Location = new Point(110, 65);
             PatientCount.Name = "PatientCount";
             PatientCount.Size = new Size(56, 46);
@@ -343,7 +370,7 @@
             // 
             // panel3
             // 
-            panel3.BackColor = Color.PapayaWhip;
+            panel3.BackColor = Color.LightGreen;
             panel3.BorderStyle = BorderStyle.FixedSingle;
             panel3.Controls.Add(label10);
             panel3.Location = new Point(-1, -1);
@@ -355,6 +382,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.ForeColor = Color.White;
             label10.Location = new Point(47, 11);
             label10.Name = "label10";
             label10.Size = new Size(180, 28);
@@ -578,27 +606,15 @@
             settingsBtn.UseVisualStyleBackColor = false;
             settingsBtn.Click += settingsBtn_Click;
             // 
-            // label20
+            // PatientDataGrid
             // 
-            label20.AutoSize = true;
-            label20.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            label20.ForeColor = Color.DimGray;
-            label20.Location = new Point(562, 23);
-            label20.Name = "label20";
-            label20.Size = new Size(214, 35);
-            label20.TabIndex = 55;
-            label20.Text = "Add New Patient";
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.RoyalBlue;
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(683, 395);
-            button2.Name = "button2";
-            button2.Size = new Size(177, 41);
-            button2.TabIndex = 56;
-            button2.Text = "Add Patient";
-            button2.UseVisualStyleBackColor = false;
+            PatientDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            PatientDataGrid.Location = new Point(20, 489);
+            PatientDataGrid.Name = "PatientDataGrid";
+            PatientDataGrid.RowHeadersWidth = 51;
+            PatientDataGrid.RowTemplate.Height = 29;
+            PatientDataGrid.Size = new Size(1684, 287);
+            PatientDataGrid.TabIndex = 57;
             // 
             // AdminForm
             // 
@@ -633,6 +649,7 @@
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PatientDataGrid).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -685,7 +702,8 @@
         private Label label17;
         private Label label18;
         private Label label19;
-        private Button button2;
+        private Button AddPatientsBtn;
         private Label label20;
+        private DataGridView PatientDataGrid;
     }
 }

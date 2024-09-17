@@ -19,11 +19,12 @@ namespace EPRS
         private MySqlConnection connection;
 
         private string UserID;
-        public EditUser(string UserID)
+        private Form _parentForm;
+        public EditUser(string UserID, Form parentForm)
         {
             InitializeComponent();
             this.UserID = UserID;
-
+            this._parentForm = parentForm;
 
         }
 
@@ -95,6 +96,11 @@ namespace EPRS
             {
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("User details updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                if (_parentForm is AdminForm adminForm)
+                {
+                    adminForm.ReloadUserGrid();
+                }
 
                 this.Close();
             }
