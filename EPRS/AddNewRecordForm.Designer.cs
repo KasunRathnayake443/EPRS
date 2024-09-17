@@ -49,7 +49,7 @@
             // 
             patientIdLabel.AutoSize = true;
             patientIdLabel.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            patientIdLabel.ForeColor = Color.DimGray;
+            patientIdLabel.ForeColor = Color.Black;
             patientIdLabel.Location = new Point(124, 95);
             patientIdLabel.Name = "patientIdLabel";
             patientIdLabel.Size = new Size(117, 32);
@@ -60,7 +60,7 @@
             // 
             doctorIdLabel.AutoSize = true;
             doctorIdLabel.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            doctorIdLabel.ForeColor = Color.DimGray;
+            doctorIdLabel.ForeColor = Color.Black;
             doctorIdLabel.Location = new Point(806, 95);
             doctorIdLabel.Name = "doctorIdLabel";
             doctorIdLabel.Size = new Size(116, 32);
@@ -78,10 +78,11 @@
             // 
             // addMedicineButton
             // 
-            addMedicineButton.BackColor = Color.CornflowerBlue;
-            addMedicineButton.Location = new Point(867, 223);
+            addMedicineButton.BackColor = Color.RoyalBlue;
+            addMedicineButton.ForeColor = Color.White;
+            addMedicineButton.Location = new Point(867, 221);
             addMedicineButton.Name = "addMedicineButton";
-            addMedicineButton.Size = new Size(94, 29);
+            addMedicineButton.Size = new Size(94, 39);
             addMedicineButton.TabIndex = 3;
             addMedicineButton.Text = "Add";
             addMedicineButton.UseVisualStyleBackColor = false;
@@ -96,10 +97,11 @@
             // 
             // saveButton
             // 
-            saveButton.BackColor = Color.LightGreen;
+            saveButton.BackColor = Color.RoyalBlue;
+            saveButton.ForeColor = Color.White;
             saveButton.Location = new Point(233, 476);
             saveButton.Name = "saveButton";
-            saveButton.Size = new Size(94, 29);
+            saveButton.Size = new Size(94, 39);
             saveButton.TabIndex = 6;
             saveButton.Text = "Save ";
             saveButton.UseVisualStyleBackColor = false;
@@ -108,6 +110,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.ForeColor = Color.Black;
             label1.Location = new Point(125, 164);
             label1.Name = "label1";
             label1.Size = new Size(92, 20);
@@ -117,6 +120,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.ForeColor = Color.Black;
             label2.Location = new Point(125, 230);
             label2.Name = "label2";
             label2.Size = new Size(77, 20);
@@ -142,6 +146,7 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.ForeColor = Color.Black;
             label3.Location = new Point(540, 230);
             label3.Name = "label3";
             label3.Size = new Size(50, 20);
@@ -151,6 +156,7 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.ForeColor = Color.Black;
             label4.Location = new Point(771, 230);
             label4.Name = "label4";
             label4.Size = new Size(18, 20);
@@ -161,7 +167,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.ForeColor = Color.DarkSeaGreen;
+            label5.ForeColor = Color.DimGray;
             label5.Location = new Point(24, 18);
             label5.Name = "label5";
             label5.Size = new Size(277, 35);
@@ -170,10 +176,11 @@
             // 
             // removeMedicineButton
             // 
-            removeMedicineButton.BackColor = Color.FromArgb(255, 128, 128);
+            removeMedicineButton.BackColor = Color.LightCoral;
+            removeMedicineButton.ForeColor = Color.White;
             removeMedicineButton.Location = new Point(867, 295);
             removeMedicineButton.Name = "removeMedicineButton";
-            removeMedicineButton.Size = new Size(94, 29);
+            removeMedicineButton.Size = new Size(94, 39);
             removeMedicineButton.TabIndex = 15;
             removeMedicineButton.Text = "Remove";
             removeMedicineButton.UseVisualStyleBackColor = false;
@@ -184,7 +191,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(254, 254, 227);
-            ClientSize = new Size(1123, 665);
+            ClientSize = new Size(1123, 577);
             Controls.Add(removeMedicineButton);
             Controls.Add(label5);
             Controls.Add(label4);

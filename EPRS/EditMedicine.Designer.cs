@@ -46,7 +46,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.ForeColor = Color.LightSalmon;
+            label1.ForeColor = Color.DimGray;
             label1.Location = new Point(62, 30);
             label1.Name = "label1";
             label1.Size = new Size(155, 31);
@@ -57,8 +57,8 @@
             // 
             ID.AutoSize = true;
             ID.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            ID.ForeColor = Color.DimGray;
-            ID.Location = new Point(130, 111);
+            ID.ForeColor = Color.Black;
+            ID.Location = new Point(134, 79);
             ID.Name = "ID";
             ID.Size = new Size(39, 25);
             ID.TabIndex = 1;
@@ -68,8 +68,8 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.ForeColor = Color.DimGray;
-            label3.Location = new Point(130, 171);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(134, 139);
             label3.Name = "label3";
             label3.Size = new Size(71, 25);
             label3.TabIndex = 2;
@@ -79,8 +79,8 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.ForeColor = Color.DimGray;
-            label4.Location = new Point(130, 232);
+            label4.ForeColor = Color.Black;
+            label4.Location = new Point(134, 200);
             label4.Name = "label4";
             label4.Size = new Size(88, 25);
             label4.TabIndex = 3;
@@ -88,14 +88,14 @@
             // 
             // NameBox
             // 
-            NameBox.Location = new Point(250, 171);
+            NameBox.Location = new Point(254, 139);
             NameBox.Name = "NameBox";
             NameBox.Size = new Size(285, 27);
             NameBox.TabIndex = 4;
             // 
             // AmountBox
             // 
-            AmountBox.Location = new Point(250, 232);
+            AmountBox.Location = new Point(254, 200);
             AmountBox.Name = "AmountBox";
             AmountBox.Size = new Size(260, 27);
             AmountBox.TabIndex = 5;
@@ -103,7 +103,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(517, 235);
+            label2.Location = new Point(521, 203);
             label2.Name = "label2";
             label2.Size = new Size(18, 20);
             label2.TabIndex = 6;
@@ -111,10 +111,11 @@
             // 
             // CancelBtn
             // 
-            CancelBtn.BackColor = Color.LemonChiffon;
-            CancelBtn.Location = new Point(326, 300);
+            CancelBtn.BackColor = Color.LightGray;
+            CancelBtn.ForeColor = Color.White;
+            CancelBtn.Location = new Point(330, 268);
             CancelBtn.Name = "CancelBtn";
-            CancelBtn.Size = new Size(94, 29);
+            CancelBtn.Size = new Size(94, 39);
             CancelBtn.TabIndex = 9;
             CancelBtn.Text = "Cancel";
             CancelBtn.UseVisualStyleBackColor = false;
@@ -122,11 +123,11 @@
             // 
             // SaveBtn
             // 
-            SaveBtn.BackColor = Color.MediumSpringGreen;
-            SaveBtn.ForeColor = SystemColors.ActiveCaptionText;
-            SaveBtn.Location = new Point(212, 300);
+            SaveBtn.BackColor = Color.RoyalBlue;
+            SaveBtn.ForeColor = Color.White;
+            SaveBtn.Location = new Point(216, 268);
             SaveBtn.Name = "SaveBtn";
-            SaveBtn.Size = new Size(94, 29);
+            SaveBtn.Size = new Size(94, 39);
             SaveBtn.TabIndex = 8;
             SaveBtn.Text = "Save";
             SaveBtn.UseVisualStyleBackColor = false;
@@ -136,7 +137,7 @@
             // 
             IdLbl.AutoSize = true;
             IdLbl.ForeColor = SystemColors.ControlDark;
-            IdLbl.Location = new Point(250, 116);
+            IdLbl.Location = new Point(254, 84);
             IdLbl.Name = "IdLbl";
             IdLbl.Size = new Size(24, 20);
             IdLbl.TabIndex = 10;
@@ -145,9 +146,10 @@
             // DeleteBtn
             // 
             DeleteBtn.BackColor = Color.LightCoral;
-            DeleteBtn.Location = new Point(441, 300);
+            DeleteBtn.ForeColor = Color.White;
+            DeleteBtn.Location = new Point(445, 268);
             DeleteBtn.Name = "DeleteBtn";
-            DeleteBtn.Size = new Size(94, 29);
+            DeleteBtn.Size = new Size(94, 39);
             DeleteBtn.TabIndex = 11;
             DeleteBtn.Text = "Delete";
             DeleteBtn.UseVisualStyleBackColor = false;
@@ -158,7 +160,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Azure;
-            ClientSize = new Size(690, 402);
+            ClientSize = new Size(671, 378);
             Controls.Add(DeleteBtn);
             Controls.Add(IdLbl);
             Controls.Add(CancelBtn);

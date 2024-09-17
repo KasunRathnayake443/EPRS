@@ -45,6 +45,7 @@
             searchBox = new TextBox();
             label2 = new Label();
             tabPage2 = new TabPage();
+            panel3 = new Panel();
             label7 = new Label();
             notificationPanel1 = new Panel();
             label6 = new Label();
@@ -57,7 +58,6 @@
             pictureBox1 = new PictureBox();
             unameLbl = new Label();
             settingsBtn = new Button();
-            panel3 = new Panel();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             notificationPanel.SuspendLayout();
@@ -204,11 +204,11 @@
             // 
             // searchBtn
             // 
-            searchBtn.BackColor = Color.LightBlue;
-            searchBtn.ForeColor = Color.Black;
-            searchBtn.Location = new Point(750, 32);
+            searchBtn.BackColor = Color.RoyalBlue;
+            searchBtn.ForeColor = Color.White;
+            searchBtn.Location = new Point(749, 29);
             searchBtn.Name = "searchBtn";
-            searchBtn.Size = new Size(94, 29);
+            searchBtn.Size = new Size(94, 39);
             searchBtn.TabIndex = 2;
             searchBtn.Text = "Search";
             searchBtn.UseVisualStyleBackColor = false;
@@ -248,6 +248,14 @@
             tabPage2.Text = "Medicine Inventory";
             tabPage2.UseVisualStyleBackColor = true;
             tabPage2.Click += tabPage2_Click;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.Linen;
+            panel3.Location = new Point(800, 109);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(10, 662);
+            panel3.TabIndex = 9;
             // 
             // label7
             // 
@@ -374,14 +382,6 @@
             settingsBtn.TabIndex = 14;
             settingsBtn.UseVisualStyleBackColor = false;
             settingsBtn.Click += settingsBtn_Click;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.Linen;
-            panel3.Location = new Point(800, 109);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(10, 662);
-            panel3.TabIndex = 9;
             // 
             // DoctorForm
             // 

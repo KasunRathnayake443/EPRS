@@ -116,10 +116,11 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.LightGreen;
+            button1.BackColor = Color.LimeGreen;
+            button1.ForeColor = Color.White;
             button1.Location = new Point(814, 33);
             button1.Name = "button1";
-            button1.Size = new Size(94, 29);
+            button1.Size = new Size(94, 39);
             button1.TabIndex = 10;
             button1.Text = "Add Patient";
             button1.UseVisualStyleBackColor = false;
@@ -213,11 +214,11 @@
             // 
             // searchBtn
             // 
-            searchBtn.BackColor = Color.LightBlue;
-            searchBtn.ForeColor = Color.Black;
+            searchBtn.BackColor = Color.RoyalBlue;
+            searchBtn.ForeColor = Color.White;
             searchBtn.Location = new Point(691, 33);
             searchBtn.Name = "searchBtn";
-            searchBtn.Size = new Size(94, 29);
+            searchBtn.Size = new Size(94, 39);
             searchBtn.TabIndex = 2;
             searchBtn.Text = "Search";
             searchBtn.UseVisualStyleBackColor = false;

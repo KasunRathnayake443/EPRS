@@ -29,9 +29,9 @@ namespace EPRS
                 connection = new MySqlConnection(connectionString);
                 connection.Open();
 
-                
-                    LoadUserDetails();
-                
+
+                LoadUserDetails();
+
             }
             catch (Exception ex)
             {
@@ -41,7 +41,7 @@ namespace EPRS
             label1.Text = _role + " ID: " + _userID;
         }
 
-        
+
 
         private void LoadUserDetails()
         {

@@ -208,8 +208,9 @@ namespace EPRS
                 Text = "Add New Record",
                 Size = new Size(150, 40),
                 Location = new Point(80, 320),
-                BackColor = Color.LightBlue,
-                Font = new Font("Segoe UI", 12, FontStyle.Regular)
+                BackColor = Color.RoyalBlue,
+                Font = new Font("Segoe UI", 12, FontStyle.Regular),
+                ForeColor = Color.White
             };
 
 

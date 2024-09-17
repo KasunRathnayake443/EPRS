@@ -88,11 +88,11 @@
             // 
             // cancelBtn
             // 
-            cancelBtn.BackColor = Color.Crimson;
-            cancelBtn.ForeColor = SystemColors.ButtonHighlight;
+            cancelBtn.BackColor = Color.LightCoral;
+            cancelBtn.ForeColor = Color.White;
             cancelBtn.Location = new Point(192, 280);
             cancelBtn.Name = "cancelBtn";
-            cancelBtn.Size = new Size(94, 29);
+            cancelBtn.Size = new Size(94, 39);
             cancelBtn.TabIndex = 10;
             cancelBtn.Text = "Cancel";
             cancelBtn.UseVisualStyleBackColor = false;
@@ -100,10 +100,11 @@
             // 
             // saveBtn
             // 
-            saveBtn.BackColor = Color.Lime;
+            saveBtn.BackColor = Color.RoyalBlue;
+            saveBtn.ForeColor = Color.White;
             saveBtn.Location = new Point(71, 280);
             saveBtn.Name = "saveBtn";
-            saveBtn.Size = new Size(94, 29);
+            saveBtn.Size = new Size(94, 39);
             saveBtn.TabIndex = 9;
             saveBtn.Text = "Save";
             saveBtn.UseVisualStyleBackColor = false;

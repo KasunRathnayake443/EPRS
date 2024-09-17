@@ -44,7 +44,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.ForeColor = Color.LightSalmon;
+            label1.ForeColor = Color.DimGray;
             label1.Location = new Point(29, 23);
             label1.Name = "label1";
             label1.Size = new Size(218, 32);
@@ -55,7 +55,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.ForeColor = Color.DimGray;
+            label2.ForeColor = Color.Black;
             label2.Location = new Point(103, 114);
             label2.Name = "label2";
             label2.Size = new Size(68, 25);
@@ -66,7 +66,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.ForeColor = Color.DimGray;
+            label3.ForeColor = Color.Black;
             label3.Location = new Point(103, 172);
             label3.Name = "label3";
             label3.Size = new Size(86, 25);
@@ -97,11 +97,11 @@
             // 
             // SaveBtn
             // 
-            SaveBtn.BackColor = Color.MediumSpringGreen;
-            SaveBtn.ForeColor = SystemColors.ActiveCaptionText;
+            SaveBtn.BackColor = Color.RoyalBlue;
+            SaveBtn.ForeColor = Color.White;
             SaveBtn.Location = new Point(334, 248);
             SaveBtn.Name = "SaveBtn";
-            SaveBtn.Size = new Size(94, 29);
+            SaveBtn.Size = new Size(94, 39);
             SaveBtn.TabIndex = 6;
             SaveBtn.Text = "Save";
             SaveBtn.UseVisualStyleBackColor = false;
@@ -110,9 +110,10 @@
             // CancelBtn
             // 
             CancelBtn.BackColor = Color.LightCoral;
+            CancelBtn.ForeColor = Color.White;
             CancelBtn.Location = new Point(452, 248);
             CancelBtn.Name = "CancelBtn";
-            CancelBtn.Size = new Size(94, 29);
+            CancelBtn.Size = new Size(94, 39);
             CancelBtn.TabIndex = 7;
             CancelBtn.Text = "Cancel";
             CancelBtn.UseVisualStyleBackColor = false;
@@ -132,7 +133,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Azure;
-            ClientSize = new Size(686, 418);
+            ClientSize = new Size(628, 357);
             Controls.Add(label5);
             Controls.Add(CancelBtn);
             Controls.Add(SaveBtn);
