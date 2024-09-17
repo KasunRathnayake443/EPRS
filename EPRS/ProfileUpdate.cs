@@ -91,6 +91,10 @@ namespace EPRS
                     {
                         staffForm.LoadStaffName();
                     }
+                    else if (_parentForm is AdminForm adminForm)
+                    {
+                        adminForm.LoadAdminName();
+                    }
                 }
                 else
                 {
