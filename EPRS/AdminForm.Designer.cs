@@ -34,6 +34,7 @@
             unameLbl = new Label();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            PatientDataGrid = new DataGridView();
             AddPatientsBtn = new Button();
             label20 = new Label();
             IdBox = new TextBox();
@@ -76,18 +77,34 @@
             panel2 = new Panel();
             label3 = new Label();
             tabPage3 = new TabPage();
+            MedicineDataGrid = new DataGridView();
+            addNewMedicineBtn = new Button();
+            MedicineAmountBox = new TextBox();
+            MedicineNameBox = new TextBox();
+            label26 = new Label();
+            label25 = new Label();
+            label24 = new Label();
+            label21 = new Label();
+            label23 = new Label();
+            panel5 = new Panel();
+            medicineCountLbl = new Label();
+            panel6 = new Panel();
+            label22 = new Label();
             settingsBtn = new Button();
-            PatientDataGrid = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PatientDataGrid).BeginInit();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
             tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)UserGrid).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)PatientDataGrid).BeginInit();
+            tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)MedicineDataGrid).BeginInit();
+            panel5.SuspendLayout();
+            panel6.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -165,6 +182,16 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Manage Patients";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // PatientDataGrid
+            // 
+            PatientDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            PatientDataGrid.Location = new Point(20, 489);
+            PatientDataGrid.Name = "PatientDataGrid";
+            PatientDataGrid.RowHeadersWidth = 51;
+            PatientDataGrid.RowTemplate.Height = 29;
+            PatientDataGrid.Size = new Size(1684, 287);
+            PatientDataGrid.TabIndex = 57;
             // 
             // AddPatientsBtn
             // 
@@ -586,12 +613,156 @@
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(MedicineDataGrid);
+            tabPage3.Controls.Add(addNewMedicineBtn);
+            tabPage3.Controls.Add(MedicineAmountBox);
+            tabPage3.Controls.Add(MedicineNameBox);
+            tabPage3.Controls.Add(label26);
+            tabPage3.Controls.Add(label25);
+            tabPage3.Controls.Add(label24);
+            tabPage3.Controls.Add(label21);
+            tabPage3.Controls.Add(label23);
+            tabPage3.Controls.Add(panel5);
             tabPage3.Location = new Point(4, 29);
             tabPage3.Name = "tabPage3";
             tabPage3.Size = new Size(1734, 803);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Manage Inventory";
             tabPage3.UseVisualStyleBackColor = true;
+            tabPage3.Click += tabPage3_Click;
+            // 
+            // MedicineDataGrid
+            // 
+            MedicineDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            MedicineDataGrid.Location = new Point(489, 91);
+            MedicineDataGrid.Name = "MedicineDataGrid";
+            MedicineDataGrid.RowHeadersWidth = 51;
+            MedicineDataGrid.RowTemplate.Height = 29;
+            MedicineDataGrid.Size = new Size(522, 636);
+            MedicineDataGrid.TabIndex = 11;
+            // 
+            // addNewMedicineBtn
+            // 
+            addNewMedicineBtn.BackColor = Color.RoyalBlue;
+            addNewMedicineBtn.ForeColor = Color.White;
+            addNewMedicineBtn.Location = new Point(76, 570);
+            addNewMedicineBtn.Name = "addNewMedicineBtn";
+            addNewMedicineBtn.Size = new Size(180, 41);
+            addNewMedicineBtn.TabIndex = 10;
+            addNewMedicineBtn.Text = "Add New Medicine";
+            addNewMedicineBtn.UseVisualStyleBackColor = false;
+            addNewMedicineBtn.Click += addNewMedicineBtn_Click;
+            // 
+            // MedicineAmountBox
+            // 
+            MedicineAmountBox.Location = new Point(76, 504);
+            MedicineAmountBox.Name = "MedicineAmountBox";
+            MedicineAmountBox.Size = new Size(264, 27);
+            MedicineAmountBox.TabIndex = 9;
+            // 
+            // MedicineNameBox
+            // 
+            MedicineNameBox.Location = new Point(76, 408);
+            MedicineNameBox.Name = "MedicineNameBox";
+            MedicineNameBox.Size = new Size(264, 27);
+            MedicineNameBox.TabIndex = 8;
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label26.Location = new Point(355, 504);
+            label26.Name = "label26";
+            label26.Size = new Size(24, 28);
+            label26.TabIndex = 7;
+            label26.Text = "g";
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label25.Location = new Point(76, 458);
+            label25.Name = "label25";
+            label25.Size = new Size(83, 28);
+            label25.TabIndex = 6;
+            label25.Text = "Amount";
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label24.Location = new Point(76, 359);
+            label24.Name = "label24";
+            label24.Size = new Size(64, 28);
+            label24.TabIndex = 5;
+            label24.Text = "Name";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
+            label21.ForeColor = Color.DimGray;
+            label21.Location = new Point(59, 293);
+            label21.Name = "label21";
+            label21.Size = new Size(239, 35);
+            label21.TabIndex = 4;
+            label21.Text = "Add New Medicine";
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label23.ForeColor = Color.SlateGray;
+            label23.Location = new Point(20, 21);
+            label23.Name = "label23";
+            label23.Size = new Size(251, 38);
+            label23.TabIndex = 3;
+            label23.Text = "Manage Medicine";
+            // 
+            // panel5
+            // 
+            panel5.BackColor = Color.PaleGreen;
+            panel5.BorderStyle = BorderStyle.FixedSingle;
+            panel5.Controls.Add(medicineCountLbl);
+            panel5.Controls.Add(panel6);
+            panel5.Location = new Point(76, 88);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(273, 132);
+            panel5.TabIndex = 2;
+            panel5.Paint += panel5_Paint;
+            // 
+            // medicineCountLbl
+            // 
+            medicineCountLbl.AutoSize = true;
+            medicineCountLbl.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            medicineCountLbl.ForeColor = Color.White;
+            medicineCountLbl.Location = new Point(110, 65);
+            medicineCountLbl.Name = "medicineCountLbl";
+            medicineCountLbl.Size = new Size(56, 46);
+            medicineCountLbl.TabIndex = 3;
+            medicineCountLbl.Text = "45";
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.LightGreen;
+            panel6.BorderStyle = BorderStyle.FixedSingle;
+            panel6.Controls.Add(label22);
+            panel6.Location = new Point(-1, -1);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(273, 51);
+            panel6.TabIndex = 2;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label22.ForeColor = Color.White;
+            label22.Location = new Point(37, 11);
+            label22.Name = "label22";
+            label22.Size = new Size(192, 28);
+            label22.TabIndex = 0;
+            label22.Text = "Number of Medicine";
+            label22.Click += label22_Click;
             // 
             // settingsBtn
             // 
@@ -605,16 +776,6 @@
             settingsBtn.TabIndex = 18;
             settingsBtn.UseVisualStyleBackColor = false;
             settingsBtn.Click += settingsBtn_Click;
-            // 
-            // PatientDataGrid
-            // 
-            PatientDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            PatientDataGrid.Location = new Point(20, 489);
-            PatientDataGrid.Name = "PatientDataGrid";
-            PatientDataGrid.RowHeadersWidth = 51;
-            PatientDataGrid.RowTemplate.Height = 29;
-            PatientDataGrid.Size = new Size(1684, 287);
-            PatientDataGrid.TabIndex = 57;
             // 
             // AdminForm
             // 
@@ -638,6 +799,7 @@
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PatientDataGrid).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             panel3.ResumeLayout(false);
@@ -649,7 +811,13 @@
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)PatientDataGrid).EndInit();
+            tabPage3.ResumeLayout(false);
+            tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)MedicineDataGrid).EndInit();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -705,5 +873,18 @@
         private Button AddPatientsBtn;
         private Label label20;
         private DataGridView PatientDataGrid;
+        private Panel panel5;
+        private Label medicineCountLbl;
+        private Panel panel6;
+        private Label label22;
+        private Label label21;
+        private Label label23;
+        private TextBox MedicineAmountBox;
+        private TextBox MedicineNameBox;
+        private Label label26;
+        private Label label25;
+        private Label label24;
+        private Button addNewMedicineBtn;
+        private DataGridView MedicineDataGrid;
     }
 }

@@ -39,6 +39,8 @@ namespace EPRS
                 LoadUserGrid();
                 NumberofPatients();
                 LoadPatientGrid();
+                NumberofMedicines();
+                LoadMedicineGrid();
 
 
 
@@ -265,7 +267,7 @@ namespace EPRS
 
         private void EditUser(string userId)
         {
-            EditUser EditUser = new EditUser(userId,this);
+            EditUser EditUser = new EditUser(userId, this);
             EditUser.Show();
             LoadUserGrid();
         }
@@ -435,16 +437,16 @@ namespace EPRS
         {
             try
             {
-                
+
                 string query = "SELECT PatientID, CONCAT(FirstName, ' ', LastName) AS FullName, Gender, Email, PhoneNumber FROM Patients";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
                 DataTable patientTable = new DataTable();
                 adapter.Fill(patientTable);
 
-                
+
                 PatientDataGrid.DataSource = patientTable;
 
-                
+
                 PatientDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 PatientDataGrid.BackgroundColor = Color.White;
                 PatientDataGrid.BorderStyle = BorderStyle.None;
@@ -454,7 +456,7 @@ namespace EPRS
                 PatientDataGrid.RowHeadersVisible = false;
                 PatientDataGrid.AllowUserToAddRows = false;
 
-                
+
                 if (PatientDataGrid.Columns["EditButton"] == null)
                 {
                     DataGridViewButtonColumn editButtonColumn = new DataGridViewButtonColumn
@@ -479,7 +481,7 @@ namespace EPRS
                     PatientDataGrid.Columns.Add(deleteButtonColumn);
                 }
 
-               
+
                 PatientDataGrid.CellClick -= PatientDataGrid_CellClick;
                 PatientDataGrid.CellClick += PatientDataGrid_CellClick;
             }
@@ -502,16 +504,16 @@ namespace EPRS
                 DeletePatient(patientId);
             }
         }
-         
+
         public void ReloadPatientGrid()
         {
             LoadPatientGrid();
         }
         private void EditPatient(string patientId)
         {
-            EditPatient editPatient = new EditPatient(patientId, this); 
+            EditPatient editPatient = new EditPatient(patientId, this);
             editPatient.Show();
-            ReloadPatientGrid(); 
+            ReloadPatientGrid();
         }
 
         private void DeletePatient(string patientId)
@@ -529,7 +531,7 @@ namespace EPRS
 
                     MessageBox.Show("Patient deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    LoadPatientGrid(); 
+                    LoadPatientGrid();
                 }
                 catch (Exception ex)
                 {
@@ -538,6 +540,195 @@ namespace EPRS
             }
         }
 
+        public void NumberofMedicines()
+        {
+            try
+            {
+                string query = "SELECT COUNT(*) FROM Medicine";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
 
+                if (reader.Read())
+                {
+                    int count = reader.GetInt32(0);
+                    medicineCountLbl.Text = count.ToString();
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading medicine count: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label22_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addNewMedicineBtn_Click(object sender, EventArgs e)
+        {
+            if (!medicineFieldsValidation())
+            {
+                return;
+            }
+
+            string medicineName = MedicineNameBox.Text.Trim();
+            string medicineAmount = MedicineAmountBox.Text.Trim();
+
+            string query = "INSERT INTO Medicine (name, amount_grams) VALUES (@MedicineName, @Amount)";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@MedicineName", medicineName);
+            cmd.Parameters.AddWithValue("@Amount", medicineAmount);
+
+            try
+            {
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Medicine added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    NumberofMedicines();
+                    MedicineNameBox.Text = "";
+                    MedicineAmountBox.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Failed to add medicine.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error adding medicine: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private bool medicineFieldsValidation()
+        {
+            if (string.IsNullOrEmpty(MedicineNameBox.Text.Trim()))
+            {
+                MessageBox.Show("Please enter the Medicine Name.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MedicineNameBox.Focus();
+                return false;
+            }
+
+
+
+            if (string.IsNullOrEmpty(MedicineAmountBox.Text.Trim()))
+            {
+                MessageBox.Show("Please enter the Medicine Quantity.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MedicineAmountBox.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        private void LoadMedicineGrid()
+        {
+            try
+            {
+                string query = "SELECT id, name, amount_grams FROM Medicine";
+                MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
+                DataTable medicineTable = new DataTable();
+                adapter.Fill(medicineTable);
+
+                MedicineDataGrid.DataSource = medicineTable;
+
+                MedicineDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                MedicineDataGrid.BackgroundColor = Color.White;
+                MedicineDataGrid.BorderStyle = BorderStyle.None;
+                MedicineDataGrid.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+                MedicineDataGrid.DefaultCellStyle.SelectionBackColor = Color.LightBlue;
+                MedicineDataGrid.DefaultCellStyle.SelectionForeColor = Color.Black;
+                MedicineDataGrid.RowHeadersVisible = false;
+                MedicineDataGrid.AllowUserToAddRows = false;
+
+                if (MedicineDataGrid.Columns["EditButton"] == null)
+                {
+                    DataGridViewButtonColumn editButtonColumn = new DataGridViewButtonColumn
+                    {
+                        Name = "EditButton",
+                        HeaderText = "Edit",
+                        Text = "Edit",
+                        UseColumnTextForButtonValue = true
+                    };
+                    MedicineDataGrid.Columns.Add(editButtonColumn);
+                }
+
+                if (MedicineDataGrid.Columns["DeleteButton"] == null)
+                {
+                    DataGridViewButtonColumn deleteButtonColumn = new DataGridViewButtonColumn
+                    {
+                        Name = "DeleteButton",
+                        HeaderText = "Delete",
+                        Text = "Delete",
+                        UseColumnTextForButtonValue = true
+                    };
+                    MedicineDataGrid.Columns.Add(deleteButtonColumn);
+                }
+
+                MedicineDataGrid.CellClick -= MedicineDataGrid_CellClick;
+                MedicineDataGrid.CellClick += MedicineDataGrid_CellClick;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading medicine data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void MedicineDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == MedicineDataGrid.Columns["EditButton"].Index && e.RowIndex >= 0)
+            {
+                string medicineId = MedicineDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString();
+                EditMedicine(medicineId);
+            }
+            else if (e.ColumnIndex == MedicineDataGrid.Columns["DeleteButton"].Index && e.RowIndex >= 0)
+            {
+                string medicineId = MedicineDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString();
+                DeleteMedicine(medicineId);
+            }
+        }
+
+        private void EditMedicine(string medicineId)
+        {
+            //EditMedicine editMedicine = new EditMedicine(medicineId, this);
+            //editMedicine.Show();
+            //LoadMedicineGrid();
+        }
+
+        private void DeleteMedicine(string medicineId)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this medicine?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    string query = "DELETE FROM Medicine WHERE id = @MedicineId";
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("@MedicineId", medicineId);
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Medicine deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    LoadMedicineGrid();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error deleting medicine: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }
