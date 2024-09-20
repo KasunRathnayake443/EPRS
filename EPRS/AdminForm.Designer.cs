@@ -91,6 +91,10 @@
             panel6 = new Panel();
             label22 = new Label();
             settingsBtn = new Button();
+            label27 = new Label();
+            label28 = new Label();
+            notificationPanel = new Panel();
+            notificationLbl = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -105,6 +109,7 @@
             ((System.ComponentModel.ISupportInitialize)MedicineDataGrid).BeginInit();
             panel5.SuspendLayout();
             panel6.SuspendLayout();
+            notificationPanel.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -613,6 +618,9 @@
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(label28);
+            tabPage3.Controls.Add(notificationPanel);
+            tabPage3.Controls.Add(label27);
             tabPage3.Controls.Add(MedicineDataGrid);
             tabPage3.Controls.Add(addNewMedicineBtn);
             tabPage3.Controls.Add(MedicineAmountBox);
@@ -777,6 +785,47 @@
             settingsBtn.UseVisualStyleBackColor = false;
             settingsBtn.Click += settingsBtn_Click;
             // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point);
+            label27.ForeColor = Color.DimGray;
+            label27.Location = new Point(489, 42);
+            label27.Name = "label27";
+            label27.Size = new Size(147, 30);
+            label27.TabIndex = 12;
+            label27.Text = "All Medicine ";
+            // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
+            label28.ForeColor = SystemColors.AppWorkspace;
+            label28.Location = new Point(1319, 24);
+            label28.Name = "label28";
+            label28.Size = new Size(167, 35);
+            label28.TabIndex = 14;
+            label28.Text = "Notifications";
+            // 
+            // notificationPanel
+            // 
+            notificationPanel.Controls.Add(notificationLbl);
+            notificationPanel.Location = new Point(1174, 88);
+            notificationPanel.Name = "notificationPanel";
+            notificationPanel.Size = new Size(430, 639);
+            notificationPanel.TabIndex = 13;
+            // 
+            // notificationLbl
+            // 
+            notificationLbl.AutoSize = true;
+            notificationLbl.Font = new Font("Segoe UI", 10.8F, FontStyle.Italic, GraphicsUnit.Point);
+            notificationLbl.ForeColor = Color.DarkSalmon;
+            notificationLbl.Location = new Point(65, 75);
+            notificationLbl.Name = "notificationLbl";
+            notificationLbl.Size = new Size(292, 25);
+            notificationLbl.TabIndex = 1;
+            notificationLbl.Text = "Notifications will be Appeared Here";
+            // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -818,6 +867,8 @@
             panel5.PerformLayout();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
+            notificationPanel.ResumeLayout(false);
+            notificationPanel.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -886,5 +937,9 @@
         private Label label24;
         private Button addNewMedicineBtn;
         private DataGridView MedicineDataGrid;
+        private Label label27;
+        private Label label28;
+        private Panel notificationPanel;
+        private Label notificationLbl;
     }
 }

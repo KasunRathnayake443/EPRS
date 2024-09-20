@@ -41,6 +41,7 @@ namespace EPRS
                 LoadPatientGrid();
                 NumberofMedicines();
                 LoadMedicineGrid();
+                LowInventoryNotification();
 
 
 
@@ -600,6 +601,8 @@ namespace EPRS
                     NumberofMedicines();
                     MedicineNameBox.Text = "";
                     MedicineAmountBox.Text = "";
+                    LoadMedicineGrid();
+
                 }
                 else
                 {
@@ -633,7 +636,7 @@ namespace EPRS
             return true;
         }
 
-        private void LoadMedicineGrid()
+        public void LoadMedicineGrid()
         {
             try
             {
@@ -690,8 +693,9 @@ namespace EPRS
         {
             if (e.ColumnIndex == MedicineDataGrid.Columns["EditButton"].Index && e.RowIndex >= 0)
             {
-                string medicineId = MedicineDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString();
-                EditMedicine(medicineId);
+                string selectedMedicineName = (MedicineDataGrid).Rows[e.RowIndex].Cells["name"].Value.ToString();
+               
+                EditMedicine(selectedMedicineName);
             }
             else if (e.ColumnIndex == MedicineDataGrid.Columns["DeleteButton"].Index && e.RowIndex >= 0)
             {
@@ -700,11 +704,14 @@ namespace EPRS
             }
         }
 
-        private void EditMedicine(string medicineId)
+        private void EditMedicine(string selectedMedicineName)
         {
-            //EditMedicine editMedicine = new EditMedicine(medicineId, this);
-            //editMedicine.Show();
-            //LoadMedicineGrid();
+           
+
+           EditMedicineAdmin editMedicine = new EditMedicineAdmin(selectedMedicineName, this);
+           editMedicine.Show();
+           LoadMedicineGrid();
+            LowInventoryNotification();
         }
 
         private void DeleteMedicine(string medicineId)
@@ -729,6 +736,59 @@ namespace EPRS
                     MessageBox.Show($"Error deleting medicine: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        public void LowInventoryNotification()
+        {
+
+            notificationPanel.Controls.Clear();
+
+            string query = "SELECT name, amount_grams FROM medicine";
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
+            DataTable medicineTable = new DataTable();
+            adapter.Fill(medicineTable);
+
+
+            int yOffset = 0;
+            foreach (DataRow row in medicineTable.Rows)
+            {
+                string medicineName = row["name"].ToString();
+                double amountGrams = Convert.ToDouble(row["amount_grams"]);
+
+
+                if (amountGrams < 100)
+                {
+                    ShowLowStockNotification(medicineName, amountGrams, yOffset, notificationPanel );
+                    yOffset += 30;
+                }
+            }
+        }
+
+        private void ShowLowStockNotification(string medicineName, double amountGrams, int yOffset, Panel targetPanel1)
+        {
+
+            Label notificationLabel1 = new Label
+            {
+                Text = $"{medicineName} is low on stock. Available amount: {amountGrams} grams.",
+                AutoSize = true,
+                ForeColor = Color.Red,
+                Location = new Point(5, yOffset)
+            };
+
+
+            Label notificationLabel2 = new Label
+            {
+                Text = $"{medicineName} is low on stock. Available amount: {amountGrams} grams.",
+                AutoSize = true,
+                ForeColor = Color.Red,
+                Location = new Point(5, yOffset)
+            };
+
+
+            targetPanel1.Controls.Add(notificationLabel1);
+
+
+          
         }
     }
 }
