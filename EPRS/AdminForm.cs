@@ -172,6 +172,7 @@ namespace EPRS
 
 
                 NumberofUsers();
+                ReloadUserGrid();
 
 
                 NameBox.Text = "";
