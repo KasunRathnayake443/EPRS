@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2024 at 07:06 PM
+-- Generation Time: Sep 20, 2024 at 07:37 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -30,7 +30,6 @@ SET time_zone = "+00:00";
 CREATE TABLE `medicine` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `description` text DEFAULT NULL,
   `amount_grams` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -38,82 +37,80 @@ CREATE TABLE `medicine` (
 -- Dumping data for table `medicine`
 --
 
-INSERT INTO `medicine` (`id`, `name`, `description`, `amount_grams`) VALUES
-(1, 'Paracetamol', 'Used to reduce fever and relieve pain.', 409.50),
-(2, 'Amoxicillin', 'An antibiotic used to treat bacterial infections.', -4.00),
-(3, 'Ibuprofen', 'Non-steroidal anti-inflammatory drug used for pain relief.', 14.00),
-(4, 'Cough Syrup', 'Syrup used to relieve cough and cold symptoms.', 100.00),
-(5, 'Vitamin C', 'Boosts immunity and overall health.', 50.50),
-(6, 'Aspirin', 'Pain reliever and anti-inflammatory', 95.50),
-(7, 'Ibuprofen', 'Nonsteroidal anti-inflammatory drug (NSAID)', 150.00),
-(8, 'Paracetamol', 'Pain reliever and fever reducer', 168.50),
-(9, 'Amoxicillin', 'Antibiotic for bacterial infections', 245.50),
-(10, 'Azithromycin', 'Antibiotic for bacterial infections', 300.00),
-(11, 'Ciprofloxacin', 'Antibiotic for bacterial infections', 120.00),
-(12, 'Metformin', 'Used to treat type 2 diabetes', 175.50),
-(13, 'Lisinopril', 'ACE inhibitor for high blood pressure', 160.00),
-(14, 'Atorvastatin', 'Statin for high cholesterol', 220.00),
-(15, 'Omeprazole', 'Proton pump inhibitor for acid reflux', 140.00),
-(16, 'Simvastatin', 'Cholesterol-lowering medication', 200.00),
-(17, 'Clopidogrel', 'Blood thinner to prevent strokes', 130.00),
-(18, 'Montelukast', 'Prevents asthma attacks', 175.00),
-(19, 'Amlodipine', 'Calcium channel blocker for high blood pressure', 190.00),
-(20, 'Losartan', 'Angiotensin II receptor antagonist for hypertension', 210.00),
-(21, 'Levothyroxine', 'Thyroid hormone replacement', 250.00),
-(22, 'Furosemide', 'Diuretic for fluid retention', 120.00),
-(23, 'Hydrochlorothiazide', 'Thiazide diuretic for hypertension', 170.00),
-(24, 'Warfarin', 'Anticoagulant to prevent blood clots', 110.00),
-(25, 'Prednisone', 'Corticosteroid for inflammation', 130.00),
-(26, 'Doxycycline', 'Antibiotic for bacterial infections', 180.00),
-(27, 'Pantoprazole', 'Proton pump inhibitor for GERD', 185.50),
-(28, 'Ranitidine', 'Histamine H2 receptor antagonist for ulcers', 220.00),
-(29, 'Metoprolol', 'Beta blocker for high blood pressure', 140.00),
-(30, 'Gabapentin', 'Anticonvulsant for nerve pain', 145.50),
-(31, 'Sertraline', 'SSRI for depression and anxiety', 180.00),
-(32, 'Zolpidem', 'Sedative for insomnia', 160.00),
-(33, 'Albuterol', 'Bronchodilator for asthma', 100.00),
-(34, 'Diazepam', 'Benzodiazepine for anxiety and seizures', 121.00),
-(35, 'Hydrocodone', 'Opioid for pain relief', 120.00),
-(36, 'Tramadol', 'Opioid for moderate pain relief', 140.00),
-(37, 'Cyclobenzaprine', 'Muscle relaxant for spasms', 200.00),
-(38, 'Tamsulosin', 'Alpha blocker for urinary retention', 170.00),
-(39, 'Allopurinol', 'Reduces uric acid for gout treatment', 180.00),
-(40, 'Sildenafil', 'Used to treat erectile dysfunction', 160.00),
-(41, 'Fluoxetine', 'SSRI for depression and OCD', 140.00),
-(42, 'Bupropion', 'Antidepressant and smoking cessation aid', 220.00),
-(43, 'Meloxicam', 'NSAID for arthritis pain', 150.00),
-(44, 'Loratadine', 'Antihistamine for allergies', 100.00),
-(45, 'Cetirizine', 'Antihistamine for allergies', 140.00),
-(46, 'Famotidine', 'H2 antagonist for stomach ulcers', 190.00),
-(47, 'Duloxetine', 'SNRI for depression and anxiety', 180.00),
-(48, 'Venlafaxine', 'SNRI for depression and anxiety', 210.00),
-(49, 'Quetiapine', 'Atypical antipsychotic for bipolar disorder', 130.00),
-(50, 'Alprazolam', 'Benzodiazepine for anxiety', 110.00),
-(51, 'Risperidone', 'Atypical antipsychotic for schizophrenia', 200.00),
-(52, 'Aripiprazole', 'Atypical antipsychotic for bipolar disorder', 150.00),
-(53, 'Lamotrigine', 'Anticonvulsant for seizures', 190.00),
-(54, 'Topiramate', 'Anticonvulsant for epilepsy', 160.00),
-(55, 'Lithium', 'Mood stabilizer for bipolar disorder', 100.00),
-(56, 'Escitalopram', 'SSRI for depression and anxiety', 120.00),
-(57, 'Trazodone', 'Antidepressant and sleep aid', 170.00),
-(58, 'Mirtazapine', 'Antidepressant for major depressive disorder', 140.00),
-(59, 'Olanzapine', 'Atypical antipsychotic for schizophrenia', 150.00),
-(60, 'Varenicline', 'Smoking cessation aid', 110.00),
-(61, 'Carbamazepine', 'Anticonvulsant for epilepsy', 115.50),
-(62, 'Valproic acid', 'Anticonvulsant for seizures', 140.00),
-(63, 'Phenytoin', 'Anticonvulsant for epilepsy', 150.00),
-(64, 'Levetiracetam', 'Anticonvulsant for seizures', 200.00),
-(65, 'Pregabalin', 'Anticonvulsant for nerve pain', 140.00),
-(66, 'Loperamide', 'Anti-diarrheal medication', 130.00),
-(67, 'Bisacodyl', 'Laxative for constipation', 100.00),
-(68, 'Docusate', 'Stool softener for constipation', 110.00),
-(69, 'Polyethylene glycol', 'Laxative for bowel preparation', 200.00),
-(70, 'Senna', 'Herbal laxative for constipation', 120.00),
-(71, 'Ondansetron', 'Anti-nausea medication', 150.00),
-(72, 'Meclizine', 'Antihistamine for vertigo and motion sickness', 180.00),
-(73, 'Prochlorperazine', 'Antipsychotic for nausea and schizophrenia', 190.00),
-(74, 'Metoclopramide', 'Gut motility stimulator', 170.00),
-(75, 'Betamethasone', 'Corticosteroid for inflammation', 125.50);
+INSERT INTO `medicine` (`id`, `name`, `amount_grams`) VALUES
+(1, 'Paracetamol', 168.50),
+(2, 'Amoxicillin', 500.00),
+(4, 'Cough Syrup', 100.00),
+(5, 'Vitamin C', 282.00),
+(6, 'Aspirin', 77.50),
+(8, 'Paracetamol', 132.50),
+(9, 'Amoxicillin', 245.50),
+(11, 'Ciprofloxacin', 120.00),
+(13, 'Lisinopril', 160.00),
+(14, 'Atorvastatin', 220.00),
+(15, 'Omeprazole', 140.00),
+(16, 'Simvastatin', 200.00),
+(17, 'Clopidogrel', 130.00),
+(18, 'Montelukast', 175.00),
+(19, 'Amlodipine', 190.00),
+(20, 'Losartan', 210.00),
+(21, 'Levothyroxine', 250.00),
+(22, 'Furosemide', 120.00),
+(23, 'Hydrochlorothiazide', 170.00),
+(24, 'Warfarin', 110.00),
+(25, 'Prednisone', 130.00),
+(26, 'Doxycycline', 180.00),
+(27, 'Pantoprazole', 185.50),
+(28, 'Ranitidine', 220.00),
+(29, 'Metoprolol', 140.00),
+(30, 'Gabapentin', 145.50),
+(31, 'Sertraline', 180.00),
+(32, 'Zolpidem', 160.00),
+(33, 'Albuterol', 100.00),
+(34, 'Diazepam', 121.00),
+(35, 'Hydrocodone', 120.00),
+(36, 'Tramadol', 140.00),
+(37, 'Cyclobenzaprine', 200.00),
+(38, 'Tamsulosin', 170.00),
+(39, 'Allopurinol', 180.00),
+(40, 'Sildenafil', 160.00),
+(41, 'Fluoxetine', 140.00),
+(42, 'Bupropion', 220.00),
+(43, 'Meloxicam', 150.00),
+(44, 'Loratadine', 100.00),
+(45, 'Cetirizine', 140.00),
+(46, 'Famotidine', 190.00),
+(47, 'Duloxetine', 180.00),
+(48, 'Venlafaxine', 210.00),
+(49, 'Quetiapine', 130.00),
+(50, 'Alprazolam', 110.00),
+(51, 'Risperidone', 200.00),
+(52, 'Aripiprazole', 150.00),
+(53, 'Lamotrigine', 190.00),
+(54, 'Topiramate', 160.00),
+(55, 'Lithium', 100.00),
+(56, 'Escitalopram', 120.00),
+(57, 'Trazodone', 170.00),
+(58, 'Mirtazapine', 140.00),
+(59, 'Olanzapine', 150.00),
+(60, 'Varenicline', 110.00),
+(61, 'Carbamazepine', 115.50),
+(62, 'Valproic acid', 140.00),
+(63, 'Phenytoin', 150.00),
+(64, 'Levetiracetam', 200.00),
+(65, 'Pregabalin', 140.00),
+(66, 'Loperamide', 130.00),
+(67, 'Bisacodyl', 100.00),
+(68, 'Docusate', 110.00),
+(69, 'Polyethylene glycol', 200.00),
+(70, 'Senna', 120.00),
+(71, 'Ondansetron', 145.50),
+(72, 'Meclizine', 180.00),
+(73, 'Prochlorperazine', 190.00),
+(74, 'Metoclopramide', 170.00),
+(75, 'Betamethasone', 125.50),
+(76, 'test changed', 500.00),
+(81, 'test', 500.00);
 
 -- --------------------------------------------------------
 
@@ -138,11 +135,13 @@ CREATE TABLE `patients` (
 --
 
 INSERT INTO `patients` (`PatientID`, `FirstName`, `LastName`, `DateOfBirth`, `Gender`, `Address`, `PhoneNumber`, `Email`, `DateRegistered`) VALUES
-('SEU/IS/19/MIT/100', 'John', 'Doe', '1985-06-15', 'Male', '123 Maple Street, Springfield', '555-1234', 'john.doe@example.com', '2024-09-03'),
+('SEU/IS/19/MIT/100', 'Test', 'Helllo', '2000-03-17', 'Female', '123 Temple Rd, School Junction', '555-1234 5478', 'johne@example.com', '2024-09-03'),
 ('SEU/IS/19/MIT/101', 'Jane', 'Smith', '1990-08-22', 'Female', '456 Oak Avenue, Springfield', '555-5678', 'jane.smith@example.com', '2024-09-03'),
 ('SEU/IS/19/MIT/102', 'Robert', 'Johnson', '1975-02-11', 'Male', '789 Pine Road, Springfield', '555-8765', 'robert.johnson@example.com', '2024-09-03'),
-('SEU/IS/19/MIT/103', 'Emily', 'Davis', '2000-01-05', 'Female', '101 Elm Street, Springfield', '555-3456', 'emily.davis@example.com', '2024-09-03'),
-('SEU/IS/19/MIT/104', 'Michael', 'Wilson', '1995-09-30', 'Male', '202 Birch Lane, Springfield', '555-9876', 'michael.wilson@example.com', '2024-09-03');
+('SEU/IS/19/MIT/103', 'Emily', 'Davis', '2000-01-05', 'Female', '101 Elm Street', '555-3456', 'emily@example.com', '2024-09-03'),
+('SEU/IS/19/MIT/104', 'Mi', 'Wilson', '1995-09-30', 'Female', '202 Birch Lane, Springfield', '555-9876', 'michael.wilson@example.com', '2024-09-03'),
+('SEU/IS/19/MIT/105', 'Test', 'Test', '2024-09-10', 'Female', 'test address', '01214587', 'testemail@gmail.com', '2024-09-13'),
+('SEU/IS/19/MIT/106', 'TEST', 'Name', '2024-09-14', 'Male', 'TEST', '46466666', 'email@email.COM', '2024-09-14');
 
 -- --------------------------------------------------------
 
@@ -200,7 +199,12 @@ INSERT INTO `prescriptions` (`PrescriptionID`, `PatientID`, `DoctorID`, `Prescri
 (44, 'SEU/IS/19/MIT/104', 1, '2024-09-10', 'Pantoprazole (Dose: 0.5)', 'tesst doc id'),
 (45, 'SEU/IS/19/MIT/102', 1, '2024-09-10', 'Diazepam (Dose: 0.5)', 'test'),
 (46, 'SEU/IS/19/MIT/103', 4, '2024-09-10', 'Betamethasone (Dose: 0.5)', 'test'),
-(47, 'SEU/IS/19/MIT/103', 1, '2024-09-11', 'Vitamin C (Dose: 1)', 'new test');
+(47, 'SEU/IS/19/MIT/103', 1, '2024-09-11', 'Vitamin C (Dose: 1)', 'new test'),
+(48, 'SEU/IS/19/MIT/104', 1, '2024-09-15', 'Paracetamol (Dose: 0.5), Vitamin C (Dose: 1), Aspirin (Dose: 2)', 'test'),
+(49, 'SEU/IS/19/MIT/101', 1, '2024-09-17', 'Paracetamol (Dose: 1), Vitamin C (Dose: 0.5)', 'test'),
+(50, 'SEU/IS/19/MIT/101', 1, '2024-09-17', 'Paracetamol (Dose: 1)', 'test'),
+(51, 'SEU/IS/19/MIT/104', 1, '2024-09-19', 'Vitamin C (Dose: 0.5), Paracetamol (Dose: 1)', 'New Prescription'),
+(52, 'SEU/IS/19/MIT/103', 1, '2024-09-20', 'Ondansetron (Dose: 0.5), Paracetamol (Dose: 0.5)', 'test ');
 
 -- --------------------------------------------------------
 
@@ -221,10 +225,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `password`, `role`) VALUES
-(1, 'Doc NAme', 'doctor1', '123', 'Doctor'),
-(2, 'admin1', 'admin1', '123', 'Admin'),
-(3, 'staff NAme', 'staff1', '123', 'Staff'),
-(4, 'Doc name', 'doctor2', '123', 'Doctor');
+(1, 'Doc Name', 'doctor1', '123', 'Doctor'),
+(2, 'Admin Name', 'admin1', '123', 'Admin'),
+(3, 'Test Staff', 'staff1', '123', 'Staff'),
+(4, 'Doc name', 'doctor2', '123', 'Doctor'),
+(5, 'Test Admin', 'admin2', '123', 'Admin');
 
 --
 -- Indexes for dumped tables
@@ -264,19 +269,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `medicine`
 --
 ALTER TABLE `medicine`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `prescriptions`
 --
 ALTER TABLE `prescriptions`
-  MODIFY `PrescriptionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `PrescriptionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
