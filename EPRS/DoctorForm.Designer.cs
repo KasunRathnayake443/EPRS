@@ -56,8 +56,9 @@
             label1 = new Label();
             welcomeLabel = new Label();
             pictureBox1 = new PictureBox();
-            unameLbl = new Label();
             settingsBtn = new Button();
+            unameLbl = new Label();
+            pictureBox2 = new PictureBox();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             notificationPanel.SuspendLayout();
@@ -67,6 +68,7 @@
             notificationPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)medicineDataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -351,6 +353,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.BackColor = Color.WhiteSmoke;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(1531, 27);
             pictureBox1.Name = "pictureBox1";
@@ -358,17 +361,6 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 12;
             pictureBox1.TabStop = false;
-            // 
-            // unameLbl
-            // 
-            unameLbl.AutoSize = true;
-            unameLbl.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            unameLbl.ForeColor = Color.Tomato;
-            unameLbl.Location = new Point(1375, 34);
-            unameLbl.Name = "unameLbl";
-            unameLbl.Size = new Size(157, 32);
-            unameLbl.TabIndex = 13;
-            unameLbl.Text = "Doctor Name";
             // 
             // settingsBtn
             // 
@@ -383,18 +375,41 @@
             settingsBtn.UseVisualStyleBackColor = false;
             settingsBtn.Click += settingsBtn_Click;
             // 
+            // unameLbl
+            // 
+            unameLbl.AutoSize = true;
+            unameLbl.BackColor = Color.WhiteSmoke;
+            unameLbl.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            unameLbl.ForeColor = Color.Tomato;
+            unameLbl.Location = new Point(1353, 43);
+            unameLbl.Name = "unameLbl";
+            unameLbl.Size = new Size(157, 32);
+            unameLbl.TabIndex = 13;
+            unameLbl.Text = "Doctor Name";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(1327, 12);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(293, 90);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 20;
+            pictureBox2.TabStop = false;
+            // 
             // DoctorForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(254, 254, 227);
             ClientSize = new Size(1650, 977);
-            Controls.Add(settingsBtn);
             Controls.Add(unameLbl);
+            Controls.Add(settingsBtn);
             Controls.Add(pictureBox1);
             Controls.Add(welcomeLabel);
             Controls.Add(label1);
             Controls.Add(tabControl1);
+            Controls.Add(pictureBox2);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "DoctorForm";
@@ -416,6 +431,7 @@
             notificationPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)medicineDataGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -435,7 +451,6 @@
         private Label dobLbl;
         private Label idLbl;
         private PictureBox pictureBox1;
-        private Label unameLbl;
         private DataGridView prescriptionsDataGridView;
         private Label PatientNameLbl;
         private Label patientDetaisLbl;
@@ -454,5 +469,7 @@
         private Panel panel1;
         private Label label8;
         private Panel panel3;
+        private Label unameLbl;
+        private PictureBox pictureBox2;
     }
 }

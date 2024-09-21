@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             label1 = new Label();
-            pictureBox1 = new PictureBox();
-            unameLbl = new Label();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             PatientDataGrid = new DataGridView();
@@ -77,6 +75,10 @@
             panel2 = new Panel();
             label3 = new Label();
             tabPage3 = new TabPage();
+            label28 = new Label();
+            notificationPanel = new Panel();
+            notificationLbl = new Label();
+            label27 = new Label();
             MedicineDataGrid = new DataGridView();
             addNewMedicineBtn = new Button();
             MedicineAmountBox = new TextBox();
@@ -91,11 +93,9 @@
             panel6 = new Panel();
             label22 = new Label();
             settingsBtn = new Button();
-            label27 = new Label();
-            label28 = new Label();
-            notificationPanel = new Panel();
-            notificationLbl = new Label();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            pictureBox1 = new PictureBox();
+            unameLbl = new Label();
+            pictureBox2 = new PictureBox();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PatientDataGrid).BeginInit();
@@ -106,10 +106,12 @@
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             tabPage3.SuspendLayout();
+            notificationPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)MedicineDataGrid).BeginInit();
             panel5.SuspendLayout();
             panel6.SuspendLayout();
-            notificationPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -124,27 +126,6 @@
             label1.Size = new Size(577, 36);
             label1.TabIndex = 11;
             label1.Text = "Patient Record Management System";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(1739, 32);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(52, 43);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 12;
-            pictureBox1.TabStop = false;
-            // 
-            // unameLbl
-            // 
-            unameLbl.AutoSize = true;
-            unameLbl.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            unameLbl.ForeColor = Color.Tomato;
-            unameLbl.Location = new Point(1576, 39);
-            unameLbl.Name = "unameLbl";
-            unameLbl.Size = new Size(155, 32);
-            unameLbl.TabIndex = 14;
-            unameLbl.Text = "Admin Name";
             // 
             // tabControl1
             // 
@@ -639,6 +620,47 @@
             tabPage3.UseVisualStyleBackColor = true;
             tabPage3.Click += tabPage3_Click;
             // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
+            label28.ForeColor = SystemColors.AppWorkspace;
+            label28.Location = new Point(1319, 24);
+            label28.Name = "label28";
+            label28.Size = new Size(167, 35);
+            label28.TabIndex = 14;
+            label28.Text = "Notifications";
+            // 
+            // notificationPanel
+            // 
+            notificationPanel.Controls.Add(notificationLbl);
+            notificationPanel.Location = new Point(1174, 88);
+            notificationPanel.Name = "notificationPanel";
+            notificationPanel.Size = new Size(430, 639);
+            notificationPanel.TabIndex = 13;
+            // 
+            // notificationLbl
+            // 
+            notificationLbl.AutoSize = true;
+            notificationLbl.Font = new Font("Segoe UI", 10.8F, FontStyle.Italic, GraphicsUnit.Point);
+            notificationLbl.ForeColor = Color.DarkSalmon;
+            notificationLbl.Location = new Point(65, 75);
+            notificationLbl.Name = "notificationLbl";
+            notificationLbl.Size = new Size(292, 25);
+            notificationLbl.TabIndex = 1;
+            notificationLbl.Text = "Notifications will be Appeared Here";
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point);
+            label27.ForeColor = Color.DimGray;
+            label27.Location = new Point(489, 42);
+            label27.Name = "label27";
+            label27.Size = new Size(147, 30);
+            label27.TabIndex = 12;
+            label27.Text = "All Medicine ";
+            // 
             // MedicineDataGrid
             // 
             MedicineDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -785,46 +807,38 @@
             settingsBtn.UseVisualStyleBackColor = false;
             settingsBtn.Click += settingsBtn_Click;
             // 
-            // label27
+            // pictureBox1
             // 
-            label27.AutoSize = true;
-            label27.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point);
-            label27.ForeColor = Color.DimGray;
-            label27.Location = new Point(489, 42);
-            label27.Name = "label27";
-            label27.Size = new Size(147, 30);
-            label27.TabIndex = 12;
-            label27.Text = "All Medicine ";
+            pictureBox1.BackColor = Color.WhiteSmoke;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(1726, 38);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(52, 43);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 12;
+            pictureBox1.TabStop = false;
             // 
-            // label28
+            // unameLbl
             // 
-            label28.AutoSize = true;
-            label28.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            label28.ForeColor = SystemColors.AppWorkspace;
-            label28.Location = new Point(1319, 24);
-            label28.Name = "label28";
-            label28.Size = new Size(167, 35);
-            label28.TabIndex = 14;
-            label28.Text = "Notifications";
+            unameLbl.AutoSize = true;
+            unameLbl.BackColor = Color.WhiteSmoke;
+            unameLbl.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            unameLbl.ForeColor = Color.Tomato;
+            unameLbl.Location = new Point(1565, 38);
+            unameLbl.Name = "unameLbl";
+            unameLbl.Size = new Size(155, 32);
+            unameLbl.TabIndex = 14;
+            unameLbl.Text = "Admin Name";
             // 
-            // notificationPanel
+            // pictureBox2
             // 
-            notificationPanel.Controls.Add(notificationLbl);
-            notificationPanel.Location = new Point(1174, 88);
-            notificationPanel.Name = "notificationPanel";
-            notificationPanel.Size = new Size(430, 639);
-            notificationPanel.TabIndex = 13;
-            // 
-            // notificationLbl
-            // 
-            notificationLbl.AutoSize = true;
-            notificationLbl.Font = new Font("Segoe UI", 10.8F, FontStyle.Italic, GraphicsUnit.Point);
-            notificationLbl.ForeColor = Color.DarkSalmon;
-            notificationLbl.Location = new Point(65, 75);
-            notificationLbl.Name = "notificationLbl";
-            notificationLbl.Size = new Size(292, 25);
-            notificationLbl.TabIndex = 1;
-            notificationLbl.Text = "Notifications will be Appeared Here";
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(1527, 12);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(293, 90);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 19;
+            pictureBox2.TabStop = false;
             // 
             // AdminForm
             // 
@@ -832,11 +846,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Honeydew;
             ClientSize = new Size(1832, 973);
-            Controls.Add(settingsBtn);
-            Controls.Add(tabControl1);
             Controls.Add(unameLbl);
             Controls.Add(pictureBox1);
+            Controls.Add(settingsBtn);
+            Controls.Add(tabControl1);
             Controls.Add(label1);
+            Controls.Add(pictureBox2);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "AdminForm";
@@ -844,7 +859,6 @@
             Text = "EPRS - Admin Dahsboard";
             FormClosing += AdminForm_FormClosing;
             Load += AdminForm_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
@@ -862,13 +876,15 @@
             panel2.PerformLayout();
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
+            notificationPanel.ResumeLayout(false);
+            notificationPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)MedicineDataGrid).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
-            notificationPanel.ResumeLayout(false);
-            notificationPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -876,8 +892,6 @@
         #endregion
 
         private Label label1;
-        private PictureBox pictureBox1;
-        private Label unameLbl;
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
@@ -941,5 +955,8 @@
         private Label label28;
         private Panel notificationPanel;
         private Label notificationLbl;
+        private PictureBox pictureBox1;
+        private Label unameLbl;
+        private PictureBox pictureBox2;
     }
 }

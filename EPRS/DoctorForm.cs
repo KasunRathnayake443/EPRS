@@ -362,22 +362,26 @@ namespace EPRS
 
         }
 
+        private bool isExitConfirmed = false;
         private void DoctorForm_FormClosing_1(object sender, FormClosingEventArgs e)
         {
-            DialogResult result = MessageBox.Show(
-                "Are you sure you want to close the program?",
-                "Confirm Exit",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
+            if (!isExitConfirmed)
             {
+                DialogResult result = MessageBox.Show(
+                   "Are you sure you want to close the program?",
+                   "Confirm Exit",
+                   MessageBoxButtons.YesNo,
+                   MessageBoxIcon.Question);
 
-                Application.Exit();
-            }
-            else
-            {
-                e.Cancel = true;
+                if (result == DialogResult.Yes)
+                {
+                    isExitConfirmed = true;
+                    Application.Exit();
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
             }
         }
 

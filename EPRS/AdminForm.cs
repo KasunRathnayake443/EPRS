@@ -87,24 +87,30 @@ namespace EPRS
             }
         }
 
+        private bool isExitConfirmed = false;
+
         private void AdminForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult result = MessageBox.Show(
-               "Are you sure you want to close the program?",
-               "Confirm Exit",
-               MessageBoxButtons.YesNo,
-               MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
+            if (!isExitConfirmed)
             {
+                DialogResult result = MessageBox.Show(
+                   "Are you sure you want to close the program?",
+                   "Confirm Exit",
+                   MessageBoxButtons.YesNo,
+                   MessageBoxIcon.Question);
 
-                Application.Exit();
-            }
-            else
-            {
-                e.Cancel = true;
+                if (result == DialogResult.Yes)
+                {
+                    isExitConfirmed = true;
+                    Application.Exit();
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
             }
         }
+
 
         private void settingsBtn_Click(object sender, EventArgs e)
         {
@@ -695,7 +701,7 @@ namespace EPRS
             if (e.ColumnIndex == MedicineDataGrid.Columns["EditButton"].Index && e.RowIndex >= 0)
             {
                 string selectedMedicineName = (MedicineDataGrid).Rows[e.RowIndex].Cells["name"].Value.ToString();
-               
+
                 EditMedicine(selectedMedicineName);
             }
             else if (e.ColumnIndex == MedicineDataGrid.Columns["DeleteButton"].Index && e.RowIndex >= 0)
@@ -707,11 +713,11 @@ namespace EPRS
 
         private void EditMedicine(string selectedMedicineName)
         {
-           
 
-           EditMedicineAdmin editMedicine = new EditMedicineAdmin(selectedMedicineName, this);
-           editMedicine.Show();
-           LoadMedicineGrid();
+
+            EditMedicineAdmin editMedicine = new EditMedicineAdmin(selectedMedicineName, this);
+            editMedicine.Show();
+            LoadMedicineGrid();
             LowInventoryNotification();
         }
 
@@ -759,7 +765,7 @@ namespace EPRS
 
                 if (amountGrams < 100)
                 {
-                    ShowLowStockNotification(medicineName, amountGrams, yOffset, notificationPanel );
+                    ShowLowStockNotification(medicineName, amountGrams, yOffset, notificationPanel);
                     yOffset += 30;
                 }
             }
@@ -789,7 +795,7 @@ namespace EPRS
             targetPanel1.Controls.Add(notificationLabel1);
 
 
-          
+
         }
     }
 }

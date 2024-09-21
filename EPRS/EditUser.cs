@@ -100,6 +100,7 @@ namespace EPRS
                 if (_parentForm is AdminForm adminForm)
                 {
                     adminForm.ReloadUserGrid();
+                    adminForm.LoadAdminName();
                 }
 
                 this.Close();
