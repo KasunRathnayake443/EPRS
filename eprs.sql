@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 20, 2024 at 07:37 PM
+-- Generation Time: Sep 21, 2024 at 09:00 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -38,12 +38,11 @@ CREATE TABLE `medicine` (
 --
 
 INSERT INTO `medicine` (`id`, `name`, `amount_grams`) VALUES
-(1, 'Paracetamol', 168.50),
+(1, 'Paracetamol', 164.00),
 (2, 'Amoxicillin', 500.00),
 (4, 'Cough Syrup', 100.00),
-(5, 'Vitamin C', 282.00),
+(5, 'Vitamin C', 273.00),
 (6, 'Aspirin', 77.50),
-(8, 'Paracetamol', 132.50),
 (9, 'Amoxicillin', 245.50),
 (11, 'Ciprofloxacin', 120.00),
 (13, 'Lisinopril', 160.00),
@@ -60,7 +59,7 @@ INSERT INTO `medicine` (`id`, `name`, `amount_grams`) VALUES
 (24, 'Warfarin', 110.00),
 (25, 'Prednisone', 130.00),
 (26, 'Doxycycline', 180.00),
-(27, 'Pantoprazole', 185.50),
+(27, 'Pantoprazole', 181.00),
 (28, 'Ranitidine', 220.00),
 (29, 'Metoprolol', 140.00),
 (30, 'Gabapentin', 145.50),
@@ -96,7 +95,7 @@ INSERT INTO `medicine` (`id`, `name`, `amount_grams`) VALUES
 (60, 'Varenicline', 110.00),
 (61, 'Carbamazepine', 115.50),
 (62, 'Valproic acid', 140.00),
-(63, 'Phenytoin', 150.00),
+(63, 'Phenytoin', 145.50),
 (64, 'Levetiracetam', 200.00),
 (65, 'Pregabalin', 140.00),
 (66, 'Loperamide', 130.00),
@@ -204,7 +203,9 @@ INSERT INTO `prescriptions` (`PrescriptionID`, `PatientID`, `DoctorID`, `Prescri
 (49, 'SEU/IS/19/MIT/101', 1, '2024-09-17', 'Paracetamol (Dose: 1), Vitamin C (Dose: 0.5)', 'test'),
 (50, 'SEU/IS/19/MIT/101', 1, '2024-09-17', 'Paracetamol (Dose: 1)', 'test'),
 (51, 'SEU/IS/19/MIT/104', 1, '2024-09-19', 'Vitamin C (Dose: 0.5), Paracetamol (Dose: 1)', 'New Prescription'),
-(52, 'SEU/IS/19/MIT/103', 1, '2024-09-20', 'Ondansetron (Dose: 0.5), Paracetamol (Dose: 0.5)', 'test ');
+(52, 'SEU/IS/19/MIT/103', 1, '2024-09-20', 'Ondansetron (Dose: 0.5), Paracetamol (Dose: 0.5)', 'test '),
+(53, 'SEU/IS/19/MIT/102', 1, '2024-09-21', 'Paracetamol (Dose: 0.5), Vitamin C (Dose: 0.5)', 'test'),
+(54, 'SEU/IS/19/MIT/106', 1, '2024-09-21', 'Pantoprazole (Dose: 0.5), Vitamin C (Dose: 0.5), Phenytoin (Dose: 0.5)', 'test');
 
 -- --------------------------------------------------------
 
@@ -225,8 +226,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `password`, `role`) VALUES
-(1, 'Doc Name', 'doctor1', '123', 'Doctor'),
-(2, 'Admin Name', 'admin1', '123', 'Admin'),
+(1, 'Doctor Name', 'doctor1', '123', 'Doctor'),
+(2, 'Admin Test', 'admin1', '123', 'Admin'),
 (3, 'Test Staff', 'staff1', '123', 'Staff'),
 (4, 'Doc name', 'doctor2', '123', 'Doctor'),
 (5, 'Test Admin', 'admin2', '123', 'Admin');
@@ -275,7 +276,7 @@ ALTER TABLE `medicine`
 -- AUTO_INCREMENT for table `prescriptions`
 --
 ALTER TABLE `prescriptions`
-  MODIFY `PrescriptionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `PrescriptionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `users`

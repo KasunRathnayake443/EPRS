@@ -70,55 +70,66 @@ namespace EPRS
         private void medicineComboBox_TextUpdate_1(object sender, EventArgs e)
         {
             string searchText = medicineComboBox.Text;
+
+            
             if (searchText.Length > 1)
             {
+               
+                int cursorPosition = medicineComboBox.SelectionStart;
                 FetchMedicineSuggestions(searchText);
+                medicineComboBox.SelectionStart = cursorPosition;
             }
         }
-
-
         private void addMedicineButton_Click_1(object sender, EventArgs e)
         {
             string selectedMedicine = medicineComboBox.Text;
             string dose = doseBox.Text;
 
-
             if (!string.IsNullOrWhiteSpace(selectedMedicine) && !selectedMedicines.Any(m => m.medicineName == selectedMedicine))
             {
                 if (string.IsNullOrWhiteSpace(dose))
                 {
-                    dose = "0.5";
+                    dose = "0.5"; 
                 }
 
-
+               
                 selectedMedicines.Add((selectedMedicine, dose));
 
-
+                
                 medicinesListBox.Items.Add($"{selectedMedicine} - Dose: {dose}");
 
-
+                
                 medicineComboBox.Text = "";
                 doseBox.Text = "0.5";
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid medicine and dose, or ensure the medicine hasn't been added already.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
 
+
         private void removeMedicineButton_Click(object sender, EventArgs e)
         {
-
+           
             if (medicinesListBox.SelectedIndex != -1)
             {
-
+             
                 string selectedItem = medicinesListBox.SelectedItem.ToString();
 
-
+                
                 string medicineName = selectedItem.Split('-')[0].Trim();
 
-
+                
                 medicinesListBox.Items.RemoveAt(medicinesListBox.SelectedIndex);
 
-
+                
                 selectedMedicines.RemoveAll(m => m.medicineName == medicineName);
+            }
+            else
+            {
+                MessageBox.Show("Please select a medicine to remove.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -126,6 +137,8 @@ namespace EPRS
         private void saveButton_Click_1(object sender, EventArgs e)
         {
             string description = descriptionTextBox.Text;
+
+          
             if (string.IsNullOrWhiteSpace(description) || selectedMedicines.Count == 0)
             {
                 MessageBox.Show("Please fill in the prescription description and add at least one medicine.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -136,21 +149,37 @@ namespace EPRS
             {
                 foreach (var (medicine, dose) in selectedMedicines)
                 {
-                    double doseValue = double.Parse(dose);
-                    double doseToReduce = doseValue * 9;
+                    
+                    string checkMedicineQuery = "SELECT COUNT(*) FROM medicine WHERE name = @medicineName";
+                    MySqlCommand checkCmd = new MySqlCommand(checkMedicineQuery, connection);
+                    checkCmd.Parameters.AddWithValue("@medicineName", medicine);
 
+                    int medicineExists = Convert.ToInt32(checkCmd.ExecuteScalar());
 
-                    string updateQuery = "UPDATE medicine SET amount_grams = amount_grams - @doseToReduce WHERE name = @medicineName";
-                    MySqlCommand updateCmd = new MySqlCommand(updateQuery, connection);
-                    updateCmd.Parameters.AddWithValue("@doseToReduce", doseToReduce);
-                    updateCmd.Parameters.AddWithValue("@medicineName", medicine);
-                    updateCmd.ExecuteNonQuery();
+                    if (medicineExists > 0)
+                    {
+                       
+                        double doseValue = double.Parse(dose);
+                        double doseToReduce = doseValue * 9;
+
+                        string updateQuery = "UPDATE medicine SET amount_grams = amount_grams - @doseToReduce WHERE name = @medicineName";
+                        MySqlCommand updateCmd = new MySqlCommand(updateQuery, connection);
+                        updateCmd.Parameters.AddWithValue("@doseToReduce", doseToReduce);
+                        updateCmd.Parameters.AddWithValue("@medicineName", medicine);
+                        updateCmd.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                       
+                        MessageBox.Show($"The medicine '{medicine}' does not exist in the database. It will still be added to the prescription.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
 
-
+              
                 string medication = string.Join(", ", selectedMedicines.Select(m => $"{m.medicineName} (Dose: {m.dose})"));
-                string insertQuery = "INSERT INTO prescriptions (DoctorID, PatientID, Description, PrescriptionDate, Medication) VALUES (@DoctorID, @PatientID, @Description, @PrescriptionDate, @Medication)";
 
+               
+                string insertQuery = "INSERT INTO prescriptions (DoctorID, PatientID, Description, PrescriptionDate, Medication) VALUES (@DoctorID, @PatientID, @Description, @PrescriptionDate, @Medication)";
                 MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
                 cmd.Parameters.AddWithValue("@DoctorID", _doctorID);
                 cmd.Parameters.AddWithValue("@PatientID", patientID);
