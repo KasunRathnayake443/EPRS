@@ -407,7 +407,7 @@
             MaximizeBox = false;
             Name = "StaffForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "EPRS Staff Dahboard";
+            Text = "a";
             FormClosing += StaffForm_FormClosing;
             Load += StaffForm_Load;
             tabControl1.ResumeLayout(false);
