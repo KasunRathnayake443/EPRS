@@ -20,10 +20,21 @@ namespace EPRS
         {
             InitializeComponent();
             _username = username;
+
+            AccountBtn.Visible = false;
+            LogoutBtn.Visible = false;
+
+
+            settingsBtn.Click += settingsBtn_Click;
+
+            AccountBtn.Click += Buttons_Click;
+            LogoutBtn.Click += Buttons_Click;
         }
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
+
+
             try
             {
 
@@ -53,6 +64,8 @@ namespace EPRS
                 MessageBox.Show($"Error connecting to the database: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
 
         public void LoadAdminName()
         {
@@ -112,12 +125,13 @@ namespace EPRS
         }
 
 
+
         private void settingsBtn_Click(object sender, EventArgs e)
         {
-            ProfileUpdate profileUpdateForm = new ProfileUpdate(_userID, "Admin", this);
-            profileUpdateForm.Show();
 
-            LoadAdminName();
+
+            AccountBtn.Visible = true;
+            LogoutBtn.Visible = true;
 
         }
         private void label4_Click(object sender, EventArgs e)
@@ -797,5 +811,60 @@ namespace EPRS
 
 
         }
+
+        private void AdminForm_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (AccountBtn.Visible || LogoutBtn.Visible)
+            {
+                AccountBtn.Visible = false;
+                LogoutBtn.Visible = false;
+            }
+        }
+
+        private void AdminForm_Click(object sender, MouseEventArgs e)
+        {
+            if (AccountBtn.Visible || LogoutBtn.Visible)
+            {
+
+                AccountBtn.Visible = false;
+                LogoutBtn.Visible = false;
+            }
+        }
+        private void Buttons_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AccountBtn_Click(object sender, EventArgs e)
+        {
+            ProfileUpdate profileUpdateForm = new ProfileUpdate(_userID, "Admin", this);
+            profileUpdateForm.Show();
+
+            LoadAdminName();
+        }
+
+
+
+        private void LogoutBtn_Click(object sender, EventArgs e)
+        {
+
+
+            
+            DialogResult result = MessageBox.Show(
+               "Are you sure you want to logout?", "Logout",
+               MessageBoxButtons.YesNo,
+               MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Form1 loginForm = new Form1();
+                loginForm.Show();
+
+                this.Hide();
+            }
+
+        }
+
+
     }
 }

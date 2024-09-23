@@ -18,6 +18,14 @@ namespace EPRS
         {
             InitializeComponent();
             _username = username;
+            AccountBtn.Visible = false;
+            LogoutBtn.Visible = false;
+
+
+            settingsBtn.Click += settingsBtn_Click;
+
+            AccountBtn.Click += Buttons_Click;
+            LogoutBtn.Click += Buttons_Click;
 
         }
 
@@ -98,6 +106,11 @@ namespace EPRS
                     e.Cancel = true;
                 }
             }
+        }
+
+        private void Buttons_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void LoadMedicineInventory()
@@ -289,8 +302,9 @@ namespace EPRS
 
         private void settingsBtn_Click(object sender, EventArgs e)
         {
-            ProfileUpdate profileUpdateForm = new ProfileUpdate(_userID, "Staff", this);
-            profileUpdateForm.Show();
+            AccountBtn.Visible = true;
+            LogoutBtn.Visible = true;
+
         }
 
 
@@ -516,6 +530,49 @@ namespace EPRS
 
 
             LoadMedicineInventory();
+        }
+
+
+
+
+
+
+        private void AccountBtn_Click_1(object sender, EventArgs e)
+        {
+            ProfileUpdate profileUpdateForm = new ProfileUpdate(_userID, "Staff", this);
+            profileUpdateForm.Show();
+
+            LoadStaffName();
+        }
+
+        private void LogoutBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+              "Are you sure you want to logout?", "Logout",
+              MessageBoxButtons.YesNo,
+              MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Form1 loginForm = new Form1();
+                loginForm.Show();
+
+                this.Hide();
+            }
+        }
+
+        private void StaffForm_MouseEnter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void StaffForm_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (AccountBtn.Visible || LogoutBtn.Visible)
+            {
+                AccountBtn.Visible = false;
+                LogoutBtn.Visible = false;
+            }
         }
     }
 

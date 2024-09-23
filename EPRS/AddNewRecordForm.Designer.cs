@@ -206,6 +206,7 @@
             Controls.Add(medicineComboBox);
             Controls.Add(doctorIdLabel);
             Controls.Add(patientIdLabel);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AddNewRecordForm";
             StartPosition = FormStartPosition.CenterScreen;

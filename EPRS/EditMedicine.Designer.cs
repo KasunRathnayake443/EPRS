@@ -172,6 +172,7 @@
             Controls.Add(label3);
             Controls.Add(ID);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "EditMedicine";

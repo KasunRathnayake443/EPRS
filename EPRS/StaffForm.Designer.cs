@@ -59,6 +59,8 @@
             unameLbl = new Label();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            AccountBtn = new Button();
+            LogoutBtn = new Button();
             tabControl1.SuspendLayout();
             addPatientBtn.SuspendLayout();
             notificationPanel.SuspendLayout();
@@ -391,18 +393,55 @@
             pictureBox2.TabIndex = 20;
             pictureBox2.TabStop = false;
             // 
+            // AccountBtn
+            // 
+            AccountBtn.BackColor = Color.Transparent;
+            AccountBtn.FlatAppearance.BorderSize = 0;
+            AccountBtn.FlatAppearance.MouseDownBackColor = Color.Gray;
+            AccountBtn.FlatAppearance.MouseOverBackColor = Color.LightGray;
+            AccountBtn.FlatStyle = FlatStyle.Flat;
+            AccountBtn.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            AccountBtn.ForeColor = Color.Black;
+            AccountBtn.Location = new Point(1399, 919);
+            AccountBtn.Name = "AccountBtn";
+            AccountBtn.Size = new Size(90, 30);
+            AccountBtn.TabIndex = 21;
+            AccountBtn.Text = "Account";
+            AccountBtn.UseVisualStyleBackColor = false;
+            AccountBtn.Click += AccountBtn_Click_1;
+            // 
+            // LogoutBtn
+            // 
+            LogoutBtn.BackColor = Color.Transparent;
+            LogoutBtn.FlatAppearance.BorderSize = 0;
+            LogoutBtn.FlatAppearance.MouseDownBackColor = Color.Gray;
+            LogoutBtn.FlatAppearance.MouseOverBackColor = Color.LightGray;
+            LogoutBtn.FlatStyle = FlatStyle.Flat;
+            LogoutBtn.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            LogoutBtn.ForeColor = Color.Black;
+            LogoutBtn.Location = new Point(1499, 919);
+            LogoutBtn.Name = "LogoutBtn";
+            LogoutBtn.Size = new Size(80, 30);
+            LogoutBtn.TabIndex = 22;
+            LogoutBtn.Text = "Logout";
+            LogoutBtn.UseVisualStyleBackColor = false;
+            LogoutBtn.Click += LogoutBtn_Click;
+            // 
             // StaffForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Azure;
             ClientSize = new Size(1633, 959);
+            Controls.Add(AccountBtn);
+            Controls.Add(LogoutBtn);
             Controls.Add(settingsBtn);
             Controls.Add(unameLbl);
             Controls.Add(pictureBox1);
             Controls.Add(label1);
             Controls.Add(tabControl1);
             Controls.Add(pictureBox2);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "StaffForm";
@@ -410,6 +449,8 @@
             Text = "a";
             FormClosing += StaffForm_FormClosing;
             Load += StaffForm_Load;
+            MouseClick += StaffForm_MouseClick;
+            MouseEnter += StaffForm_MouseEnter;
             tabControl1.ResumeLayout(false);
             addPatientBtn.ResumeLayout(false);
             addPatientBtn.PerformLayout();
@@ -460,5 +501,7 @@
         private Panel panel3;
         private Panel medicineView;
         private PictureBox pictureBox2;
+        private Button AccountBtn;
+        private Button LogoutBtn;
     }
 }

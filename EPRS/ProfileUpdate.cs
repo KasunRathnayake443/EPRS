@@ -94,7 +94,7 @@ namespace EPRS
                     else if (_parentForm is AdminForm adminForm)
                     {
                         adminForm.LoadAdminName();
-                        adminForm.LoadUserGrid(); 
+                        adminForm.LoadUserGrid();
                     }
                 }
                 else

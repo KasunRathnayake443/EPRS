@@ -113,11 +113,11 @@ namespace EPRS
                 if (_parentForm is StaffForm staffForm)
                 {
                     staffForm.ReloadPatientData(_userID);
-                } 
+                }
 
                 if (_parentForm is AdminForm adminForm)
                 {
-                    adminForm.ReloadPatientGrid(); 
+                    adminForm.ReloadPatientGrid();
                 }
 
                 this.Close();

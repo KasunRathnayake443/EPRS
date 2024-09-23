@@ -31,31 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             label1 = new Label();
             tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            PatientDataGrid = new DataGridView();
-            AddPatientsBtn = new Button();
-            label20 = new Label();
-            IdBox = new TextBox();
-            dateTimePicker = new DateTimePicker();
-            GenderBox = new ComboBox();
-            PhoneBox = new TextBox();
-            EmailBox = new TextBox();
-            AddressBox = new TextBox();
-            LNameBox = new TextBox();
-            FNameBox = new TextBox();
-            label9 = new Label();
-            label12 = new Label();
-            label13 = new Label();
-            label14 = new Label();
-            label15 = new Label();
-            label16 = new Label();
-            label17 = new Label();
-            label18 = new Label();
-            label11 = new Label();
-            panel4 = new Panel();
-            PatientCount = new Label();
-            panel3 = new Panel();
-            label10 = new Label();
             tabPage2 = new TabPage();
             label19 = new Label();
             UserGrid = new DataGridView();
@@ -92,15 +67,38 @@
             medicineCountLbl = new Label();
             panel6 = new Panel();
             label22 = new Label();
+            tabPage1 = new TabPage();
+            PatientDataGrid = new DataGridView();
+            AddPatientsBtn = new Button();
+            label20 = new Label();
+            IdBox = new TextBox();
+            dateTimePicker = new DateTimePicker();
+            GenderBox = new ComboBox();
+            PhoneBox = new TextBox();
+            EmailBox = new TextBox();
+            AddressBox = new TextBox();
+            LNameBox = new TextBox();
+            FNameBox = new TextBox();
+            label9 = new Label();
+            label12 = new Label();
+            label13 = new Label();
+            label14 = new Label();
+            label15 = new Label();
+            label16 = new Label();
+            label17 = new Label();
+            label18 = new Label();
+            label11 = new Label();
+            panel4 = new Panel();
+            PatientCount = new Label();
+            panel3 = new Panel();
+            label10 = new Label();
             settingsBtn = new Button();
             pictureBox1 = new PictureBox();
             unameLbl = new Label();
             pictureBox2 = new PictureBox();
+            LogoutBtn = new Button();
+            AccountBtn = new Button();
             tabControl1.SuspendLayout();
-            tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)PatientDataGrid).BeginInit();
-            panel4.SuspendLayout();
-            panel3.SuspendLayout();
             tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)UserGrid).BeginInit();
             panel1.SuspendLayout();
@@ -110,6 +108,10 @@
             ((System.ComponentModel.ISupportInitialize)MedicineDataGrid).BeginInit();
             panel5.SuspendLayout();
             panel6.SuspendLayout();
+            tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PatientDataGrid).BeginInit();
+            panel4.SuspendLayout();
+            panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -129,278 +131,14 @@
             // 
             // tabControl1
             // 
-            tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
+            tabControl1.Controls.Add(tabPage1);
             tabControl1.Location = new Point(40, 93);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(1742, 836);
             tabControl1.TabIndex = 15;
-            // 
-            // tabPage1
-            // 
-            tabPage1.Controls.Add(PatientDataGrid);
-            tabPage1.Controls.Add(AddPatientsBtn);
-            tabPage1.Controls.Add(label20);
-            tabPage1.Controls.Add(IdBox);
-            tabPage1.Controls.Add(dateTimePicker);
-            tabPage1.Controls.Add(GenderBox);
-            tabPage1.Controls.Add(PhoneBox);
-            tabPage1.Controls.Add(EmailBox);
-            tabPage1.Controls.Add(AddressBox);
-            tabPage1.Controls.Add(LNameBox);
-            tabPage1.Controls.Add(FNameBox);
-            tabPage1.Controls.Add(label9);
-            tabPage1.Controls.Add(label12);
-            tabPage1.Controls.Add(label13);
-            tabPage1.Controls.Add(label14);
-            tabPage1.Controls.Add(label15);
-            tabPage1.Controls.Add(label16);
-            tabPage1.Controls.Add(label17);
-            tabPage1.Controls.Add(label18);
-            tabPage1.Controls.Add(label11);
-            tabPage1.Controls.Add(panel4);
-            tabPage1.Location = new Point(4, 29);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1734, 803);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "Manage Patients";
-            tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // PatientDataGrid
-            // 
-            PatientDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            PatientDataGrid.Location = new Point(20, 489);
-            PatientDataGrid.Name = "PatientDataGrid";
-            PatientDataGrid.RowHeadersWidth = 51;
-            PatientDataGrid.RowTemplate.Height = 29;
-            PatientDataGrid.Size = new Size(1684, 287);
-            PatientDataGrid.TabIndex = 57;
-            // 
-            // AddPatientsBtn
-            // 
-            AddPatientsBtn.BackColor = Color.RoyalBlue;
-            AddPatientsBtn.ForeColor = Color.White;
-            AddPatientsBtn.Location = new Point(683, 395);
-            AddPatientsBtn.Name = "AddPatientsBtn";
-            AddPatientsBtn.Size = new Size(177, 41);
-            AddPatientsBtn.TabIndex = 56;
-            AddPatientsBtn.Text = "Add Patient";
-            AddPatientsBtn.UseVisualStyleBackColor = false;
-            AddPatientsBtn.Click += AddPatientsBtn_Click;
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            label20.ForeColor = Color.DimGray;
-            label20.Location = new Point(562, 23);
-            label20.Name = "label20";
-            label20.Size = new Size(214, 35);
-            label20.TabIndex = 55;
-            label20.Text = "Add New Patient";
-            // 
-            // IdBox
-            // 
-            IdBox.Location = new Point(683, 100);
-            IdBox.Name = "IdBox";
-            IdBox.Size = new Size(255, 27);
-            IdBox.TabIndex = 54;
-            // 
-            // dateTimePicker
-            // 
-            dateTimePicker.Location = new Point(1112, 208);
-            dateTimePicker.Name = "dateTimePicker";
-            dateTimePicker.Size = new Size(255, 27);
-            dateTimePicker.TabIndex = 53;
-            // 
-            // GenderBox
-            // 
-            GenderBox.FormattingEnabled = true;
-            GenderBox.Items.AddRange(new object[] { "Male", "Female" });
-            GenderBox.Location = new Point(683, 207);
-            GenderBox.Name = "GenderBox";
-            GenderBox.Size = new Size(255, 28);
-            GenderBox.TabIndex = 52;
-            // 
-            // PhoneBox
-            // 
-            PhoneBox.Location = new Point(1112, 321);
-            PhoneBox.Name = "PhoneBox";
-            PhoneBox.Size = new Size(255, 27);
-            PhoneBox.TabIndex = 51;
-            // 
-            // EmailBox
-            // 
-            EmailBox.Location = new Point(683, 324);
-            EmailBox.Name = "EmailBox";
-            EmailBox.Size = new Size(255, 27);
-            EmailBox.TabIndex = 50;
-            // 
-            // AddressBox
-            // 
-            AddressBox.Location = new Point(683, 264);
-            AddressBox.Name = "AddressBox";
-            AddressBox.Size = new Size(684, 27);
-            AddressBox.TabIndex = 49;
-            // 
-            // LNameBox
-            // 
-            LNameBox.Location = new Point(1112, 156);
-            LNameBox.Name = "LNameBox";
-            LNameBox.Size = new Size(255, 27);
-            LNameBox.TabIndex = 48;
-            // 
-            // FNameBox
-            // 
-            FNameBox.Location = new Point(683, 156);
-            FNameBox.Name = "FNameBox";
-            FNameBox.Size = new Size(255, 27);
-            FNameBox.TabIndex = 47;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.ForeColor = Color.Black;
-            label9.Location = new Point(966, 320);
-            label9.Name = "label9";
-            label9.Size = new Size(108, 28);
-            label9.TabIndex = 46;
-            label9.Text = "Phone No :";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label12.ForeColor = Color.Black;
-            label12.Location = new Point(562, 320);
-            label12.Name = "label12";
-            label12.Size = new Size(68, 28);
-            label12.TabIndex = 45;
-            label12.Text = "Email :";
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label13.ForeColor = Color.Black;
-            label13.Location = new Point(562, 260);
-            label13.Name = "label13";
-            label13.Size = new Size(91, 28);
-            label13.TabIndex = 44;
-            label13.Text = "Address :";
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label14.ForeColor = Color.Black;
-            label14.Location = new Point(966, 203);
-            label14.Name = "label14";
-            label14.Size = new Size(134, 28);
-            label14.TabIndex = 43;
-            label14.Text = "Date Of Birth :";
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label15.ForeColor = Color.Black;
-            label15.Location = new Point(562, 203);
-            label15.Name = "label15";
-            label15.Size = new Size(85, 28);
-            label15.TabIndex = 42;
-            label15.Text = "Gender :";
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label16.ForeColor = Color.Black;
-            label16.Location = new Point(562, 96);
-            label16.Name = "label16";
-            label16.Size = new Size(40, 28);
-            label16.TabIndex = 41;
-            label16.Text = "ID :";
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label17.ForeColor = Color.Black;
-            label17.Location = new Point(966, 152);
-            label17.Name = "label17";
-            label17.Size = new Size(112, 28);
-            label17.TabIndex = 40;
-            label17.Text = "Last Name :";
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label18.ForeColor = Color.Black;
-            label18.Location = new Point(562, 152);
-            label18.Name = "label18";
-            label18.Size = new Size(115, 28);
-            label18.TabIndex = 39;
-            label18.Text = "First Name :";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label11.ForeColor = Color.SlateGray;
-            label11.Location = new Point(17, 20);
-            label11.Name = "label11";
-            label11.Size = new Size(236, 38);
-            label11.TabIndex = 2;
-            label11.Text = "Manage Patients";
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.PaleGreen;
-            panel4.BorderStyle = BorderStyle.FixedSingle;
-            panel4.Controls.Add(PatientCount);
-            panel4.Controls.Add(panel3);
-            panel4.Location = new Point(67, 96);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(273, 132);
-            panel4.TabIndex = 1;
-            // 
-            // PatientCount
-            // 
-            PatientCount.AutoSize = true;
-            PatientCount.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            PatientCount.ForeColor = Color.White;
-            PatientCount.Location = new Point(110, 65);
-            PatientCount.Name = "PatientCount";
-            PatientCount.Size = new Size(56, 46);
-            PatientCount.TabIndex = 3;
-            PatientCount.Text = "45";
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.LightGreen;
-            panel3.BorderStyle = BorderStyle.FixedSingle;
-            panel3.Controls.Add(label10);
-            panel3.Location = new Point(-1, -1);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(273, 51);
-            panel3.TabIndex = 2;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.ForeColor = Color.White;
-            label10.Location = new Point(47, 11);
-            label10.Name = "label10";
-            label10.Size = new Size(180, 28);
-            label10.TabIndex = 0;
-            label10.Text = "Number of Patients";
             // 
             // tabPage2
             // 
@@ -794,6 +532,270 @@
             label22.Text = "Number of Medicine";
             label22.Click += label22_Click;
             // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(PatientDataGrid);
+            tabPage1.Controls.Add(AddPatientsBtn);
+            tabPage1.Controls.Add(label20);
+            tabPage1.Controls.Add(IdBox);
+            tabPage1.Controls.Add(dateTimePicker);
+            tabPage1.Controls.Add(GenderBox);
+            tabPage1.Controls.Add(PhoneBox);
+            tabPage1.Controls.Add(EmailBox);
+            tabPage1.Controls.Add(AddressBox);
+            tabPage1.Controls.Add(LNameBox);
+            tabPage1.Controls.Add(FNameBox);
+            tabPage1.Controls.Add(label9);
+            tabPage1.Controls.Add(label12);
+            tabPage1.Controls.Add(label13);
+            tabPage1.Controls.Add(label14);
+            tabPage1.Controls.Add(label15);
+            tabPage1.Controls.Add(label16);
+            tabPage1.Controls.Add(label17);
+            tabPage1.Controls.Add(label18);
+            tabPage1.Controls.Add(label11);
+            tabPage1.Controls.Add(panel4);
+            tabPage1.Location = new Point(4, 29);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(1734, 803);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "Manage Patients";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // PatientDataGrid
+            // 
+            PatientDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            PatientDataGrid.Location = new Point(20, 489);
+            PatientDataGrid.Name = "PatientDataGrid";
+            PatientDataGrid.RowHeadersWidth = 51;
+            PatientDataGrid.RowTemplate.Height = 29;
+            PatientDataGrid.Size = new Size(1684, 287);
+            PatientDataGrid.TabIndex = 57;
+            // 
+            // AddPatientsBtn
+            // 
+            AddPatientsBtn.BackColor = Color.RoyalBlue;
+            AddPatientsBtn.ForeColor = Color.White;
+            AddPatientsBtn.Location = new Point(683, 395);
+            AddPatientsBtn.Name = "AddPatientsBtn";
+            AddPatientsBtn.Size = new Size(177, 41);
+            AddPatientsBtn.TabIndex = 56;
+            AddPatientsBtn.Text = "Add Patient";
+            AddPatientsBtn.UseVisualStyleBackColor = false;
+            AddPatientsBtn.Click += AddPatientsBtn_Click;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
+            label20.ForeColor = Color.DimGray;
+            label20.Location = new Point(562, 23);
+            label20.Name = "label20";
+            label20.Size = new Size(214, 35);
+            label20.TabIndex = 55;
+            label20.Text = "Add New Patient";
+            // 
+            // IdBox
+            // 
+            IdBox.Location = new Point(683, 100);
+            IdBox.Name = "IdBox";
+            IdBox.Size = new Size(255, 27);
+            IdBox.TabIndex = 54;
+            // 
+            // dateTimePicker
+            // 
+            dateTimePicker.Location = new Point(1112, 208);
+            dateTimePicker.Name = "dateTimePicker";
+            dateTimePicker.Size = new Size(255, 27);
+            dateTimePicker.TabIndex = 53;
+            // 
+            // GenderBox
+            // 
+            GenderBox.FormattingEnabled = true;
+            GenderBox.Items.AddRange(new object[] { "Male", "Female" });
+            GenderBox.Location = new Point(683, 207);
+            GenderBox.Name = "GenderBox";
+            GenderBox.Size = new Size(255, 28);
+            GenderBox.TabIndex = 52;
+            // 
+            // PhoneBox
+            // 
+            PhoneBox.Location = new Point(1112, 321);
+            PhoneBox.Name = "PhoneBox";
+            PhoneBox.Size = new Size(255, 27);
+            PhoneBox.TabIndex = 51;
+            // 
+            // EmailBox
+            // 
+            EmailBox.Location = new Point(683, 324);
+            EmailBox.Name = "EmailBox";
+            EmailBox.Size = new Size(255, 27);
+            EmailBox.TabIndex = 50;
+            // 
+            // AddressBox
+            // 
+            AddressBox.Location = new Point(683, 264);
+            AddressBox.Name = "AddressBox";
+            AddressBox.Size = new Size(684, 27);
+            AddressBox.TabIndex = 49;
+            // 
+            // LNameBox
+            // 
+            LNameBox.Location = new Point(1112, 156);
+            LNameBox.Name = "LNameBox";
+            LNameBox.Size = new Size(255, 27);
+            LNameBox.TabIndex = 48;
+            // 
+            // FNameBox
+            // 
+            FNameBox.Location = new Point(683, 156);
+            FNameBox.Name = "FNameBox";
+            FNameBox.Size = new Size(255, 27);
+            FNameBox.TabIndex = 47;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.ForeColor = Color.Black;
+            label9.Location = new Point(966, 320);
+            label9.Name = "label9";
+            label9.Size = new Size(108, 28);
+            label9.TabIndex = 46;
+            label9.Text = "Phone No :";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label12.ForeColor = Color.Black;
+            label12.Location = new Point(562, 320);
+            label12.Name = "label12";
+            label12.Size = new Size(68, 28);
+            label12.TabIndex = 45;
+            label12.Text = "Email :";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label13.ForeColor = Color.Black;
+            label13.Location = new Point(562, 260);
+            label13.Name = "label13";
+            label13.Size = new Size(91, 28);
+            label13.TabIndex = 44;
+            label13.Text = "Address :";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label14.ForeColor = Color.Black;
+            label14.Location = new Point(966, 203);
+            label14.Name = "label14";
+            label14.Size = new Size(134, 28);
+            label14.TabIndex = 43;
+            label14.Text = "Date Of Birth :";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label15.ForeColor = Color.Black;
+            label15.Location = new Point(562, 203);
+            label15.Name = "label15";
+            label15.Size = new Size(85, 28);
+            label15.TabIndex = 42;
+            label15.Text = "Gender :";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label16.ForeColor = Color.Black;
+            label16.Location = new Point(562, 96);
+            label16.Name = "label16";
+            label16.Size = new Size(40, 28);
+            label16.TabIndex = 41;
+            label16.Text = "ID :";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label17.ForeColor = Color.Black;
+            label17.Location = new Point(966, 152);
+            label17.Name = "label17";
+            label17.Size = new Size(112, 28);
+            label17.TabIndex = 40;
+            label17.Text = "Last Name :";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label18.ForeColor = Color.Black;
+            label18.Location = new Point(562, 152);
+            label18.Name = "label18";
+            label18.Size = new Size(115, 28);
+            label18.TabIndex = 39;
+            label18.Text = "First Name :";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label11.ForeColor = Color.SlateGray;
+            label11.Location = new Point(17, 20);
+            label11.Name = "label11";
+            label11.Size = new Size(236, 38);
+            label11.TabIndex = 2;
+            label11.Text = "Manage Patients";
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.PaleGreen;
+            panel4.BorderStyle = BorderStyle.FixedSingle;
+            panel4.Controls.Add(PatientCount);
+            panel4.Controls.Add(panel3);
+            panel4.Location = new Point(67, 96);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(273, 132);
+            panel4.TabIndex = 1;
+            // 
+            // PatientCount
+            // 
+            PatientCount.AutoSize = true;
+            PatientCount.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            PatientCount.ForeColor = Color.White;
+            PatientCount.Location = new Point(110, 65);
+            PatientCount.Name = "PatientCount";
+            PatientCount.Size = new Size(56, 46);
+            PatientCount.TabIndex = 3;
+            PatientCount.Text = "45";
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.LightGreen;
+            panel3.BorderStyle = BorderStyle.FixedSingle;
+            panel3.Controls.Add(label10);
+            panel3.Location = new Point(-1, -1);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(273, 51);
+            panel3.TabIndex = 2;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.ForeColor = Color.White;
+            label10.Location = new Point(47, 11);
+            label10.Name = "label10";
+            label10.Size = new Size(180, 28);
+            label10.TabIndex = 0;
+            label10.Text = "Number of Patients";
+            // 
             // settingsBtn
             // 
             settingsBtn.BackColor = Color.Transparent;
@@ -811,7 +813,7 @@
             // 
             pictureBox1.BackColor = Color.WhiteSmoke;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(1726, 38);
+            pictureBox1.Location = new Point(1699, 38);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(52, 43);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -824,7 +826,7 @@
             unameLbl.BackColor = Color.WhiteSmoke;
             unameLbl.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
             unameLbl.ForeColor = Color.Tomato;
-            unameLbl.Location = new Point(1565, 38);
+            unameLbl.Location = new Point(1538, 38);
             unameLbl.Name = "unameLbl";
             unameLbl.Size = new Size(155, 32);
             unameLbl.TabIndex = 14;
@@ -833,12 +835,43 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(1527, 12);
+            pictureBox2.Location = new Point(1500, 12);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(293, 90);
+            pictureBox2.Size = new Size(275, 90);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 19;
             pictureBox2.TabStop = false;
+            // 
+            // LogoutBtn
+            // 
+            LogoutBtn.BackColor = Color.Transparent;  // Minimal, flat background
+            LogoutBtn.FlatStyle = FlatStyle.Flat;     // Set the button style to flat
+            LogoutBtn.FlatAppearance.BorderSize = 0;  // Remove the border
+            LogoutBtn.FlatAppearance.MouseOverBackColor = Color.LightGray;  // Subtle hover effect
+            LogoutBtn.FlatAppearance.MouseDownBackColor = Color.Gray;  // Subtle click effect
+            LogoutBtn.Font = new Font("Segoe UI", 10, FontStyle.Regular);  // Simple, modern font
+            LogoutBtn.ForeColor = Color.Black; 
+            LogoutBtn.Location = new Point(1681, 935);  
+            LogoutBtn.Size = new Size(80, 30);  
+            LogoutBtn.Text = "Logout";
+            LogoutBtn.UseVisualStyleBackColor = false;  
+            LogoutBtn.UseWaitCursor = false;  
+            LogoutBtn.Click += LogoutBtn_Click;
+            // 
+            // AccountBtn
+            // 
+            AccountBtn.BackColor = Color.Transparent;
+            AccountBtn.FlatStyle = FlatStyle.Flat;
+            AccountBtn.FlatAppearance.BorderSize = 0;
+            AccountBtn.FlatAppearance.MouseOverBackColor = Color.LightGray;
+            AccountBtn.FlatAppearance.MouseDownBackColor = Color.Gray;
+            AccountBtn.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+            AccountBtn.ForeColor = Color.Black;
+            AccountBtn.Location = new Point(1581, 935);
+            AccountBtn.Size = new Size(90, 30);
+            AccountBtn.Text = "Account";
+            AccountBtn.UseVisualStyleBackColor = false;
+            AccountBtn.Click += AccountBtn_Click;
             // 
             // AdminForm
             // 
@@ -846,27 +879,25 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Honeydew;
             ClientSize = new Size(1832, 973);
+            Controls.Add(AccountBtn);
+            Controls.Add(LogoutBtn);
             Controls.Add(unameLbl);
             Controls.Add(pictureBox1);
             Controls.Add(settingsBtn);
             Controls.Add(tabControl1);
             Controls.Add(label1);
             Controls.Add(pictureBox2);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "AdminForm";
+            SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "EPRS - Admin Dahsboard";
             FormClosing += AdminForm_FormClosing;
             Load += AdminForm_Load;
+            MouseClick += AdminForm_MouseClick;
             tabControl1.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
-            tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)PatientDataGrid).EndInit();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)UserGrid).EndInit();
@@ -883,6 +914,13 @@
             panel5.PerformLayout();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
+            tabPage1.ResumeLayout(false);
+            tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PatientDataGrid).EndInit();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
@@ -958,5 +996,7 @@
         private PictureBox pictureBox1;
         private Label unameLbl;
         private PictureBox pictureBox2;
+        private Button LogoutBtn;
+        private Button AccountBtn;
     }
 }

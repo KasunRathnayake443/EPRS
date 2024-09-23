@@ -196,6 +196,7 @@
             Controls.Add(panel1);
             Controls.Add(label2);
             Controls.Add(label3);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ProfileUpdate";
             StartPosition = FormStartPosition.CenterScreen;

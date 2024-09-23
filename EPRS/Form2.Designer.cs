@@ -193,6 +193,7 @@
             Controls.Add(panel1);
             Controls.Add(label2);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "DatabaseConfigForm";
             StartPosition = FormStartPosition.CenterScreen;

@@ -2,7 +2,7 @@ using System;
 using System.Configuration;
 using System.Data;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient; 
+using MySql.Data.MySqlClient;
 
 namespace EPRS
 {
@@ -22,20 +22,20 @@ namespace EPRS
 
             if (role != null)
             {
-                this.Hide();  
+                this.Hide();
 
                 switch (role.ToLower())
                 {
                     case "admin":
-                        AdminForm adminForm = new AdminForm(username); 
+                        AdminForm adminForm = new AdminForm(username);
                         adminForm.Show();
                         break;
                     case "doctor":
-                        DoctorForm doctorForm = new DoctorForm(username);  
+                        DoctorForm doctorForm = new DoctorForm(username);
                         doctorForm.Show();
                         break;
                     case "staff":
-                        StaffForm staffForm = new StaffForm(username);  
+                        StaffForm staffForm = new StaffForm(username);
                         staffForm.Show();
                         break;
                     default:
@@ -56,7 +56,7 @@ namespace EPRS
         {
             try
             {
-                // Get the connection string from app.config
+           
                 string connectionString = ConfigurationManager.ConnectionStrings["MyDatabase"].ConnectionString;
 
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -73,11 +73,11 @@ namespace EPRS
 
                         if (result != null)
                         {
-                            return result.ToString(); 
+                            return result.ToString();
                         }
                         else
                         {
-                            return null; 
+                            return null;
                         }
                     }
                 }
@@ -98,7 +98,12 @@ namespace EPRS
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

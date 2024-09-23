@@ -199,6 +199,7 @@
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "EPRS - Login";
+            FormClosing += Form1_FormClosing;
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
