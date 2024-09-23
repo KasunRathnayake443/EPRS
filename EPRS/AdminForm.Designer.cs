@@ -801,10 +801,14 @@
             settingsBtn.BackColor = Color.Transparent;
             settingsBtn.BackgroundImage = (Image)resources.GetObject("settingsBtn.BackgroundImage");
             settingsBtn.BackgroundImageLayout = ImageLayout.Stretch;
+            settingsBtn.FlatAppearance.BorderSize = 0;
+            settingsBtn.FlatAppearance.MouseDownBackColor = Color.Gray;
+            settingsBtn.FlatAppearance.MouseOverBackColor = Color.LightGray;
+            settingsBtn.FlatStyle = FlatStyle.Flat;
             settingsBtn.Image = (Image)resources.GetObject("settingsBtn.Image");
-            settingsBtn.Location = new Point(1788, 925);
+            settingsBtn.Location = new Point(1786, 930);
             settingsBtn.Name = "settingsBtn";
-            settingsBtn.Size = new Size(44, 46);
+            settingsBtn.Size = new Size(34, 35);
             settingsBtn.TabIndex = 18;
             settingsBtn.UseVisualStyleBackColor = false;
             settingsBtn.Click += settingsBtn_Click;
@@ -844,31 +848,34 @@
             // 
             // LogoutBtn
             // 
-            LogoutBtn.BackColor = Color.Transparent;  // Minimal, flat background
-            LogoutBtn.FlatStyle = FlatStyle.Flat;     // Set the button style to flat
-            LogoutBtn.FlatAppearance.BorderSize = 0;  // Remove the border
-            LogoutBtn.FlatAppearance.MouseOverBackColor = Color.LightGray;  // Subtle hover effect
-            LogoutBtn.FlatAppearance.MouseDownBackColor = Color.Gray;  // Subtle click effect
-            LogoutBtn.Font = new Font("Segoe UI", 10, FontStyle.Regular);  // Simple, modern font
-            LogoutBtn.ForeColor = Color.Black; 
-            LogoutBtn.Location = new Point(1681, 935);  
-            LogoutBtn.Size = new Size(80, 30);  
+            LogoutBtn.BackColor = Color.Transparent;
+            LogoutBtn.FlatAppearance.BorderSize = 0;
+            LogoutBtn.FlatAppearance.MouseDownBackColor = Color.Gray;
+            LogoutBtn.FlatAppearance.MouseOverBackColor = Color.LightGray;
+            LogoutBtn.FlatStyle = FlatStyle.Flat;
+            LogoutBtn.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            LogoutBtn.ForeColor = Color.Black;
+            LogoutBtn.Location = new Point(1681, 935);
+            LogoutBtn.Name = "LogoutBtn";
+            LogoutBtn.Size = new Size(80, 30);
+            LogoutBtn.TabIndex = 1;
             LogoutBtn.Text = "Logout";
-            LogoutBtn.UseVisualStyleBackColor = false;  
-            LogoutBtn.UseWaitCursor = false;  
+            LogoutBtn.UseVisualStyleBackColor = false;
             LogoutBtn.Click += LogoutBtn_Click;
             // 
             // AccountBtn
             // 
             AccountBtn.BackColor = Color.Transparent;
-            AccountBtn.FlatStyle = FlatStyle.Flat;
             AccountBtn.FlatAppearance.BorderSize = 0;
-            AccountBtn.FlatAppearance.MouseOverBackColor = Color.LightGray;
             AccountBtn.FlatAppearance.MouseDownBackColor = Color.Gray;
-            AccountBtn.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+            AccountBtn.FlatAppearance.MouseOverBackColor = Color.LightGray;
+            AccountBtn.FlatStyle = FlatStyle.Flat;
+            AccountBtn.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             AccountBtn.ForeColor = Color.Black;
             AccountBtn.Location = new Point(1581, 935);
+            AccountBtn.Name = "AccountBtn";
             AccountBtn.Size = new Size(90, 30);
+            AccountBtn.TabIndex = 0;
             AccountBtn.Text = "Account";
             AccountBtn.UseVisualStyleBackColor = false;
             AccountBtn.Click += AccountBtn_Click;

@@ -369,11 +369,15 @@
             settingsBtn.BackColor = Color.Transparent;
             settingsBtn.BackgroundImage = (Image)resources.GetObject("settingsBtn.BackgroundImage");
             settingsBtn.BackgroundImageLayout = ImageLayout.Stretch;
+            settingsBtn.FlatAppearance.BorderSize = 0;
+            settingsBtn.FlatAppearance.MouseDownBackColor = Color.Gray;
+            settingsBtn.FlatAppearance.MouseOverBackColor = Color.LightGray;
+            settingsBtn.FlatStyle = FlatStyle.Flat;
             settingsBtn.Image = (Image)resources.GetObject("settingsBtn.Image");
-            settingsBtn.Location = new Point(1594, 919);
+            settingsBtn.Location = new Point(1604, 930);
             settingsBtn.Name = "settingsBtn";
-            settingsBtn.Size = new Size(44, 46);
-            settingsBtn.TabIndex = 14;
+            settingsBtn.Size = new Size(34, 35);
+            settingsBtn.TabIndex = 18;
             settingsBtn.UseVisualStyleBackColor = false;
             settingsBtn.Click += settingsBtn_Click;
             // 

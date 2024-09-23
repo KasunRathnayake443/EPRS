@@ -170,13 +170,22 @@
             // 
             // settingsBtn
             // 
+        
+          
+        
+            settingsBtn.BackColor = Color.Transparent;
             settingsBtn.BackgroundImage = (Image)resources.GetObject("settingsBtn.BackgroundImage");
             settingsBtn.BackgroundImageLayout = ImageLayout.Stretch;
+            settingsBtn.FlatAppearance.BorderSize = 0;
+            settingsBtn.FlatAppearance.MouseDownBackColor = Color.Gray;
+            settingsBtn.FlatAppearance.MouseOverBackColor = Color.LightGray;
+            settingsBtn.FlatStyle = FlatStyle.Flat;
+            settingsBtn.Image = (Image)resources.GetObject("settingsBtn.Image");
             settingsBtn.Location = new Point(12, 485);
             settingsBtn.Name = "settingsBtn";
-            settingsBtn.Size = new Size(39, 37);
-            settingsBtn.TabIndex = 21;
-            settingsBtn.UseVisualStyleBackColor = true;
+            settingsBtn.Size = new Size(34, 35);
+            settingsBtn.TabIndex = 18;
+            settingsBtn.UseVisualStyleBackColor = false;
             settingsBtn.Click += settingsBtn_Click;
             // 
             // Form1
