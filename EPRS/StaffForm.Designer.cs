@@ -74,6 +74,7 @@
             // 
             // tabControl1
             // 
+            tabControl1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tabControl1.Controls.Add(addPatientBtn);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.HotTrack = true;
@@ -132,6 +133,7 @@
             // 
             // panel2
             // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel2.BackColor = Color.MistyRose;
             panel2.Location = new Point(15, 514);
             panel2.Name = "panel2";
@@ -187,6 +189,7 @@
             // 
             // prescriptionsDataGridView
             // 
+            prescriptionsDataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             prescriptionsDataGridView.BackgroundColor = SystemColors.ControlLightLight;
             prescriptionsDataGridView.BorderStyle = BorderStyle.None;
             prescriptionsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -349,6 +352,7 @@
             // 
             // settingsBtn
             // 
+            settingsBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             settingsBtn.BackColor = Color.Transparent;
             settingsBtn.BackgroundImage = (Image)resources.GetObject("settingsBtn.BackgroundImage");
             settingsBtn.BackgroundImageLayout = ImageLayout.Stretch;
@@ -364,9 +368,9 @@
             settingsBtn.UseVisualStyleBackColor = false;
             settingsBtn.Click += settingsBtn_Click;
             // 
-            // 
             // unameLbl
             // 
+            unameLbl.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             unameLbl.AutoSize = true;
             unameLbl.BackColor = Color.WhiteSmoke;
             unameLbl.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
@@ -379,6 +383,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox1.BackColor = Color.WhiteSmoke;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(1522, 23);
@@ -390,6 +395,7 @@
             // 
             // pictureBox2
             // 
+            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(1328, 0);
             pictureBox2.Name = "pictureBox2";
@@ -400,6 +406,7 @@
             // 
             // AccountBtn
             // 
+            AccountBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             AccountBtn.BackColor = Color.Transparent;
             AccountBtn.FlatAppearance.BorderSize = 0;
             AccountBtn.FlatAppearance.MouseDownBackColor = Color.Gray;
@@ -417,6 +424,7 @@
             // 
             // LogoutBtn
             // 
+            LogoutBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             LogoutBtn.BackColor = Color.Transparent;
             LogoutBtn.FlatAppearance.BorderSize = 0;
             LogoutBtn.FlatAppearance.MouseDownBackColor = Color.Gray;
@@ -446,9 +454,8 @@
             Controls.Add(label1);
             Controls.Add(tabControl1);
             Controls.Add(pictureBox2);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            MaximizeBox = false;
+            MinimumSize = new Size(1651, 1006);
             Name = "StaffForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "a";

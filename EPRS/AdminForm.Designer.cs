@@ -131,6 +131,7 @@
             // 
             // tabControl1
             // 
+            tabControl1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
             tabControl1.Controls.Add(tabPage1);
@@ -177,6 +178,7 @@
             // 
             // UserGrid
             // 
+            UserGrid.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             UserGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             UserGrid.Location = new Point(32, 544);
             UserGrid.Name = "UserGrid";
@@ -478,6 +480,7 @@
             // 
             // label23
             // 
+            label23.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label23.AutoSize = true;
             label23.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             label23.ForeColor = Color.SlateGray;
@@ -798,6 +801,7 @@
             // 
             // settingsBtn
             // 
+            settingsBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             settingsBtn.BackColor = Color.Transparent;
             settingsBtn.BackgroundImage = (Image)resources.GetObject("settingsBtn.BackgroundImage");
             settingsBtn.BackgroundImageLayout = ImageLayout.Stretch;
@@ -815,6 +819,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox1.BackColor = Color.WhiteSmoke;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(1699, 38);
@@ -826,6 +831,7 @@
             // 
             // unameLbl
             // 
+            unameLbl.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             unameLbl.AutoSize = true;
             unameLbl.BackColor = Color.WhiteSmoke;
             unameLbl.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
@@ -838,6 +844,7 @@
             // 
             // pictureBox2
             // 
+            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(1500, 12);
             pictureBox2.Name = "pictureBox2";
@@ -848,6 +855,7 @@
             // 
             // LogoutBtn
             // 
+            LogoutBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             LogoutBtn.BackColor = Color.Transparent;
             LogoutBtn.FlatAppearance.BorderSize = 0;
             LogoutBtn.FlatAppearance.MouseDownBackColor = Color.Gray;
@@ -865,6 +873,7 @@
             // 
             // AccountBtn
             // 
+            AccountBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             AccountBtn.BackColor = Color.Transparent;
             AccountBtn.FlatAppearance.BorderSize = 0;
             AccountBtn.FlatAppearance.MouseDownBackColor = Color.Gray;
@@ -894,9 +903,8 @@
             Controls.Add(tabControl1);
             Controls.Add(label1);
             Controls.Add(pictureBox2);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            MaximizeBox = false;
+            MinimumSize = new Size(1850, 1020);
             Name = "AdminForm";
             SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
