@@ -26,6 +26,8 @@ namespace EPRS
             AccountBtn.Click += Buttons_Click;
             LogoutBtn.Click += Buttons_Click;
 
+
+            this.AutoScaleMode = AutoScaleMode.Dpi;
         }
 
         private void DoctorForm_Load(object sender, EventArgs e)

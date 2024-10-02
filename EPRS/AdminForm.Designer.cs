@@ -568,6 +568,7 @@
             // 
             // PatientDataGrid
             // 
+            PatientDataGrid.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             PatientDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             PatientDataGrid.Location = new Point(20, 489);
             PatientDataGrid.Name = "PatientDataGrid";

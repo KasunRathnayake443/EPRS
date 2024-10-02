@@ -27,6 +27,8 @@ namespace EPRS
             AccountBtn.Click += Buttons_Click;
             LogoutBtn.Click += Buttons_Click;
 
+            this.AutoScaleMode = AutoScaleMode.Dpi;
+
         }
 
         private void StaffForm_Load(object sender, EventArgs e)
@@ -573,6 +575,11 @@ namespace EPRS
                 AccountBtn.Visible = false;
                 LogoutBtn.Visible = false;
             }
+        }
+
+        private void patientDetaisLbl_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

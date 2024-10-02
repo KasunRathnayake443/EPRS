@@ -150,6 +150,7 @@
             // 
             // notificationPanel
             // 
+            notificationPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             notificationPanel.Controls.Add(notificationLbl);
             notificationPanel.Location = new Point(1068, 117);
             notificationPanel.Name = "notificationPanel";
