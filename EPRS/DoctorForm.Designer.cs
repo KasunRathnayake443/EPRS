@@ -344,9 +344,9 @@
             label1.ForeColor = Color.FromArgb(44, 110, 73);
             label1.Location = new Point(12, 27);
             label1.Name = "label1";
-            label1.Size = new Size(577, 36);
+            label1.Size = new Size(566, 36);
             label1.TabIndex = 10;
-            label1.Text = "Patient Record Management System";
+            label1.Text = "Health Record Management System";
             label1.Click += label1_Click;
             // 
             // welcomeLabel
@@ -466,7 +466,7 @@
             MinimumSize = new Size(1668, 1024);
             Name = "DoctorForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "  EPRS - Doctor Dashboard";
+            Text = "  EHRS - Doctor Dashboard";
             FormClosing += DoctorForm_FormClosing_1;
             Load += DoctorForm_Load;
             MouseClick += DoctorForm_MouseClick;

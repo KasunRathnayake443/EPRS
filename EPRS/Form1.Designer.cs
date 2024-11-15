@@ -45,9 +45,9 @@
             label1.ForeColor = Color.DarkCyan;
             label1.Location = new Point(35, 27);
             label1.Name = "label1";
-            label1.Size = new Size(787, 50);
+            label1.Size = new Size(773, 50);
             label1.TabIndex = 9;
-            label1.Text = "Patient Record Management System";
+            label1.Text = "Health Record Management System";
             // 
             // label2
             // 
@@ -170,9 +170,6 @@
             // 
             // settingsBtn
             // 
-        
-          
-        
             settingsBtn.BackColor = Color.Transparent;
             settingsBtn.BackgroundImage = (Image)resources.GetObject("settingsBtn.BackgroundImage");
             settingsBtn.BackgroundImageLayout = ImageLayout.Stretch;
@@ -180,7 +177,6 @@
             settingsBtn.FlatAppearance.MouseDownBackColor = Color.Gray;
             settingsBtn.FlatAppearance.MouseOverBackColor = Color.LightGray;
             settingsBtn.FlatStyle = FlatStyle.Flat;
-            settingsBtn.Image = (Image)resources.GetObject("settingsBtn.Image");
             settingsBtn.Location = new Point(12, 485);
             settingsBtn.Name = "settingsBtn";
             settingsBtn.Size = new Size(34, 35);
@@ -207,7 +203,7 @@
             MaximizeBox = false;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "EPRS - Login";
+            Text = "EHRS - Login";
             FormClosing += Form1_FormClosing;
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

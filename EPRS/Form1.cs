@@ -56,7 +56,7 @@ namespace EPRS
         {
             try
             {
-           
+
                 string connectionString = ConfigurationManager.ConnectionStrings["MyDatabase"].ConnectionString;
 
                 using (MySqlConnection connection = new MySqlConnection(connectionString))

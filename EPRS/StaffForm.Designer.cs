@@ -102,7 +102,7 @@
             addPatientBtn.Controls.Add(label2);
             addPatientBtn.Location = new Point(4, 29);
             addPatientBtn.Name = "addPatientBtn";
-            addPatientBtn.Padding = new Padding(3, 3, 3, 3);
+            addPatientBtn.Padding = new Padding(3);
             addPatientBtn.Size = new Size(1560, 791);
             addPatientBtn.TabIndex = 0;
             addPatientBtn.Text = "Patient Records";
@@ -261,7 +261,7 @@
             tabPage2.Controls.Add(medicineSearchTextBox);
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3, 3, 3, 3);
+            tabPage2.Padding = new Padding(3);
             tabPage2.Size = new Size(1560, 791);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Medicine Inventory";
@@ -348,9 +348,9 @@
             label1.ForeColor = Color.FromArgb(44, 110, 73);
             label1.Location = new Point(11, 23);
             label1.Name = "label1";
-            label1.Size = new Size(577, 36);
+            label1.Size = new Size(566, 36);
             label1.TabIndex = 11;
-            label1.Text = "Patient Record Management System";
+            label1.Text = "Health Record Management System";
             // 
             // settingsBtn
             // 
@@ -460,7 +460,7 @@
             MinimumSize = new Size(1651, 1003);
             Name = "StaffForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "EPRS - Staff Dashboard";
+            Text = "EHRS - Staff Dashboard";
             FormClosing += StaffForm_FormClosing;
             Load += StaffForm_Load;
             MouseClick += StaffForm_MouseClick;

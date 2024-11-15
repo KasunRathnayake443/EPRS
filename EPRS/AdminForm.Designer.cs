@@ -125,9 +125,9 @@
             label1.ForeColor = Color.FromArgb(44, 110, 73);
             label1.Location = new Point(40, 39);
             label1.Name = "label1";
-            label1.Size = new Size(577, 36);
+            label1.Size = new Size(566, 36);
             label1.TabIndex = 11;
-            label1.Text = "Patient Record Management System";
+            label1.Text = "Health Record Management System";
             // 
             // tabControl1
             // 
@@ -909,7 +909,7 @@
             Name = "AdminForm";
             SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "EPRS - Admin Dahsboard";
+            Text = "EHRS - Admin Dahsboard";
             FormClosing += AdminForm_FormClosing;
             Load += AdminForm_Load;
             MouseClick += AdminForm_MouseClick;
