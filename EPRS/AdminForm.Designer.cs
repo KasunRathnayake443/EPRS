@@ -92,12 +92,21 @@
             PatientCount = new Label();
             panel3 = new Panel();
             label10 = new Label();
+            tabPage4 = new TabPage();
+            label31 = new Label();
+            label30 = new Label();
+            Low_stock_box = new TextBox();
+            label29 = new Label();
+            settings_saveBtn = new Button();
             settingsBtn = new Button();
             pictureBox1 = new PictureBox();
             unameLbl = new Label();
             pictureBox2 = new PictureBox();
             LogoutBtn = new Button();
             AccountBtn = new Button();
+            label32 = new Label();
+            BackupBtn = new Button();
+            RestoreBtn = new Button();
             tabControl1.SuspendLayout();
             tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)UserGrid).BeginInit();
@@ -112,6 +121,7 @@
             ((System.ComponentModel.ISupportInitialize)PatientDataGrid).BeginInit();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
+            tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -135,6 +145,7 @@
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
             tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage4);
             tabControl1.Location = new Point(40, 93);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -800,6 +811,74 @@
             label10.TabIndex = 0;
             label10.Text = "Number of Patients";
             // 
+            // tabPage4
+            // 
+            tabPage4.Controls.Add(RestoreBtn);
+            tabPage4.Controls.Add(BackupBtn);
+            tabPage4.Controls.Add(label32);
+            tabPage4.Controls.Add(label31);
+            tabPage4.Controls.Add(label30);
+            tabPage4.Controls.Add(Low_stock_box);
+            tabPage4.Controls.Add(label29);
+            tabPage4.Controls.Add(settings_saveBtn);
+            tabPage4.Location = new Point(4, 29);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Size = new Size(1734, 803);
+            tabPage4.TabIndex = 3;
+            tabPage4.Text = "Settings";
+            tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label31
+            // 
+            label31.AutoSize = true;
+            label31.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label31.ForeColor = Color.SlateGray;
+            label31.Location = new Point(46, 46);
+            label31.Name = "label31";
+            label31.Size = new Size(238, 38);
+            label31.TabIndex = 4;
+            label31.Text = "Manage Settings";
+            // 
+            // label30
+            // 
+            label30.AutoSize = true;
+            label30.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label30.Location = new Point(473, 173);
+            label30.Name = "label30";
+            label30.Size = new Size(24, 28);
+            label30.TabIndex = 3;
+            label30.Text = "g";
+            // 
+            // Low_stock_box
+            // 
+            Low_stock_box.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Low_stock_box.Location = new Point(281, 173);
+            Low_stock_box.Name = "Low_stock_box";
+            Low_stock_box.Size = new Size(186, 34);
+            Low_stock_box.TabIndex = 2;
+            // 
+            // label29
+            // 
+            label29.AutoSize = true;
+            label29.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label29.Location = new Point(85, 173);
+            label29.Name = "label29";
+            label29.Size = new Size(190, 28);
+            label29.TabIndex = 1;
+            label29.Text = "Low Stock Amount  :";
+            // 
+            // settings_saveBtn
+            // 
+            settings_saveBtn.BackColor = Color.RoyalBlue;
+            settings_saveBtn.ForeColor = Color.White;
+            settings_saveBtn.Location = new Point(586, 501);
+            settings_saveBtn.Name = "settings_saveBtn";
+            settings_saveBtn.Size = new Size(94, 41);
+            settings_saveBtn.TabIndex = 0;
+            settings_saveBtn.Text = "Update";
+            settings_saveBtn.UseVisualStyleBackColor = false;
+            settings_saveBtn.Click += settings_saveBtn_Click;
+            // 
             // settingsBtn
             // 
             settingsBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
@@ -890,6 +969,38 @@
             AccountBtn.UseVisualStyleBackColor = false;
             AccountBtn.Click += AccountBtn_Click;
             // 
+            // label32
+            // 
+            label32.AutoSize = true;
+            label32.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label32.Location = new Point(85, 279);
+            label32.Name = "label32";
+            label32.Size = new Size(102, 28);
+            label32.TabIndex = 5;
+            label32.Text = "Database :";
+            // 
+            // BackupBtn
+            // 
+            BackupBtn.BackColor = Color.LightSkyBlue;
+            BackupBtn.ForeColor = Color.White;
+            BackupBtn.Location = new Point(281, 282);
+            BackupBtn.Name = "BackupBtn";
+            BackupBtn.Size = new Size(94, 41);
+            BackupBtn.TabIndex = 6;
+            BackupBtn.Text = "Backup";
+            BackupBtn.UseVisualStyleBackColor = false;
+            BackupBtn.Click += BackupBtn_Click;
+            // 
+            // RestoreBtn
+            // 
+            RestoreBtn.BackColor = Color.OldLace;
+            RestoreBtn.Location = new Point(381, 282);
+            RestoreBtn.Name = "RestoreBtn";
+            RestoreBtn.Size = new Size(94, 41);
+            RestoreBtn.TabIndex = 7;
+            RestoreBtn.Text = "Restore";
+            RestoreBtn.UseVisualStyleBackColor = false;
+            // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -937,6 +1048,8 @@
             panel4.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            tabPage4.ResumeLayout(false);
+            tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
@@ -1014,5 +1127,14 @@
         private PictureBox pictureBox2;
         private Button LogoutBtn;
         private Button AccountBtn;
+        private TabPage tabPage4;
+        private Label label30;
+        private TextBox Low_stock_box;
+        private Label label29;
+        private Button settings_saveBtn;
+        private Label label31;
+        private Button RestoreBtn;
+        private Button BackupBtn;
+        private Label label32;
     }
 }

@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace EPRS
 {
@@ -53,6 +54,8 @@ namespace EPRS
                 NumberofMedicines();
                 LoadMedicineGrid();
                 LowInventoryNotification();
+                SetModernTabControl1();
+                load_settings();
 
 
 
@@ -63,6 +66,58 @@ namespace EPRS
             {
                 MessageBox.Show($"Error connecting to the database: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+
+        private void SetModernTabControl1()
+        {
+            tabControl1.Appearance = TabAppearance.FlatButtons;
+            tabControl1.ItemSize = new Size(140, 40);
+            tabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
+            tabControl1.Padding = new Point(10, 6);
+
+            tabControl1.DrawItem += TabControl1_DrawItem;
+        }
+
+        private void TabControl1_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            TabControl tabControl = (TabControl)sender;
+            Graphics g = e.Graphics;
+            Rectangle tabBounds = tabControl.GetTabRect(e.Index);
+
+
+            Font font = new Font("Segoe UI", 9, FontStyle.Regular);
+            tabBounds.Inflate(-2, -2);
+
+
+            Color selectedTabBackColor = Color.FromArgb(102, 204, 153);
+            Color selectedTabForeColor = Color.White;
+            Color unselectedTabBackColor = Color.FromArgb(240, 255, 240);
+            Color unselectedTabForeColor = Color.FromArgb(85, 107, 47);
+            Color borderColor = Color.FromArgb(180, 230, 180);
+
+            bool isSelected = e.Index == tabControl.SelectedIndex;
+
+
+            using (SolidBrush backBrush = new SolidBrush(isSelected ? selectedTabBackColor : unselectedTabBackColor))
+            {
+                g.FillRectangle(backBrush, tabBounds);
+            }
+
+
+            using (Pen borderPen = new Pen(borderColor, 1))
+            {
+                g.DrawRectangle(borderPen, tabBounds);
+            }
+
+            TextRenderer.DrawText(
+                g,
+                tabControl.TabPages[e.Index].Text,
+                font,
+                tabBounds,
+                isSelected ? selectedTabForeColor : unselectedTabForeColor,
+                TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
+            );
         }
 
 
@@ -761,29 +816,45 @@ namespace EPRS
 
         public void LowInventoryNotification()
         {
-
             notificationPanel.Controls.Clear();
 
+            int low_stock = 0;
+
+
+            string query1 = "SELECT low_stock FROM settings WHERE id = 1";
+            using (MySqlCommand cmd1 = new MySqlCommand(query1, connection))
+            {
+                using (MySqlDataReader reader1 = cmd1.ExecuteReader())
+                {
+                    if (reader1.Read())
+                    {
+                        low_stock = reader1["low_stock"] != DBNull.Value ? Convert.ToInt32(reader1["low_stock"]) : 0;
+                    }
+                }
+            }
+
             string query = "SELECT name, amount_grams FROM medicine";
-            MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
             DataTable medicineTable = new DataTable();
-            adapter.Fill(medicineTable);
+            using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection))
+            {
+                adapter.Fill(medicineTable);
+            }
 
 
             int yOffset = 0;
             foreach (DataRow row in medicineTable.Rows)
             {
                 string medicineName = row["name"].ToString();
-                double amountGrams = Convert.ToDouble(row["amount_grams"]);
+                double amountGrams = row["amount_grams"] != DBNull.Value ? Convert.ToDouble(row["amount_grams"]) : 0.0;
 
-
-                if (amountGrams < 100)
+                if (amountGrams < low_stock)
                 {
                     ShowLowStockNotification(medicineName, amountGrams, yOffset, notificationPanel);
                     yOffset += 30;
                 }
             }
         }
+
 
         private void ShowLowStockNotification(string medicineName, double amountGrams, int yOffset, Panel targetPanel1)
         {
@@ -865,6 +936,113 @@ namespace EPRS
 
         }
 
+
+        private void load_settings()
+        {
+            string query = "SELECT * FROM Settings where id = 1 ";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                string low_stock = reader["low_stock"].ToString();
+
+
+                Low_stock_box.Text = low_stock;
+
+            }
+            reader.Close();
+        }
+
+        private void settings_saveBtn_Click(object sender, EventArgs e)
+        {
+            string low_stock = Low_stock_box.Text.Trim();
+
+            string query = "UPDATE Settings SET low_stock = @low_stock WHERE id = 1";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@low_stock", low_stock);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            reader.Close();
+            MessageBox.Show("Settings saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LowInventoryNotification();
+            load_settings();
+        }
+
+        private void BackupBtn_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Filter = "SQL Files (*.sql)|*.sql",
+                Title = "Save Backup File"
+            };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                BackupDatabase(saveFileDialog.FileName);
+            }
+        }
+
+        public void BackupDatabase(string backupFilePath)
+        {
+            try
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["MyDatabase"].ConnectionString;
+                string backupCommand = $"mysqldump -u root -pyourpassword yourdatabase > \"{backupFilePath}\"";
+
+                var process = new System.Diagnostics.Process
+                {
+                    StartInfo = new System.Diagnostics.ProcessStartInfo
+                    {
+                        FileName = "cmd.exe",
+                        Arguments = $"/C {backupCommand}",
+                        RedirectStandardInput = false,
+                        RedirectStandardOutput = true,
+                        UseShellExecute = false,
+                        CreateNoWindow = true
+                    }
+                };
+
+                process.Start();
+                process.WaitForExit();
+
+                MessageBox.Show("Backup completed successfully!", "Success");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error during backup: {ex.Message}", "Error");
+            }
+        }
+
+        public void RestoreDatabase(string backupFilePath)
+        {
+            try
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["MyDatabase"].ConnectionString;
+                string restoreCommand = $"mysql -u root -pyourpassword yourdatabase < \"{backupFilePath}\"";
+
+                var process = new System.Diagnostics.Process
+                {
+                    StartInfo = new System.Diagnostics.ProcessStartInfo
+                    {
+                        FileName = "cmd.exe",
+                        Arguments = $"/C {restoreCommand}",
+                        RedirectStandardInput = false,
+                        RedirectStandardOutput = true,
+                        UseShellExecute = false,
+                        CreateNoWindow = true
+                    }
+                };
+
+                process.Start();
+                process.WaitForExit();
+
+                MessageBox.Show("Database restored successfully!", "Success");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error during restoration: {ex.Message}", "Error");
+            }
+        }
 
     }
 }
