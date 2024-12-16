@@ -121,6 +121,31 @@ namespace EPRS
         }
 
 
+        public void InsertLog(int userId, string type, string description)
+        {
+            string query = "INSERT INTO logs (user_id, type, description) VALUES (@userId, @type, @description)";
+
+            using (MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["MyDatabase"].ConnectionString))
+            {
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@userId", userId);
+                command.Parameters.AddWithValue("@type", type);
+                command.Parameters.AddWithValue("@description", description);
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Log entry added successfully.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error adding log entry: {ex.Message}");
+                }
+            }
+        }
+
+
 
         public void LoadAdminName()
         {
@@ -245,6 +270,7 @@ namespace EPRS
 
                 MessageBox.Show("User added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                InsertLog(Convert.ToInt32(_userID), "Add User Account", $"User {name} added successfully.");
 
                 NumberofUsers();
                 ReloadUserGrid();
@@ -952,6 +978,8 @@ namespace EPRS
 
             }
             reader.Close();
+            themeBox.SelectedIndex = 0;
+
         }
 
         private void settings_saveBtn_Click(object sender, EventArgs e)
@@ -1044,5 +1072,18 @@ namespace EPRS
             }
         }
 
+        private void RestoreBtn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "SQL Files (*.sql)|*.sql",
+                Title = "Select Backup File"
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                RestoreDatabase(openFileDialog.FileName);
+            }
+        }
     }
 }
