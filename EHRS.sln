@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EHRS", "EPRS\EHRS.csproj", "{831FBC38-C023-42F9-BE4F-ADB206489E49}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "EHRS Setup", "EPRS Setup\EPRS Setup.vdproj", "{9835B838-00B5-49A7-99F6-28447CACA3F0}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "EHRS Setup", "EHRS Setup\EHRS Setup.vdproj", "{76CE7586-C679-4DAD-90BB-7948DD313111}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{831FBC38-C023-42F9-BE4F-ADB206489E49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{831FBC38-C023-42F9-BE4F-ADB206489E49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{831FBC38-C023-42F9-BE4F-ADB206489E49}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9835B838-00B5-49A7-99F6-28447CACA3F0}.Debug|Any CPU.ActiveCfg = Debug
-		{9835B838-00B5-49A7-99F6-28447CACA3F0}.Release|Any CPU.ActiveCfg = Release
+		{76CE7586-C679-4DAD-90BB-7948DD313111}.Debug|Any CPU.ActiveCfg = Debug
+		{76CE7586-C679-4DAD-90BB-7948DD313111}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
