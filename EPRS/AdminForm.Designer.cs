@@ -93,6 +93,8 @@
             panel3 = new Panel();
             label10 = new Label();
             tabPage4 = new TabPage();
+            log_view_btn = new Button();
+            label34 = new Label();
             themeBox = new ComboBox();
             label33 = new Label();
             RestoreBtn = new Button();
@@ -109,8 +111,7 @@
             pictureBox2 = new PictureBox();
             LogoutBtn = new Button();
             AccountBtn = new Button();
-            label34 = new Label();
-            button2 = new Button();
+            log_down_btn = new Button();
             tabControl1.SuspendLayout();
             tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)UserGrid).BeginInit();
@@ -849,7 +850,8 @@
             // 
             // tabPage4
             // 
-            tabPage4.Controls.Add(button2);
+            tabPage4.Controls.Add(log_down_btn);
+            tabPage4.Controls.Add(log_view_btn);
             tabPage4.Controls.Add(label34);
             tabPage4.Controls.Add(themeBox);
             tabPage4.Controls.Add(label33);
@@ -868,6 +870,28 @@
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Settings";
             tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // log_view_btn
+            // 
+            log_view_btn.BackColor = Color.LightSkyBlue;
+            log_view_btn.ForeColor = Color.White;
+            log_view_btn.Location = new Point(246, 379);
+            log_view_btn.Margin = new Padding(3, 2, 3, 2);
+            log_view_btn.Name = "log_view_btn";
+            log_view_btn.Size = new Size(82, 31);
+            log_view_btn.TabIndex = 11;
+            log_view_btn.Text = "View";
+            log_view_btn.UseVisualStyleBackColor = false;
+            // 
+            // label34
+            // 
+            label34.AutoSize = true;
+            label34.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label34.Location = new Point(74, 389);
+            label34.Name = "label34";
+            label34.Size = new Size(98, 21);
+            label34.TabIndex = 10;
+            label34.Text = "Log Report : ";
             // 
             // themeBox
             // 
@@ -1071,27 +1095,16 @@
             AccountBtn.UseVisualStyleBackColor = false;
             AccountBtn.Click += AccountBtn_Click;
             // 
-            // label34
+            // log_down_btn
             // 
-            label34.AutoSize = true;
-            label34.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label34.Location = new Point(74, 389);
-            label34.Name = "label34";
-            label34.Size = new Size(98, 21);
-            label34.TabIndex = 10;
-            label34.Text = "Log Report : ";
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.LightSkyBlue;
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(246, 379);
-            button2.Margin = new Padding(3, 2, 3, 2);
-            button2.Name = "button2";
-            button2.Size = new Size(169, 31);
-            button2.TabIndex = 11;
-            button2.Text = "Download";
-            button2.UseVisualStyleBackColor = false;
+            log_down_btn.BackColor = Color.OldLace;
+            log_down_btn.Location = new Point(333, 379);
+            log_down_btn.Margin = new Padding(3, 2, 3, 2);
+            log_down_btn.Name = "log_down_btn";
+            log_down_btn.Size = new Size(82, 31);
+            log_down_btn.TabIndex = 12;
+            log_down_btn.Text = "Download";
+            log_down_btn.UseVisualStyleBackColor = false;
             // 
             // AdminForm
             // 
@@ -1231,7 +1244,8 @@
         private Label label32;
         private ComboBox themeBox;
         private Label label33;
-        private Button button2;
+        private Button log_view_btn;
         private Label label34;
+        private Button log_down_btn;
     }
 }

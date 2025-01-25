@@ -136,11 +136,11 @@ namespace EPRS
                 {
                     connection.Open();
                     command.ExecuteNonQuery();
-                    MessageBox.Show("Log entry added successfully.");
+
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error adding log entry: {ex.Message}");
+
                 }
             }
         }
@@ -390,6 +390,7 @@ namespace EPRS
 
                     MessageBox.Show("User deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    InsertLog(Convert.ToInt32(_userID), "Delete User Account", $"User with ID {userId} deleted successfully.");
 
                     LoadUserGrid();
                 }
@@ -469,6 +470,11 @@ namespace EPRS
                 if (rowsAffected > 0)
                 {
                     MessageBox.Show("Patient added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    NumberofPatients();
+                    LoadPatientGrid();
+
+                    InsertLog(Convert.ToInt32(_userID), "Add Patient", $"Patient with ID {patientID} added successfully.");
 
                 }
                 else
@@ -635,6 +641,7 @@ namespace EPRS
                     MessageBox.Show("Patient deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     LoadPatientGrid();
+                    InsertLog(Convert.ToInt32(_userID), "Delete Patient", $"Patient with ID {patientId} deleted successfully.");
                 }
                 catch (Exception ex)
                 {
@@ -704,6 +711,8 @@ namespace EPRS
                     MedicineNameBox.Text = "";
                     MedicineAmountBox.Text = "";
                     LoadMedicineGrid();
+
+                    InsertLog(Convert.ToInt32(_userID), "Add Medicine", $"Medicine {medicineName} added successfully.");
 
                 }
                 else
@@ -830,6 +839,7 @@ namespace EPRS
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Medicine deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    InsertLog(Convert.ToInt32(_userID), "Delete Medicine", $"Medicine with ID {medicineId} deleted successfully.");
 
                     LoadMedicineGrid();
                 }
@@ -1065,6 +1075,7 @@ namespace EPRS
                 process.WaitForExit();
 
                 MessageBox.Show("Database restored successfully!", "Success");
+                InsertLog(Convert.ToInt32(_userID), "Restore Database", "Database restored successfully.");
             }
             catch (Exception ex)
             {
