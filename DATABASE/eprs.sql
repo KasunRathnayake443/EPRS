@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 21, 2024 at 09:00 PM
+-- Generation Time: Jan 25, 2025 at 02:33 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,6 +24,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `logs`
+--
+
+CREATE TABLE `logs` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `description` text DEFAULT NULL,
+  `time` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `logs`
+--
+
+INSERT INTO `logs` (`id`, `user_id`, `type`, `description`, `time`) VALUES
+(1, 2, 'Add User Account', 'User doctor3 added successfully.', '2024-12-16 16:13:26');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `medicine`
 --
 
@@ -38,10 +59,10 @@ CREATE TABLE `medicine` (
 --
 
 INSERT INTO `medicine` (`id`, `name`, `amount_grams`) VALUES
-(1, 'Paracetamol', 164.00),
+(1, 'Paracetamol', 2141.50),
 (2, 'Amoxicillin', 500.00),
 (4, 'Cough Syrup', 100.00),
-(5, 'Vitamin C', 273.00),
+(5, 'Vitamin C', 491.00),
 (6, 'Aspirin', 77.50),
 (9, 'Amoxicillin', 245.50),
 (11, 'Ciprofloxacin', 120.00),
@@ -49,11 +70,10 @@ INSERT INTO `medicine` (`id`, `name`, `amount_grams`) VALUES
 (14, 'Atorvastatin', 220.00),
 (15, 'Omeprazole', 140.00),
 (16, 'Simvastatin', 200.00),
-(17, 'Clopidogrel', 130.00),
+(17, 'Clopidogrel', 13.00),
 (18, 'Montelukast', 175.00),
 (19, 'Amlodipine', 190.00),
 (20, 'Losartan', 210.00),
-(21, 'Levothyroxine', 250.00),
 (22, 'Furosemide', 120.00),
 (23, 'Hydrochlorothiazide', 170.00),
 (24, 'Warfarin', 110.00),
@@ -107,9 +127,7 @@ INSERT INTO `medicine` (`id`, `name`, `amount_grams`) VALUES
 (72, 'Meclizine', 180.00),
 (73, 'Prochlorperazine', 190.00),
 (74, 'Metoclopramide', 170.00),
-(75, 'Betamethasone', 125.50),
-(76, 'test changed', 500.00),
-(81, 'test', 500.00);
+(75, 'Betam', 125.50);
 
 -- --------------------------------------------------------
 
@@ -135,7 +153,7 @@ CREATE TABLE `patients` (
 
 INSERT INTO `patients` (`PatientID`, `FirstName`, `LastName`, `DateOfBirth`, `Gender`, `Address`, `PhoneNumber`, `Email`, `DateRegistered`) VALUES
 ('SEU/IS/19/MIT/100', 'Test', 'Helllo', '2000-03-17', 'Female', '123 Temple Rd, School Junction', '555-1234 5478', 'johne@example.com', '2024-09-03'),
-('SEU/IS/19/MIT/101', 'Jane', 'Smith', '1990-08-22', 'Female', '456 Oak Avenue, Springfield', '555-5678', 'jane.smith@example.com', '2024-09-03'),
+('SEU/IS/19/MIT/101', 'Name', 'Patient', '1990-08-22', 'Female', '123, Old Road, New Town', '555-5678 222', 'test.patient@example.com', '2024-09-03'),
 ('SEU/IS/19/MIT/102', 'Robert', 'Johnson', '1975-02-11', 'Male', '789 Pine Road, Springfield', '555-8765', 'robert.johnson@example.com', '2024-09-03'),
 ('SEU/IS/19/MIT/103', 'Emily', 'Davis', '2000-01-05', 'Female', '101 Elm Street', '555-3456', 'emily@example.com', '2024-09-03'),
 ('SEU/IS/19/MIT/104', 'Mi', 'Wilson', '1995-09-30', 'Female', '202 Birch Lane, Springfield', '555-9876', 'michael.wilson@example.com', '2024-09-03'),
@@ -205,7 +223,28 @@ INSERT INTO `prescriptions` (`PrescriptionID`, `PatientID`, `DoctorID`, `Prescri
 (51, 'SEU/IS/19/MIT/104', 1, '2024-09-19', 'Vitamin C (Dose: 0.5), Paracetamol (Dose: 1)', 'New Prescription'),
 (52, 'SEU/IS/19/MIT/103', 1, '2024-09-20', 'Ondansetron (Dose: 0.5), Paracetamol (Dose: 0.5)', 'test '),
 (53, 'SEU/IS/19/MIT/102', 1, '2024-09-21', 'Paracetamol (Dose: 0.5), Vitamin C (Dose: 0.5)', 'test'),
-(54, 'SEU/IS/19/MIT/106', 1, '2024-09-21', 'Pantoprazole (Dose: 0.5), Vitamin C (Dose: 0.5), Phenytoin (Dose: 0.5)', 'test');
+(54, 'SEU/IS/19/MIT/106', 1, '2024-09-21', 'Pantoprazole (Dose: 0.5), Vitamin C (Dose: 0.5), Phenytoin (Dose: 0.5)', 'test'),
+(55, 'SEU/IS/19/MIT/101', 1, '2024-09-22', 'Paracetamol (Dose: 0.5), Vitamin C (Dose: 0.5)', 'test'),
+(56, 'SEU/IS/19/MIT/105', 1, '2024-11-09', 'Paracetamol (Dose: 1), Vitamin C (Dose: 0.5)', 'Test'),
+(57, 'SEU/IS/19/MIT/104', 1, '2024-11-18', 'Paracetamol (Dose: 1), Vitamin C (Dose: 0.5)', 'jknkj');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `settings`
+--
+
+CREATE TABLE `settings` (
+  `id` int(11) NOT NULL,
+  `low_stock` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `settings`
+--
+
+INSERT INTO `settings` (`id`, `low_stock`) VALUES
+(1, 100);
 
 -- --------------------------------------------------------
 
@@ -226,15 +265,21 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `password`, `role`) VALUES
-(1, 'Doctor Name', 'doctor1', '123', 'Doctor'),
+(1, 'Doctor Test', 'doctor1', '123', 'Doctor'),
 (2, 'Admin Test', 'admin1', '123', 'Admin'),
-(3, 'Test Staff', 'staff1', '123', 'Staff'),
+(3, 'Test Name', 'staff1', '123', 'Staff'),
 (4, 'Doc name', 'doctor2', '123', 'Doctor'),
-(5, 'Test Admin', 'admin2', '123', 'Admin');
+(12, 'doctor3', 'doctor3', '123', 'Doctor');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `logs`
+--
+ALTER TABLE `logs`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `medicine`
@@ -257,6 +302,12 @@ ALTER TABLE `prescriptions`
   ADD KEY `DoctorID` (`DoctorID`);
 
 --
+-- Indexes for table `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -267,22 +318,34 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `logs`
+--
+ALTER TABLE `logs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `medicine`
 --
 ALTER TABLE `medicine`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT for table `prescriptions`
 --
 ALTER TABLE `prescriptions`
-  MODIFY `PrescriptionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `PrescriptionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+
+--
+-- AUTO_INCREMENT for table `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables
